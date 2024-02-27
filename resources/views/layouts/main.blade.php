@@ -51,7 +51,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/eDisplay.png" alt="">
+        <img src="assets/img/eDisplayborder.png" class="img fluid" alt="">
         <!-- <h1>Soe<span>UMKM</span></h1> -->
       </a>
       <nav id="navbar" class="navbar">
