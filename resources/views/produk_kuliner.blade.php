@@ -22,11 +22,24 @@
           </ol>
         </div>
         <div class="portfolio-flters d-flex flex-row justify-content-center">
-            <!-- Input pencarian menggunakan komponen form Bootstrap -->
-            <input id="search-input" class="form-control me-2 w-50"  type="search" placeholder="Masukkan kata kunci pencarian..." aria-label="Search">
-            <!-- Tombol "Cari" menggunakan tombol primer Bootstrap -->
-            <button id="search-button" class="btn btn-success" type="button">Cari</button>
-          </div>
+          <!-- Input pencarian menggunakan komponen form Bootstrap -->
+          <input id="search-input" class="form-control me-2 w-50"  type="search" placeholder="Cari Produk Fashion" aria-label="Search">
+          <select id="district-filter" class="form-select me-2 w-auto">
+            <option value="">Pilih Kecamatan</option>
+            <option value="kecamatan1">Kecamatan 1</option>
+            <option value="kecamatan2">Kecamatan 2</option>
+            <option value="kecamatan3">Kecamatan 3</option>
+            <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
+        </select>
+        <select id="district-filter" class="form-select me-2 w-auto">
+            <option value="">Pilih Desa</option> 
+            <option value="Desa1">Desa 1</option>
+            <option value="Desa2">Desa 2</option>
+            <option value="Desa3">Desa 3</option>
+            <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
+        </select>
+          <button id="search-button" class="btn btn-success" type="button">Cari</button>
+        </div>
       </nav>
     </div><!-- End Breadcrumbs -->
 
@@ -46,7 +59,7 @@
               <p class="post-category">Kuliner</p>
 
               <h2 class="title">
-                <a href="produk_detail.html">Bakdabak Ikan Tenggiri Sambal Petis</a>
+                <a href="/detail">Bakdabak Ikan Tenggiri Sambal Petis</a>
               </h2>
 
               <div class="d-flex align-items-center">
@@ -71,7 +84,7 @@
               <p class="post-category">Kuliner</p>
 
               <h2 class="title">
-                <a href="produk_detail.html">Bakdabak Ikan Tenggiri Sambal Petis</a>
+                <a href="/detail">Bakdabak Ikan Tenggiri Sambal Petis</a>
               </h2>
 
               <div class="d-flex align-items-center">
@@ -96,7 +109,7 @@
               <p class="post-category">Kuliner</p>
 
               <h2 class="title">
-                <a href="produk_detail.html">Bakdabak Ikan Tenggiri Sambal Petis</a>
+                <a href="/detail">Bakdabak Ikan Tenggiri Sambal Petis</a>
               </h2>
 
               <div class="d-flex align-items-center">
@@ -121,7 +134,7 @@
               <p class="post-category">Kuliner</p>
 
               <h2 class="title">
-                <a href="produk_detail.html">Bakdabak Ikan Tenggiri Sambal Petis</a>
+                <a href="/detail">Bakdabak Ikan Tenggiri Sambal Petis</a>
               </h2>
 
               <div class="d-flex align-items-center">
@@ -146,7 +159,7 @@
               <p class="post-category">Kuliner</p>
 
               <h2 class="title">
-                <a href="produk_detail.html">Bakdabak Ikan Tenggiri Sambal Petis</a>
+                <a href="/detail">Bakdabak Ikan Tenggiri Sambal Petis</a>
               </h2>
 
               <div class="d-flex align-items-center">

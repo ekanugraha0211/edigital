@@ -24,7 +24,20 @@
         <div class="portfolio-flters d-flex flex-row justify-content-center">
             <!-- Input pencarian menggunakan komponen form Bootstrap -->
             <input id="search-input" class="form-control me-2 w-50"  type="search" placeholder="Cari Produk Fashion" aria-label="Search">
-            <!-- Tombol "Cari" menggunakan tombol primer Bootstrap -->
+            <select id="district-filter" class="form-select me-2 w-auto">
+              <option value="">Pilih Kecamatan</option>
+              <option value="kecamatan1">Kecamatan 1</option>
+              <option value="kecamatan2">Kecamatan 2</option>
+              <option value="kecamatan3">Kecamatan 3</option>
+              <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
+          </select>
+          <select id="district-filter" class="form-select me-2 w-auto">
+              <option value="">Pilih Desa</option> 
+              <option value="Desa1">Desa 1</option>
+              <option value="Desa2">Desa 2</option>
+              <option value="Desa3">Desa 3</option>
+              <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
+          </select>
             <button id="search-button" class="btn btn-success" type="button">Cari</button>
           </div>
       </nav>
@@ -46,7 +59,7 @@
               <p class="post-category">Fashion</p>
 
               <h2 class="title">
-                <a href="produk_detail.html">Batik Tulis sumenep</a>
+                <a href="/detail">Batik Tulis sumenep</a>
               </h2>
               <div class="d-flex align-items-center">
                 <img src="assets/img/fashion.png" alt="" class="img-fluid post-author-img flex-shrink-0">
@@ -70,7 +83,7 @@
               <p class="post-category">Fashion</p>
 
               <h2 class="title">
-                <a href="produk_detail.html">Batik Tulis sumenep</a>
+                <a href="/detail">Batik Tulis sumenep</a>
               </h2>
               <div class="d-flex align-items-center">
                 <img src="assets/img/fashion.png" alt="" class="img-fluid post-author-img flex-shrink-0">
@@ -94,7 +107,7 @@
               <p class="post-category">Fashion</p>
 
               <h2 class="title">
-                <a href="produk_detail.html">Batik Tulis sumenep</a>
+                <a href="/detail">Batik Tulis sumenep</a>
               </h2>
               <div class="d-flex align-items-center">
                 <img src="assets/img/fashion.png" alt="" class="img-fluid post-author-img flex-shrink-0">
@@ -118,7 +131,7 @@
               <p class="post-category">Fashion</p>
 
               <h2 class="title">
-                <a href="produk_detail.html">Batik Tulis sumenep</a>
+                <a href="/detail">Batik Tulis sumenep</a>
               </h2>
               <div class="d-flex align-items-center">
                 <img src="assets/img/fashion.png" alt="" class="img-fluid post-author-img flex-shrink-0">
@@ -142,7 +155,7 @@
               <p class="post-category">Fashion</p>
 
               <h2 class="title">
-                <a href="produk_detail.html">Batik Tulis sumenep</a>
+                <a href="/detail">Batik Tulis sumenep</a>
               </h2>
               <div class="d-flex align-items-center">
                 <img src="assets/img/fashion.png" alt="" class="img-fluid post-author-img flex-shrink-0">
@@ -166,7 +179,7 @@
               <p class="post-category">Fashion</p>
 
               <h2 class="title">
-                <a href="produk_detail.html">Batik Tulis sumenep</a>
+                <a href="/detail">Batik Tulis sumenep</a>
               </h2>
               <div class="d-flex align-items-center">
                 <img src="assets/img/fashion.png" alt="" class="img-fluid post-author-img flex-shrink-0">
