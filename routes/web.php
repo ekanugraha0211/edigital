@@ -14,23 +14,42 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    
+    return view('index',
+    [
+        "title" => "beranda"
+    ]);
 });
 Route::get('/produk', function () {
-    return view('produk');
+    return view('produk',[
+        "title" => "produk"
+    ]);
 });
 Route::get('/kriya', function () {
-    return view('produk_kriya');
+    return view('produk_kriya',[
+        "title" => "kriya"
+    ]);
 });
 Route::get('/kuliner', function () {
-    return view('produk_kuliner');
+    return view('produk_kuliner', [
+        "title" => "kuliner"
+    ]);
 });
 Route::get('/mode', function () {
-    return view('produk_mode');
+    return view('produk_mode',[
+        "title" => "mode"
+    ]);
 });
 Route::get('/detail', function () {
     return view('produk_detail');
 });
 Route::get('/kontak', function () {
-    return view('kontak');
+    return view('kontak',[
+        "title" => "kontak"
+    ]);
+});
+Route::get('/bantuan', function () {
+    return view('bantuan',[
+        "title" => "bantuan"
+    ]);
 });

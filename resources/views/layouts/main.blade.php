@@ -56,20 +56,20 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="/">Beranda</a></li>
+          <li><a href="/" class="nav link {{ ($title === "beranda") ? 'active' : '' }}" >Beranda</a></li>
           <!-- <li><a href="about.html">Tentang</a></li> -->
           <!-- <li><a href="#services">Services</a></li> -->
-          <li><a href="/produk">Produk Terbaru</a></li>
-          <li><a href="help.html">Bantuan</a></li>
+          <li><a href="/produk" class="nav link {{ ($title === "produk") ? 'active' : '' }}">Produk Terbaru</a></li>
+          <li><a href="/bantuan" class="nav link {{ ($title === "bantuan") ? 'active' : '' }}">Bantuan</a></li>
           <!-- <li><a href="blog.html">Blog</a></li> -->
           <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="/kuliner">Kuliner</a></li>
-                  <li><a href="/mode">Mode</a></li>
-                  <li><a href="/kriya">Kriya</a></li>
+              <li><a href="/kuliner" class="nav link {{ ($title === "kuliner") ? 'active' : '' }}">Kuliner</a></li>
+                  <li><a href="/mode" class="nav link {{ ($title === "mode") ? 'active' : '' }}">Mode</a></li>
+                  <li><a href="/kriya" class="nav link {{ ($title === "kriya") ? 'active' : '' }}">Kriya</a></li>
             </ul>
           </li>
-          <li><a href="/kontak">Kontak</a></li>
+          <li><a href="/kontak"class="nav link {{ ($title === "kontak") ? 'active' : '' }}">Kontak</a></li>
           <li><button type="button" class=" login-button btn btn-success btn-lg">Login</button>
           </li>
         </ul>
