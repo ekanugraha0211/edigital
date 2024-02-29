@@ -9,7 +9,7 @@
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
               <h2>Produk Fashion</h2>
-              <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <p>Selamat datang di halaman produk mode! Di sini, Anda akan menemukan beragam produk fashion dari UMKM lokal Sumenep yang mencerminkan keindahan dan keunikan budaya daerah. Mulai dari pakaian tradisional hingga gaya modern yang terinspirasi oleh kekayaan lokal, setiap produk kami mempersembahkan sentuhan kreatif dan dedikasi para desainer dan pengrajin Sumenep. Jelajahi koleksi mode kami dan dukung perkembangan industri fashion lokal dengan setiap pembelian yang Anda lakukan. Terima kasih atas kunjungan Anda, dan selamat menikmati gaya unik dari Sumenep!</p>
             </div>
           </div>
         </div>

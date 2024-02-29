@@ -70,7 +70,7 @@
             </ul>
           </li>
           <li><a href="/kontak"class="nav link {{ ($title === "kontak") ? 'active' : '' }}">Kontak</a></li>
-          <li><button type="button" class=" login-button btn btn-success btn-lg">Login</button>
+          <li><button type="button" onclick="window.location.href='/login'" class=" login-button btn btn-success btn-lg">Login</button>
           </li>
         </ul>
 </div>

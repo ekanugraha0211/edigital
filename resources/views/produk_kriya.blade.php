@@ -9,7 +9,7 @@
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
               <h2>Produk Kriya</h2>
-              <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <p>Selamat datang di halaman produk kriya! Di sini, Anda akan menemukan beragam produk kerajinan tangan dari UMKM lokal Sumenep yang mempersembahkan keindahan seni dan keterampilan tradisional. Mulai dari kerajinan anyaman, ukiran kayu, hingga tekstil tenun, setiap produk kami menggambarkan keahlian dan dedikasi para pengrajin Sumenep dalam melestarikan warisan budaya dan menciptakan karya-karya unik. Mari jelajahi koleksi kriya kami dan dukung pertumbuhan industri kerajinan lokal dengan setiap pembelian yang Anda lakukan. Terima kasih atas kunjungan Anda, dan selamat menemukan keindahan dalam setiap detail kriya dari Sumenep!</p>
             </div>
           </div>
         </div>

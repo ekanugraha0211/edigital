@@ -9,7 +9,7 @@
           <div class="content px-xl-5">
             <h3 style="color: black">Tanya <strong>Jawab</strong></h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+              Berikut ini adalah beberapa panduan yang disusun untuk membantu UMKM memahami fungsi dari e-display
             </p>
           </div>
 
