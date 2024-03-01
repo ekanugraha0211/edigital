@@ -118,9 +118,9 @@
           </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
         </div>
-        <p class="text-center">Already have an account? <a href="/login">Login here</a></p>
+        <p class="text-center">Sudah punya akun ? <a href="/login">Masuk disini</a></p>
     </form>
 </div>
   </div>

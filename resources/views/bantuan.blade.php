@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @section('container')
+
 <section id="faq" class="faq">
     <div class="container-fluid" data-aos="fade-up">
 

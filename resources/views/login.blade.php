@@ -61,9 +61,9 @@
           <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <button type="submit" class="btn btn-primary btn-block">Masuk</button>
         </div>
-        <p class="text-center">Don't have an account? <a href="/register">Register here</a></p>
+        <p class="text-center">Belum punya akun? <a href="/register">Daftar disini</a></p>
       </form>
     </div>
   </div>
