@@ -49,7 +49,9 @@ Route::get('/mode', function () {
     ]);
 });
 Route::get('/detail', function () {
-    return view('produk_detail');
+    return view('produk_detail',[
+        "title" => "detail"
+    ]);
 });
 Route::get('/kontak', function () {
     return view('kontak',[

@@ -59,7 +59,7 @@
           <li><a href="/" class="nav link {{ ($title === "beranda") ? 'active' : '' }}" >Beranda</a></li>
           <!-- <li><a href="about.html">Tentang</a></li> -->
           <!-- <li><a href="#services">Services</a></li> -->
-          <li><a href="/produk" class="nav link {{ ($title === "produk") ? 'active' : '' }}">Produk Terbaru</a></li>
+          <li><a href="/produk" class="nav link {{ ($title === 'produk' || $title === 'detail') ? 'active' : '' }}">Produk Terbaru</a></li>
           <li><a href="/bantuan" class="nav link {{ ($title === "bantuan") ? 'active' : '' }}">Bantuan</a></li>
           <!-- <li><a href="blog.html">Blog</a></li> -->
           <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>

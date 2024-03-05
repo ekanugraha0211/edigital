@@ -10,7 +10,12 @@
 
       {{-- <div class="portfolio-isotope d-flex flex-column" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100"> --}}
 
-        @include('layouts.filter') 
+        <div class="portfolio-flters d-flex flex-row justify-content-center">
+          <!-- Input pencarian menggunakan komponen form Bootstrap -->
+          <input id="search-input" class="form-control me-2 w-75"  type="search" placeholder="Cari Produk" aria-label="Search">
+        </select>
+          <button id="search-button" class="btn btn-success" type="button">Cari</button>
+      </div>
       
         
                            
