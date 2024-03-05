@@ -40,12 +40,23 @@
       display: block;
       margin: 0 auto 20px; /* Membuat jarak antara logo dan judul "Login" */
     }
+    .back-to-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .back-to-home:hover {
+      color: #019765;
+    }
   </style>
 </head>
 <body>
 
 <div class="container">
     <div class="overlay"></div>
+    <a href="/" class="back-to-home">< Beranda</a>
   <div class="row">
     <div class="col-md-6 offset-md-3">
         

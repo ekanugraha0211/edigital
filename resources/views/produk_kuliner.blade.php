@@ -21,27 +21,14 @@
             <li>Kuliner</li>
           </ol>
         </div>
-        <div class="portfolio-flters d-flex flex-row justify-content-center">
-          <!-- Input pencarian menggunakan komponen form Bootstrap -->
-          <input id="search-input" class="form-control me-2 w-50"  type="search" placeholder="Cari Produk Fashion" aria-label="Search">
-          <select id="district-filter" class="form-select me-2 w-auto">
-            <option value="">Pilih Kecamatan</option>
-            <option value="kecamatan1">Kecamatan 1</option>
-            <option value="kecamatan2">Kecamatan 2</option>
-            <option value="kecamatan3">Kecamatan 3</option>
-            <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
-        </select>
-        <select id="district-filter" class="form-select me-2 w-auto">
-            <option value="">Pilih Desa</option> 
-            <option value="Desa1">Desa 1</option>
-            <option value="Desa2">Desa 2</option>
-            <option value="Desa3">Desa 3</option>
-            <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
-        </select>
-          <button id="search-button" class="btn btn-success" type="button">Cari</button>
-        </div>
       </nav>
-    </div><!-- End Breadcrumbs -->
+    </div>
+    <div class="portfolio-flters d-flex flex-row justify-content-center">
+      <!-- Input pencarian menggunakan komponen form Bootstrap -->
+      <input id="search-input" class="form-control me-2 w-75"  type="search" placeholder="Cari Produk" aria-label="Search">
+    </select>
+      <button id="search-button" class="btn btn-success" type="button">Cari</button>
+  </div><!-- End Breadcrumbs -->
 
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">

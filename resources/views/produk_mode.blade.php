@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-  <main id="main">
+  {{-- <main id="main"> --}}
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
@@ -8,8 +8,8 @@
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
-              <h2>Produk Fashion</h2>
-              <p>Selamat datang di halaman produk mode! Di sini, Anda akan menemukan beragam produk fashion dari UMKM lokal Sumenep yang mencerminkan keindahan dan keunikan budaya daerah. Mulai dari pakaian tradisional hingga gaya modern yang terinspirasi oleh kekayaan lokal, setiap produk kami mempersembahkan sentuhan kreatif dan dedikasi para desainer dan pengrajin Sumenep. Jelajahi koleksi mode kami dan dukung perkembangan industri fashion lokal dengan setiap pembelian yang Anda lakukan. Terima kasih atas kunjungan Anda, dan selamat menikmati gaya unik dari Sumenep!</p>
+              <h2>Produk Mode</h2>
+              <p>Selamat datang di halaman produk mode! Di sini, Anda akan menemukan beragam produk Mode dari UMKM lokal Sumenep yang mencerminkan keindahan dan keunikan budaya daerah. Mulai dari pakaian tradisional hingga gaya modern yang terinspirasi oleh kekayaan lokal, setiap produk kami mempersembahkan sentuhan kreatif dan dedikasi para desainer dan pengrajin Sumenep.</p>
             </div>
           </div>
         </div>
@@ -18,12 +18,18 @@
         <div class="container">
           <ol>
             <li><a href="index.html">Beranda</a></li>
-            <li>Fashion</li>
+            <li>Mode</li>
           </ol>
         </div>
         <div class="portfolio-flters d-flex flex-row justify-content-center">
+          <!-- Input pencarian menggunakan komponen form Bootstrap -->
+          <input id="search-input" class="form-control me-2 w-75"  type="search" placeholder="Cari Produk" aria-label="Search">
+        </select>
+          <button id="search-button" class="btn btn-success" type="button">Cari</button>
+      </div>
+        {{-- <div class="portfolio-flters d-flex flex-row justify-content-center">
             <!-- Input pencarian menggunakan komponen form Bootstrap -->
-            <input id="search-input" class="form-control me-2 w-50"  type="search" placeholder="Cari Produk Fashion" aria-label="Search">
+            <input id="search-input" class="form-control me-2 w-50"  type="search" placeholder="Cari Mode" aria-label="Search">
             <select id="district-filter" class="form-select me-2 w-auto">
               <option value="">Pilih Kecamatan</option>
               <option value="kecamatan1">Kecamatan 1</option>
@@ -39,7 +45,7 @@
               <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
           </select>
             <button id="search-button" class="btn btn-success" type="button">Cari</button>
-          </div>
+          </div> --}}
       </nav>
     </div><!-- End Breadcrumbs -->
 
@@ -56,7 +62,7 @@
                 <img src="assets/img/batik.jpg" alt="" class="img-fluid">
               </div>
 
-              <p class="post-category">Fashion</p>
+              <p class="post-category">Mode</p>
 
               <h2 class="title">
                 <a href="/detail">Batik Tulis sumenep</a>
@@ -80,7 +86,7 @@
                 <img src="assets/img/batik.jpg" alt="" class="img-fluid">
               </div>
 
-              <p class="post-category">Fashion</p>
+              <p class="post-category">Mode</p>
 
               <h2 class="title">
                 <a href="/detail">Batik Tulis sumenep</a>
@@ -104,7 +110,7 @@
                 <img src="assets/img/batik.jpg" alt="" class="img-fluid">
               </div>
 
-              <p class="post-category">Fashion</p>
+              <p class="post-category">Mode</p>
 
               <h2 class="title">
                 <a href="/detail">Batik Tulis sumenep</a>
@@ -128,7 +134,7 @@
                 <img src="assets/img/batik.jpg" alt="" class="img-fluid">
               </div>
 
-              <p class="post-category">Fashion</p>
+              <p class="post-category">Mode</p>
 
               <h2 class="title">
                 <a href="/detail">Batik Tulis sumenep</a>
@@ -152,7 +158,7 @@
                 <img src="assets/img/batik.jpg" alt="" class="img-fluid">
               </div>
 
-              <p class="post-category">Fashion</p>
+              <p class="post-category">Mode</p>
 
               <h2 class="title">
                 <a href="/detail">Batik Tulis sumenep</a>
@@ -176,7 +182,7 @@
                 <img src="assets/img/batik.jpg" alt="" class="img-fluid">
               </div>
 
-              <p class="post-category">Fashion</p>
+              <p class="post-category">Mode</p>
 
               <h2 class="title">
                 <a href="/detail">Batik Tulis sumenep</a>
@@ -207,5 +213,5 @@
       </div>
     </section><!-- End Blog Section -->
 
-  </main><!-- End #main -->
+  {{-- </main><!-- End #main --> --}}
 @endsection

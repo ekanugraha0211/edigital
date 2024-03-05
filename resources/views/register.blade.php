@@ -14,13 +14,14 @@
       background-position: center;
       height: 100vh;
       margin: 0;
+      margin-top: 150px;
       display: flex;
       align-items: center;
     }
 
     .register-form {
       margin: 20px auto;
-      padding: 30px;
+      padding: 30px 20px;
       background: rgba(255, 255, 255, 0.8); /* Opacity untuk membuat latar belakang semi-transparan */
       border-radius: 5px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -40,82 +41,102 @@
       display: block;
       margin: 0 auto 20px; /* Membuat jarak antara logo dan judul "Register" */
     }
+    @media (max-width: 576px) {
+      .register-form {
+        max-width: 350px;
+      }
+    }
+    .back-to-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .back-to-home:hover {
+      color: #019765;
+    }
   </style>
 </head>
 <body>
 
 <div class="container">
   <div class="overlay"></div>
+  <a href="/" class="back-to-home">< Beranda</a>
   <div class="row ">
     <div class="col-lg-10 offset-lg-1" style="padding-top: 100px">
       <form class="register-form mt-50" action="/register" method="POST">
         <img src="assets/img/eDisplay3.png" alt="Logo UMKM" class="logo"> <!-- Ganti path-to-your-logo.png dengan path logo Anda -->
         <h2 class="text-center mb-4">Register UMKM</h2>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="logo_umkm">Logo UMKM</label>
                  <input type="file" id="logo_umkm" class="form-control-file" accept="image/*" required>
               </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="form-group">
               <label for="nama_umkm">Nama UMKM</label>
               <input type="text" id="nama_umkm" class="form-control" placeholder="Enter UMKM name" required>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="nama_pemilik">Nama Pemilik</label>
-              <input type="text" id="nama_pemilik" class="form-control" placeholder="Enter owner's name" required>
-            </div>
-          </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="nama_pemilik">Nama Pemilik</label>
+                <input type="text" id="nama_pemilik" class="form-control" placeholder="Enter owner's name" required>
+              </div>
+            </div>
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="nik">NIK (Nomor Induk Kependudukan)</label>
                 <input type="text" id="nik" class="form-control" placeholder="Enter NIK" required>
               </div>
             </div>
-            <div class="col-md-4">
-                <div class="form-group">
-              <label for="alamat">Alamat</label>
-              <input type="text" id="alamat" class="form-control" placeholder="Enter address (Jalan, Desa, Kecamatan)" required>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="sosial_media">Sosial Media</label>
-              <input type="text" id="sosial_media" class="form-control" placeholder="Enter social media links" required>
-            </div>
-          </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" class="form-control" placeholder="Enter address (Jalan, Desa, Kecamatan)" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="sosial_media">Sosial Media</label>
+                <input type="text" id="sosial_media" class="form-control" placeholder="Enter social media links" required>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="deskripsi">Deskripsi UMKM</label>
                 <textarea id="deskripsi" class="form-control" placeholder="Enter UMKM description" required></textarea>
               </div>
             </div>
-            <div class="col-md-4">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="confirm-password">Confirm Password</label>
-              <input type="password" id="confirm-password" class="form-control" placeholder="Confirm your password" required>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" class="form-control" placeholder="Confirm your password" required>
+              </div>
             </div>
-          </div>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Daftar</button>

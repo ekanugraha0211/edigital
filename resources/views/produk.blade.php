@@ -10,25 +10,7 @@
 
       {{-- <div class="portfolio-isotope d-flex flex-column" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100"> --}}
 
-        <div class="portfolio-flters d-flex flex-row justify-content-center">
-          <!-- Input pencarian menggunakan komponen form Bootstrap -->
-          <input id="search-input" class="form-control me-2 w-50"  type="search" placeholder="Cari Produk Fashion" aria-label="Search">
-          <select id="district-filter" class="form-select me-2 w-auto">
-            <option value="">Pilih Kecamatan</option>
-            <option value="kecamatan1">Kecamatan 1</option>
-            <option value="kecamatan2">Kecamatan 2</option>
-            <option value="kecamatan3">Kecamatan 3</option>
-            <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
-        </select>
-        <select id="district-filter" class="form-select me-2 w-auto">
-            <option value="">Pilih Desa</option> 
-            <option value="Desa1">Desa 1</option>
-            <option value="Desa2">Desa 2</option>
-            <option value="Desa3">Desa 3</option>
-            <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
-        </select>
-          <button id="search-button" class="btn btn-success" type="button">Cari</button>
-        </div>     
+        @include('layouts.filter') 
       
         
                            

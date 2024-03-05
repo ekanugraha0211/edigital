@@ -9,7 +9,7 @@
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
               <h2>Produk Kriya</h2>
-              <p>Selamat datang di halaman produk kriya! Di sini, Anda akan menemukan beragam produk kerajinan tangan dari UMKM lokal Sumenep yang mempersembahkan keindahan seni dan keterampilan tradisional. Mulai dari kerajinan anyaman, ukiran kayu, hingga tekstil tenun, setiap produk kami menggambarkan keahlian dan dedikasi para pengrajin Sumenep dalam melestarikan warisan budaya dan menciptakan karya-karya unik. Mari jelajahi koleksi kriya kami dan dukung pertumbuhan industri kerajinan lokal dengan setiap pembelian yang Anda lakukan. Terima kasih atas kunjungan Anda, dan selamat menemukan keindahan dalam setiap detail kriya dari Sumenep!</p>
+              <p>Selamat datang di halaman produk kriya! Di sini, Anda akan menemukan beragam produk kerajinan tangan dari UMKM lokal Sumenep yang mempersembahkan keindahan seni dan keterampilan tradisional. Mulai dari kerajinan anyaman, ukiran kayu, hingga tekstil tenun, setiap produk kami menggambarkan keahlian dan dedikasi para pengrajin Sumenep dalam melestarikan warisan budaya dan menciptakan karya-karya unik.</p>
             </div>
           </div>
         </div>
@@ -21,27 +21,14 @@
             <li>Kriya</li>
           </ol>
         </div>
-        <div class="portfolio-flters d-flex flex-row justify-content-center">
-          <!-- Input pencarian menggunakan komponen form Bootstrap -->
-          <input id="search-input" class="form-control me-2 w-50"  type="search" placeholder="Cari Produk Fashion" aria-label="Search">
-          <select id="district-filter" class="form-select me-2 w-auto">
-            <option value="">Pilih Kecamatan</option>
-            <option value="kecamatan1">Kecamatan 1</option>
-            <option value="kecamatan2">Kecamatan 2</option>
-            <option value="kecamatan3">Kecamatan 3</option>
-            <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
-        </select>
-        <select id="district-filter" class="form-select me-2 w-auto">
-            <option value="">Pilih Desa</option> 
-            <option value="Desa1">Desa 1</option>
-            <option value="Desa2">Desa 2</option>
-            <option value="Desa3">Desa 3</option>
-            <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
-        </select>
-          <button id="search-button" class="btn btn-success" type="button">Cari</button>
-        </div>
       </nav>
-    </div><!-- End Breadcrumbs -->
+    </div>
+    <div class="portfolio-flters d-flex flex-row justify-content-center">
+      <!-- Input pencarian menggunakan komponen form Bootstrap -->
+      <input id="search-input" class="form-control me-2 w-75"  type="search" placeholder="Cari Produk" aria-label="Search">
+    </select>
+      <button id="search-button" class="btn btn-success" type="button">Cari</button>
+  </div><!-- End Breadcrumbs -->
 
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">

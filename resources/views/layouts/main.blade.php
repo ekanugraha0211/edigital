@@ -126,7 +126,7 @@
           </ul>
         </div> -->
 
-        <div class="col-lg-4 col-md-12 footer-contact text-center text-md-start">
+        <div class="col-lg-4 col-md-12 footer-contact  text-md-start">
           <h4>Kontak Kami</h4>
           <p>
             A108 Adam Street <br>
