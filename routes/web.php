@@ -1,25 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\ProdukKulinerController;
+use App\Http\Controllers\ProdukModeController;
+use App\Http\Controllers\ProdukKriyaController;
+use App\Http\Controllers\BantuanController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-Route::get('/', function () {
-    
-    return view('index',
-    [
-        "title" => "beranda"
-    ]);
-});
+Route::get('/', [BerandaController::class, 'index'],function(){});
+Route::get('/produk', [ProdukController::class, 'index'],function(){});
+Route::get('/kuliner',[ProdukKulinerController::class, 'index'], function () {});
+Route::get('/mode',[ProdukModeController::class, 'index'], function () {});
+Route::get('/kriya',[ProdukKriyaController::class, 'index'], function () {});
+Route::get('/bantuan',[BantuanController::class, 'index'], function () {});
 Route::get('/login', function () {
     
     return view('login',);
@@ -28,38 +22,14 @@ Route::get('/register', function () {
     
     return view('register',);
 });
-Route::get('/produk', function () {
-    return view('produk',[
-        "title" => "produk"
-    ]);
-});
-Route::get('/kriya', function () {
-    return view('produk_kriya',[
-        "title" => "kriya"
-    ]);
-});
-Route::get('/kuliner', function () {
-    return view('produk_kuliner', [
-        "title" => "kuliner"
-    ]);
-});
-Route::get('/mode', function () {
-    return view('produk_mode',[
-        "title" => "mode"
-    ]);
-});
-Route::get('/detail', function () {
-    return view('produk_detail',[
-        "title" => "detail"
-    ]);
+
+// Route::get('/detail/{id}', [ProdukController::class, 'show'])->name('produk_detail');
+Route::get('/detail', function(){
+    return view('produk_detail',['title' => 'detail']);
 });
 Route::get('/kontak', function () {
     return view('kontak',[
         "title" => "kontak"
     ]);
 });
-Route::get('/bantuan', function () {
-    return view('bantuan',[
-        "title" => "bantuan"
-    ]);
-});
+

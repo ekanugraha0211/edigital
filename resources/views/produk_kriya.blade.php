@@ -36,169 +36,66 @@
 
         <div class="row gy-4 posts-list">
 
+          @foreach($produk as $p)
+          @if($p->id_kategori == '3')
+
           <div class="col-xl-4 col-md-6">
             <article>
 
               <div class="post-img">
-                <img src="assets/img/kerajinan-1.jpg" alt="" class="img-fluid">
+                <img src="{{ $p->foto }}" alt="" class="img-fluid">
               </div>
 
-              <p class="post-category">Kriya</p>
+              <p class="post-category">{{ $p->kategori->nama_kategori }}</p>
 
               <h2 class="title">
-                <a href="/detail">HIasan Dinding Ukiran Khas Karduluk</a>
+                <a href="/detail">{{ $p->tagline }}</a>
               </h2>
-
               <div class="d-flex align-items-center">
-                <img src="assets/img/kerajinan.png" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <img src="{{ $p->foto }}" alt="" class="img-fluid post-author-img flex-shrink-0">
                 <div class="post-meta">
-                  <p class="post-author-list">Seni Ukir Karduluk</p>
+                  <p class="post-author-list">{{ $p->umkm->nama_umkm }}</p>
                   <!-- <p class="post-date">
                     <time datetime="2022-01-01">Jan 1, 2022</time>
                   </p> -->
                 </div>
               </div>
-
             </article>
-          </div><!-- End post list item -->
-          <div class="col-xl-4 col-md-6">
-            <article>
-
-              <div class="post-img">
-                <img src="assets/img/kerajinan-1.jpg" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Kriya</p>
-
-              <h2 class="title">
-                <a href="/detail">HIasan Dinding Ukiran Khas Karduluk</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="assets/img/kerajinan.png" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author-list">Seni Ukir Karduluk</p>
-                  <!-- <p class="post-date">
-                    <time datetime="2022-01-01">Jan 1, 2022</time>
-                  </p> -->
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-          <div class="col-xl-4 col-md-6">
-            <article>
-
-              <div class="post-img">
-                <img src="assets/img/kerajinan-1.jpg" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Kriya</p>
-
-              <h2 class="title">
-                <a href="/detail">HIasan Dinding Ukiran Khas Karduluk</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="assets/img/kerajinan.png" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author-list">Seni Ukir Karduluk</p>
-                  <!-- <p class="post-date">
-                    <time datetime="2022-01-01">Jan 1, 2022</time>
-                  </p> -->
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-          <div class="col-xl-4 col-md-6">
-            <article>
-
-              <div class="post-img">
-                <img src="assets/img/kerajinan-1.jpg" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Kriya</p>
-
-              <h2 class="title">
-                <a href="/detail">HIasan Dinding Ukiran Khas Karduluk</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="assets/img/kerajinan.png" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author-list">Seni Ukir Karduluk</p>
-                  <!-- <p class="post-date">
-                    <time datetime="2022-01-01">Jan 1, 2022</time>
-                  </p> -->
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-          <div class="col-xl-4 col-md-6">
-            <article>
-
-              <div class="post-img">
-                <img src="assets/img/kerajinan-1.jpg" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Kriya</p>
-
-              <h2 class="title">
-                <a href="/detail">HIasan Dinding Ukiran Khas Karduluk</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="assets/img/kerajinan.png" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author-list">Seni Ukir Karduluk</p>
-                  <!-- <p class="post-date">
-                    <time datetime="2022-01-01">Jan 1, 2022</time>
-                  </p> -->
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-          <div class="col-xl-4 col-md-6">
-            <article>
-
-              <div class="post-img">
-                <img src="assets/img/kerajinan-1.jpg" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Kriya</p>
-
-              <h2 class="title">
-                <a href="/detail">HIasan Dinding Ukiran Khas Karduluk</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="assets/img/kerajinan.png" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author-list">Seni Ukir Karduluk</p>
-                  <!-- <p class="post-date">
-                    <time datetime="2022-01-01">Jan 1, 2022</time>
-                  </p> -->
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-
+          </div>
+          @endif
+          @endforeach<!-- End post list item -->
         </div><!-- End blog posts list -->
 
         <div class="blog-pagination">
-          <ul class="justify-content-center">
-            <li><a href="#">1</a></li>
-            <li class="active"><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
+          <ul class="pagination justify-content-center">
+              {{-- Previous Page Link --}}
+              @if ($produk->onFirstPage())
+                  <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+              @else
+                  <li class="page-item"><a href="{{ $produk->previousPageUrl() }}" class="page-link" rel="prev">&laquo;</a></li>
+              @endif
+      
+              {{-- Pagination Elements --}}
+              @for ($i = 1; $i <= $produk->lastPage(); $i++)
+                  @if ($i == $produk->currentPage())
+                      <li class="page-item active"><span class="page-link bg-success">{{ $i }}</span></li>
+                  @else
+                      <li class="page-item"><a href="{{ $produk->url($i) }}" class="page-link">{{ $i }}</a></li>
+                  @endif
+              @endfor
+      
+              {{-- Next Page Link --}}
+              @if ($produk->hasMorePages())
+                  <li class="page-item"><a href="{{ $produk->nextPageUrl() }}" class="page-link" rel="next">&raquo;</a></li>
+              @else
+                  <li class="page-item disabled"><span class="page-link ">&raquo;</span></li>
+              @endif
           </ul>
-        </div><!-- End blog pagination -->
+      </div><!-- End blog pagination -->
 
       </div>
     </section><!-- End Blog Section -->
 
-  </main><!-- End #main -->
+  </main>
+  @include('layouts.filter')<!-- End #main -->
 @endsection

@@ -31,45 +31,24 @@
 </head>
 <body>
      <!-- ======= Header ======= -->
-  <!-- <section id="topbar" class="topbar d-flex align-items-center">
-    <div class="container d-flex justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
-      </div>
-      <div class="social-links d-none d-md-flex align-items-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-      </div>
-    </div>
-  </section>End Top Bar -->
-
   <header id="header" class="header d-flex align-items-center">
-
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="assets/img/eDisplayborder.png" class="img fluid" alt="">
-        <!-- <h1>Soe<span>UMKM</span></h1> -->
       </a>
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="/" class="nav link {{ ($title === "beranda") ? 'active' : '' }}" >Beranda</a></li>
-          <!-- <li><a href="about.html">Tentang</a></li> -->
-          <!-- <li><a href="#services">Services</a></li> -->
           <li><a href="/produk" class="nav link {{ ($title === 'produk' || $title === 'detail') ? 'active' : '' }}">Produk Terbaru</a></li>
-          <li><a href="/bantuan" class="nav link {{ ($title === "bantuan") ? 'active' : '' }}">Bantuan</a></li>
-          <!-- <li><a href="blog.html">Blog</a></li> -->
-          <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown "><a href="#" class="nav link {{ ($title === "kuliner" || $title === "mode" || $title === "kriya") ? 'active' : '' }}"><span>Kategori</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="/kuliner" class="nav link {{ ($title === "kuliner") ? 'active' : '' }}">Kuliner</a></li>
-                  <li><a href="/mode" class="nav link {{ ($title === "mode") ? 'active' : '' }}">Mode</a></li>
-                  <li><a href="/kriya" class="nav link {{ ($title === "kriya") ? 'active' : '' }}">Kriya</a></li>
+              <li><a href="/mode" class="nav link {{ ($title === "mode") ? 'active' : '' }}">Mode</a></li>
+              <li><a href="/kriya" class="nav link {{ ($title === "kriya") ? 'active' : '' }}">Kriya</a></li>
             </ul>
           </li>
           <li><a href="/kontak"class="nav link {{ ($title === "kontak") ? 'active' : '' }}">Kontak</a></li>
+          <li><a href="/bantuan" class="nav link {{ ($title === "bantuan") ? 'active' : '' }}">Bantuan</a></li>
           <li><button type="button" onclick="window.location.href='/login'" class=" login-button btn btn-success btn-lg">Login</button>
           </li>
         </ul>
@@ -95,45 +74,31 @@
           <a href="index.html" class="logo d-flex align-items-center">
             <img src="assets/img/eDisplayborder.png" alt="">
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <p>Dinas Kominfo Sumenep menghadirkan eDisplay, platform online untuk mempertemukan UMKM dengan konsumen. Temukan produk lokal berkualitas, kaya budaya, dan tradisi Sumenep di eDisplay. Dukung UMKM Sumenep, kunjungi eDisplay sekarang!</p>
           <div class="social-links d-flex mt-4">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.youtube.com/channel/UC3brb61Fk7YAyNHdjP0ogTA" class="youtube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/diskominfosumenep/" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href=" https://twitter.com/kominfosumenep" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.instagram.com/kominfosumenep/" class="instagram"><i class="bi bi-instagram"></i></a>
+            {{-- <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> --}}
           </div>
         </div>
 
         <div class="col-lg-3 col-6 footer-links">
           <h4>Pengembang</h4>
           <ul>
-            <li><a href="#">Eka Prasetya Nugraha</a></li>
-            <!-- <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li> -->
+            <li><a href="https://www.instagram.com/ekanugraha0211/">Eka Prasetya Nugraha <br> (Teknologi Informasi Universitas Jember)</a></li>
+            <li><a href="https://www.instagram.com/_nailasdh/">Nailatus Sa'adah Sarmadiyah <br>(Ilmu Komunikasi UPN Veteran Jember)</a></li>
           </ul>
         </div>
-
-        <!-- <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div> -->
 
         <div class="col-lg-4 col-md-12 footer-contact  text-md-start">
           <h4>Kontak Kami</h4>
           <p>
-            A108 Adam Street <br>
-            New York, NY 535022<br>
-            United States <br><br>
-            <strong>Phone:</strong> +1 5589 55488 55<br>
-            <strong>Email:</strong> info@example.com<br>
+            Dinas Komunikasi dan Informatika <br>
+            Jl. KH Mansyur No. 71 Sumenep<br><br>
+            <strong>WhatsApp:</strong> +62 877-1237-7783<br>
+            <strong>Email:</strong> kominfo.sumenep@gmail.com<br>
           </p>
 
         </div>
