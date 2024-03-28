@@ -17,7 +17,7 @@
       <nav>
         <div class="container">
           <ol>
-            <li><a href="index.html">Beranda</a></li>
+            <li><a href="/">Beranda</a></li>
             <li>Mode</li>
           </ol>
         </div>
@@ -115,5 +115,5 @@
     </section><!-- End Blog Section -->
 
   </main>
-  @include('layouts.filter')<!-- End #main -->
+ <!-- End #main -->
 @endsection

@@ -24,9 +24,9 @@
           @foreach ($produk as $p)
           <div class="col-xl-4 col-md-6 portfolio-item">
             <div class="portfolio-wrap">
-              <a href="/detail" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ $p->foto }}" class="img-fluid" alt=""></a>
+              <a href="{{ $p->foto1 }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ $p->foto1 }}" class="img-fluid" alt=""></a>
               <div class="portfolio-info">
-                <h4><a href="/detail" title="More Details">{{  $p->nama_produk }}</a></h4>
+                <h4><a href="{{ route('produkdetail', $p->id) }}" title="More Details">{{  $p->nama_produk }}</a></h4>
                 <p>{{ $p->tagline }}</p>
               </div>
             </div>

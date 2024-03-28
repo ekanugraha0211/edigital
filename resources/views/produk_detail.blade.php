@@ -19,7 +19,7 @@
       <nav>
         <div class="container">
           <ol>
-            <li><a href="index.html">Beranda</a></li>
+            <li><a href="/">Beranda</a></li>
             <li>Produk Detail</li>
           </ol>
         </div>
@@ -33,18 +33,26 @@
         <div class="position-relative h-100">
           <div class="slides-1 portfolio-details-slider swiper">
             <div class="swiper-wrapper align-items-center">
-
+              
               <div class="swiper-slide">
-                <img src="assets/img/bakdabak-1.jpg" alt="">
+                <img src="{{ $produk->foto1 }}" alt="">
               </div>
-
               <div class="swiper-slide">
+                <img src="{{ $produk->foto2 }}" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="{{ $produk->foto3 }}" alt="">
+              </div>
+              
+              
+
+              {{-- <div class="swiper-slide">
                 <img src="assets/img/bakdabak-2.jpg" alt="">
               </div>
 
               <div class="swiper-slide">
                 <img src="assets/img/bakdabak-3.jpg" alt="">
-              </div>
+              </div> --}}
             </div>
             <div class="swiper-pagination"></div>
           </div>
@@ -56,45 +64,26 @@
         <div class="row justify-content-between gy-4 mt-4">
 
           <div class="col-lg-8">
+            
             <div class="portfolio-description">
-              <h2>ini tagline</h2>
-              <p>deskripsi </p>
-              <p>
-                Amet consequatur qui dolore veniam voluptatem voluptatem sit. Non aspernatur atque natus ut cum nam et. Praesentium error dolores rerum minus sequi quia veritatis eum. Eos et doloribus doloremque nesciunt molestiae laboriosam.
-              </p>
-
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <div>
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                </div>
-              </div>
-
-              <p>
-                Impedit ipsum quae et aliquid doloribus et voluptatem quasi. Perspiciatis occaecati earum et magnam animi. Quibusdam non qui ea vitae suscipit vitae sunt. Repudiandae incidunt cumque minus deserunt assumenda tempore. Delectus voluptas necessitatibus est.
-
-              <p>
-                Sunt voluptatum sapiente facilis quo odio aut ipsum repellat debitis. Molestiae et autem libero. Explicabo et quod necessitatibus similique quis dolor eum. Numquam eaque praesentium rem et qui nesciunt.
-              </p>
+              <div class="formatted-text">
+                <h2>{{ $produk->tagline }}</h2>
+                <p>{{ $produk->deskripsi }}</p>
+            </div>
 
             </div>
+            
           </div>
 
           <div class="col-lg-3">
             <div class="portfolio-info">
               <h3>Informasi UMKM</h3>
               <ul>
-                <li><strong>Kategori</strong> <span>Kuliner</span></li>
-                <li><strong>Pemilik</strong> <span>Bakdabak Taser</span></li>
+                <li><strong>Kategori</strong> <span>{{ $produk->sektor_usaha->nama }}</span></li>
+                <li><strong>Pemilik</strong> <span>{{ $produk->umkm->nama }}</span></li>
                 <li><strong>Jadwal Buka</strong> <span>24 Jam, senin-jumat</span></li>
                 <!-- <li><strong>Project URL</strong> <a href="#">www.example.com</a></li> -->
-                <li><a href="#" class="btn-visit align-self-start">Online Market</a></li>
+                <li><a href="https://wa.me/{{ $produk->umkm->whatsapp }}" class="btn-visit align-self-start">Hubungi</a></li>
                 <!-- <li>
                   <a href="#" class="btn-visit align-self-start">
                       <img src="/assets/img/shopee.png" style="width: 20px;" alt="Shopee">

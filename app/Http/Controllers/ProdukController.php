@@ -14,13 +14,9 @@ class ProdukController extends Controller
         return view('produk', compact('produk','title'));
         //
     }
-    // public function show($id)
-    // {
-    //     // Mengambil data produk berdasarkan ID
-    //     $produk = produk::findOrFail($id);
-    //     $title = 'produk';
-
-    //     // Menampilkan view detail produk dan mengirim data produk
-    //     return view('produk_detail', compact('produk','title'));
-    // }
+    public function show(produk $produk)
+    {
+        $title = 'produk';
+        return view('produk_detail',['produk' => $produk, 'title' => $title]);
+    }
 }

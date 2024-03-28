@@ -17,7 +17,7 @@
       <nav>
         <div class="container">
           <ol>
-            <li><a href="index.html">Beranda</a></li>
+            <li><a href="/">Beranda</a></li>
             <li>Kuliner</li>
           </ol>
         </div>
@@ -102,6 +102,6 @@
     </section><!-- End Blog Section -->
 
   </main>
-  @include('layouts.filter')
+  {{-- @include('layouts.filter') --}}
 <!-- End #main -->
 @endsection

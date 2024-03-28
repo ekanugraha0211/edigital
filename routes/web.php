@@ -7,6 +7,7 @@ use App\Http\Controllers\ProdukKulinerController;
 use App\Http\Controllers\ProdukModeController;
 use App\Http\Controllers\ProdukKriyaController;
 use App\Http\Controllers\BantuanController;
+use App\Http\Controllers\UMKMController;
 
 Route::get('/', [BerandaController::class, 'index'],function(){});
 Route::get('/produk', [ProdukController::class, 'index'],function(){});
@@ -22,14 +23,18 @@ Route::get('/register', function () {
     
     return view('register',);
 });
-
-// Route::get('/detail/{id}', [ProdukController::class, 'show'])->name('produk_detail');
-Route::get('/detail', function(){
-    return view('produk_detail',['title' => 'detail']);
+Route::get('/admin', function () {
+    
+    return view('admin.layouts.main');
 });
-Route::get('/kontak', function () {
-    return view('kontak',[
+Route::get('/contact', function () {
+    return view('contact',[
         "title" => "kontak"
     ]);
 });
+
+Route::get('/{produk}', [ProdukController::class, 'show'])->name('produkdetail');
+Route::get('/register', [UMKMController::class, 'showRegistrationForm']);
+Route::POST('/register/input', [UMKMController::class, 'create']);
+
 

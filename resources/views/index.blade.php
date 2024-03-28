@@ -7,7 +7,7 @@
       <div class="row gy-5" data-aos="fade-in">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
           <h2>Etalase <span>Digital Sumenep</span></h2>
-          <p>Dukung UMKM Sumenep dengan membeli produk-produk unggulan mereka. Temukan berbagai produk kreatif dan inovatif di etalase digital ini.</p>
+          <p>e-Display adalah aplikasi mobile yang dapat membantu UMKM di Sumenep untuk mempromosikan produk mereka secara online. Manfaatnya, UMKM dapat menjangkau pelanggan lebih luas, meningkatkan brand awareness, dan membangun profil usaha di era digital.</p>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#features" class="btn-get-started">Jelajahi</a>
             <!-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
@@ -53,20 +53,22 @@
    <section id="features" class="features">
     <div class="container">
       @foreach ($data as $index => $d)
+      
       <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
           <div class="col-md-5 order-{{ ($index % 2 == 0) ? '1' : '2' }}">
               <img src="{{ $d->foto }}" class="img-fluid" alt="">
           </div>
-          <div class="col-md-7 order-{{ ($index % 2 == 0) ? '2' : '1' }}">
+          <div class="col-md-7 order-{{ ($index % 2 == 0) ? '2' : '1' }} ">
               <h3>{{ $d->judul }}</h3>
               <p class="fst-italic">
                   {{ $d->deskripsi }}
               </p>
-              <p>
+              {{-- <p class="formatted-text">
                   {{ $d->berita }}
-              </p>
+              </p> --}}
           </div>
       </div>
+      
       @endforeach
       <!-- Features Item -->
     </div>

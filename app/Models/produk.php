@@ -5,19 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class produk extends Model
+class Produk extends Model
 {
     use HasFactory;
+
     protected $table = 'produk';
-    protected $fillable = ['id','nama_produk', 'tagline', 'deskripsi','foto', 'id_kategori', 'id_umkm' ];
+    protected $fillable = ['id','nama_produk', 'tagline', 'deskripsi','foto1', 'foto2', 'foto3', 'id_sektor_usaha', 'id_umkm'];
 
     // Relasi dengan model Umkm
     public function umkm()
     {
-        return $this->belongsTo(umkm::class, 'id_umkm');
+        return $this->belongsTo(Umkm::class, 'id');
     }
-    public function kategori()
+
+    public function sektor_usaha()
     {
-        return $this->belongsTo(kategori::class, 'id_kategori');
+        return $this->belongsTo(sektor_usaha::class, 'id');
     }
+
+    // Relasi dengan model FotoProduk
+    // public function fotoProduk()
+    // {
+    //     return $this->hasMany(Foto::class, 'id_produk');
+    // }
 }
+

@@ -47,7 +47,7 @@
               <li><a href="/kriya" class="nav link {{ ($title === "kriya") ? 'active' : '' }}">Kriya</a></li>
             </ul>
           </li>
-          <li><a href="/kontak"class="nav link {{ ($title === "kontak") ? 'active' : '' }}">Kontak</a></li>
+          <li><a href="/contact"class="nav link {{ ($title === "kontak") ? 'active' : '' }}">Kontak</a></li>
           <li><a href="/bantuan" class="nav link {{ ($title === "bantuan") ? 'active' : '' }}">Bantuan</a></li>
           <li><button type="button" onclick="window.location.href='/login'" class=" login-button btn btn-success btn-lg">Login</button>
           </li>
@@ -80,26 +80,31 @@
             <a href="https://www.facebook.com/diskominfosumenep/" class="facebook"><i class="bi bi-facebook"></i></a>
             <a href=" https://twitter.com/kominfosumenep" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="https://www.instagram.com/kominfosumenep/" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.tiktok.com/@kominfo.sumenep?_t=8kqyabI6xJn&_r=1" class="tiktok"><i class="bi bi-tiktok"></i></a>
             {{-- <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> --}}
           </div>
         </div>
 
         <div class="col-lg-3 col-6 footer-links">
           <h4>Pengembang</h4>
-          <ul>
+          {{-- <ul>
             <li><a href="https://www.instagram.com/ekanugraha0211/">Eka Prasetya Nugraha <br> (Teknologi Informasi Universitas Jember)</a></li>
-            <li><a href="https://www.instagram.com/_nailasdh/">Nailatus Sa'adah Sarmadiyah <br>(Ilmu Komunikasi UPN Veteran Jember)</a></li>
-          </ul>
+            <li><a href="https://www.instagram.com/_nailasdh/">Nailatus Sa'adah Sarmadiyah <br>(Ilmu Komunikasi UPN Veteran Jatim)</a></li>
+          </ul> --}}
+          <p>Eka Prasetya Nugraha <br> (Teknologi Informasi Universitas Jember)</p>
+          <p>Nailatus Sa'adah Sarmadiyah <br>(Ilmu Komunikasi UPN Veteran Jatim)</p>
+          <h4>Pembimbing</h4>
+          <p>Irwan Sujatmiko <br>(Kepala Bidang IKP Diskominfo Sumenep)</p>
+          <p><a href="https://www.instagram.com/ekanugraha0211/">Eka Prasetya Nugraha <br> (Teknologi Informasi Universitas Jember)</a></p>
         </div>
 
-        <div class="col-lg-4 col-md-12 footer-contact  text-md-start">
+        <div class="col-lg-4 col-md-12 footer-contact  ">
           <h4>Kontak Kami</h4>
-          <p>
-            Dinas Komunikasi dan Informatika <br>
-            Jl. KH Mansyur No. 71 Sumenep<br><br>
-            <strong>WhatsApp:</strong> +62 877-1237-7783<br>
-            <strong>Email:</strong> kominfo.sumenep@gmail.com<br>
-          </p>
+          
+          <p>Dinas Komunikasi dan Informatika <br>Jl. KH Mansyur No. 71 Sumenep</p>
+          
+          <strong>WhatsApp:</strong> +62 877-1237-7783<br>
+          <strong>Email:</strong> kominfo.sumenep@gmail.com<br>
 
         </div>
 
