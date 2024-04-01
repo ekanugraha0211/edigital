@@ -7,7 +7,7 @@
       <div class="row gy-5" data-aos="fade-in">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
           <h2>Etalase <span>Digital Sumenep</span></h2>
-          <p>e-Display adalah aplikasi mobile yang dapat membantu UMKM di Sumenep untuk mempromosikan produk mereka secara online. Manfaatnya, UMKM dapat menjangkau pelanggan lebih luas, meningkatkan brand awareness, dan membangun profil usaha di era digital.</p>
+          <p>eDisplay merupakan sebuah aplikasi berbasis website yang dirancang khusus untuk mendukung UMKM di Sumenep dalam mempromosikan produk-produk mereka secara efektif melalui platform online. Dengan menggunakan e-Display, UMKM dapat mengakses peluang baru untuk menjangkau pelanggan secara luas, mengembangkan brand awareness yang lebih baik, serta membangun profil usaha yang kuat dalam era digital ini.</p>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#features" class="btn-get-started">Jelajahi</a>
             <!-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
@@ -60,12 +60,12 @@
           </div>
           <div class="col-md-7 order-{{ ($index % 2 == 0) ? '2' : '1' }} ">
               <h3>{{ $d->judul }}</h3>
-              <p class="fst-italic">
+              {{-- <p class="fst-italic">
+                  {{ $d->deskripsi }}
+              </p> --}}
+              <p class="fst-italic formatted-text text-justify ">
                   {{ $d->deskripsi }}
               </p>
-              {{-- <p class="formatted-text">
-                  {{ $d->berita }}
-              </p> --}}
           </div>
       </div>
       

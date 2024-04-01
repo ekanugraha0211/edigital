@@ -726,7 +726,10 @@ section {
   margin-left: auto;
   margin-right: auto;
 }
-
+.text-justify {
+  text-align: justify;
+  text-justify: auto;
+}
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;

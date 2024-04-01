@@ -47,7 +47,7 @@
               <li><a href="/kriya" class="nav link {{ ($title === "kriya") ? 'active' : '' }}">Kriya</a></li>
             </ul>
           </li>
-          <li><a href="/contact"class="nav link {{ ($title === "kontak") ? 'active' : '' }}">Kontak</a></li>
+          <li><a href="/kontak"class="nav link {{ ($title === "kontak") ? 'active' : '' }}">Kontak</a></li>
           <li><a href="/bantuan" class="nav link {{ ($title === "bantuan") ? 'active' : '' }}">Bantuan</a></li>
           <li><button type="button" onclick="window.location.href='/login'" class=" login-button btn btn-success btn-lg">Login</button>
           </li>

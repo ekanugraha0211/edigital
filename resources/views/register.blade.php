@@ -290,7 +290,11 @@
     </div> --}}
     
       
-        
+            {{-- <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message">Pesan anda tidak terkirim</div>
+                <div class="sent-message">YPesan anda terkirim. Terima kasih!</div>
+              </div> --}}
             <button type="submit" class="btn btn-primary btn-block">Daftar</button>
         
         <p class="text-center">Sudah punya akun ? <a href="/login">Masuk disini</a></p>

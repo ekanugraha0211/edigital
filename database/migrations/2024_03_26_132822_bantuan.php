@@ -15,8 +15,8 @@ return new class extends Migration
         if (!Schema::hasTable('bantuan')) {
             Schema::create('bantuan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pertanyaan', 255); // Menggunakan tipe string dengan panjang maksimum 255 karakter
-            $table->text('jawaban');
+            $table->string('pertanyaan', 255)->nullable(); // Menggunakan tipe string dengan panjang maksimum 255 karakter
+            $table->text('jawaban')->nullable();
             $table->timestamps();
         });
     }

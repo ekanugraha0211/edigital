@@ -15,7 +15,7 @@ return new class extends Migration
         if (!Schema::hasTable('sektor_usaha')) {
             Schema::create('sektor_usaha', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama',50);
+            $table->string('nama',50)->nullable();
             $table->timestamps();
         });
     }

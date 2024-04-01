@@ -15,10 +15,10 @@ return new class extends Migration
         if (!Schema::hasTable('kontak')) {
             Schema::create('kontak', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama',255);
-            $table->text('subjek');
-            $table->string('email', 255);
-            $table->text('pesan');
+            $table->string('nama',255)->nullable();
+            $table->text('subjek')->nullable();
+            $table->string('email', 255)->nullable();
+            $table->text('pesan')->nullable();
             $table->timestamps();
         });
     }

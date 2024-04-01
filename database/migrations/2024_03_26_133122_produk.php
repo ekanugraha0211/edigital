@@ -15,15 +15,15 @@ return new class extends Migration
         if (!Schema::hasTable('produk')) {
             Schema::create('produk', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama_produk', 255);
-            $table->string('tagline', 255);
-            $table->text('deskripsi');
-            $table->string('foto1',255);
-            $table->string('foto2',255);
-            $table->string('foto3',255);
-            $table->unsignedBigInteger('id_sektor_usaha');
+            $table->string('nama_produk', 255)->nullable();
+            $table->string('tagline', 255)->nullable();
+            $table->text('deskripsi')->nullable();
+            $table->string('foto1',255)->nullable();
+            $table->string('foto2',255)->nullable();
+            $table->string('foto3',255)->nullable();
+            $table->unsignedBigInteger('id_sektor_usaha')->nullable();
             $table->foreign('id_sektor_usaha')->references('id')->on('sektor_usaha');
-            $table->unsignedBigInteger('id_umkm');
+            $table->unsignedBigInteger('id_umkm')->nullable();
             $table->foreign('id_umkm')->references('id')->on('umkm');
             $table->timestamps();
         });

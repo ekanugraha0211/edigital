@@ -7,6 +7,7 @@ use App\Http\Controllers\ProdukKulinerController;
 use App\Http\Controllers\ProdukModeController;
 use App\Http\Controllers\ProdukKriyaController;
 use App\Http\Controllers\BantuanController;
+use App\Http\Controllers\KontakController;
 use App\Http\Controllers\UMKMController;
 
 Route::get('/', [BerandaController::class, 'index'],function(){});
@@ -27,14 +28,16 @@ Route::get('/admin', function () {
     
     return view('admin.layouts.main');
 });
-Route::get('/contact', function () {
+Route::get('/kontak', function () {
     return view('contact',[
         "title" => "kontak"
     ]);
 });
+Route::POST('/kontak/input', [KontakController::class, 'create']);
 
 Route::get('/{produk}', [ProdukController::class, 'show'])->name('produkdetail');
 Route::get('/register', [UMKMController::class, 'showRegistrationForm']);
+// Route::get('/kontak', [KontakController::class, 'showKontakForm']);
 Route::POST('/register/input', [UMKMController::class, 'create']);
 
 

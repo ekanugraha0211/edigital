@@ -15,9 +15,9 @@ return new class extends Migration
     if (!Schema::hasTable('beranda')) {
         Schema::create('beranda', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('judul', 255);
-            $table->text('deskripsi');
-            $table->string('foto', 255);
+            $table->string('judul', 255)->nullable();
+            $table->text('deskripsi')->nullable();
+            $table->string('foto', 255)->nullable();
             $table->timestamps();
         });
     }
