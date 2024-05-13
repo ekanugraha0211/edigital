@@ -9,7 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    protected $priority = 1;
+    // protected $priority = 1;
     public function up(): void
     {
         if (!Schema::hasTable('produk')) {

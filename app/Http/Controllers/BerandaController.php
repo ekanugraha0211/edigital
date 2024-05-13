@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\beranda;
+use App\Models\Produk;
 use App\Http\Requests\StoreberandaRequest;
 use App\Http\Requests\UpdateberandaRequest;
 
@@ -13,10 +14,11 @@ class BerandaController extends Controller
      */
     public function index()
     {
-        $data= beranda::get();
+        $dataBeranda = Beranda::get(); // Mengambil data beranda
+        $dataProduk = Produk::with('umkm')->get(); // Mengambil data produk dengan kategori tertentu
         $title = 'beranda';
-        return view('index', compact('data','title'));
-        //
+
+        return view('index', compact('dataBeranda', 'dataProduk', 'title'));
     }
 
     /**

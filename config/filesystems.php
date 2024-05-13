@@ -43,6 +43,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'produk' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/assets/img/produk'), // Path ke direktori penyimpanan baru
+            'url' => env('APP_URL').'/storage/assets/img/produk', // URL untuk akses file
+            'visibility' => 'public',
+        ],
+        
 
         's3' => [
             'driver' => 's3',

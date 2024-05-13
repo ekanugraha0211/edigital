@@ -9,14 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    protected $priority = 6;
+    // protected $priority = 3;
     public function up(): void
     {
-        if (!Schema::hasTable('bantuan')) {
-            Schema::create('bantuan', function (Blueprint $table) {
+        if (!Schema::hasTable('sektor_usaha')) {
+            Schema::create('sektor_usaha', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pertanyaan', 255)->nullable(); // Menggunakan tipe string dengan panjang maksimum 255 karakter
-            $table->text('jawaban')->nullable();
+            $table->string('nama',50)->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bantuan');
+        Schema::dropIfExists('sektor_usaha');
     }
 };

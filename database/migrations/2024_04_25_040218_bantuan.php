@@ -9,22 +9,24 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    protected $priority = 4;
+    // protected $priority = 6;
     public function up(): void
-{
-    if (!Schema::hasTable('bentuk_usaha')) {
-        Schema::create('bentuk_usaha', function (Blueprint $table) {
+    {
+        if (!Schema::hasTable('bantuan')) {
+            Schema::create('bantuan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama',50)->nullable();
+            $table->string('pertanyaan', 255)->nullable(); // Menggunakan tipe string dengan panjang maksimum 255 karakter
+            $table->text('jawaban')->nullable();
             $table->timestamps();
         });
     }
 }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('bentuk_usaha');
+        Schema::dropIfExists('bantuan');
     }
 };

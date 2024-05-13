@@ -10,18 +10,18 @@
 
       {{-- <div class="portfolio-isotope d-flex flex-column" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100"> --}}
 
-        <div class="portfolio-flters d-flex flex-row justify-content-center">
-          <!-- Input pencarian menggunakan komponen form Bootstrap -->
-          <input id="search-input" class="form-control me-2 w-75"  type="search" placeholder="Cari Produk" aria-label="Search">
-        </select>
-          <button id="search-button" class="btn btn-success" type="button">Cari</button>
+      <div class="portfolio-flters d-flex flex-row justify-content-center">
+        <!-- Input pencarian menggunakan komponen form Bootstrap -->
+        <input id="search-input" class="form-control me-2 w-75"  type="search" placeholder="Cari Produk" aria-label="Search">
+      </select>
+        <button id="search-button" class="btn btn-success" type="button">Cari</button>
       </div>
       
         
                            
 
         <div class="row gy-4 portfolio-container">
-          @foreach ($produk as $p)
+          @foreach ($produk->sortByDesc('id') as $p)
           <div class="col-xl-4 col-md-6 portfolio-item">
             <div class="portfolio-wrap">
               <a href="{{ $p->foto1 }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ $p->foto1 }}" class="img-fluid" alt=""></a>

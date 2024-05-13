@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sektor_usaha extends Model
+class SektorUsaha extends Model
 {
     use HasFactory;
     protected $table = 'sektor_usaha'; // Ganti 'nama_tabel_beranda' dengan nama tabel Anda
@@ -15,7 +15,7 @@ class sektor_usaha extends Model
     {
         return $this->hasMany(umkm::class, 'id_sektor_usaha');
     }
-    public function produks()
+    public function produk()
     {
         return $this->hasMany(produk::class, 'id_sektor_usaha');
     }

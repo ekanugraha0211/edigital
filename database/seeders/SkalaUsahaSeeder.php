@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\skala_usaha;
+// use App\Models\skala_usaha;
+use App\Models\SkalaUsaha;
 
 class SkalaUsahaSeeder extends Seeder
 {  
@@ -15,13 +16,13 @@ class SkalaUsahaSeeder extends Seeder
     public function run()
     {
         // Data contoh untuk tabel bantuan
-        skala_usaha::create([
+        SkalaUsaha::create([
             'nama' => 'Mikro'
         ]);
-        skala_usaha::create([
+        SkalaUsaha::create([
             'nama' => 'Makro'
         ]);
-        skala_usaha::create([
+        SkalaUsaha::create([
             'nama' => 'Menengah'
         ]);
 

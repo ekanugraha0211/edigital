@@ -17,18 +17,18 @@ class umkm extends Model
     {
         return $this->hasMany(produk::class, 'id_umkm');
     }
-    public function bentukUsaha()
+    public function BentukUsaha()
     {
-        return $this->belongsTo(bentuk_usaha::class, 'id_bentuk_usaha');
+        return $this->belongsTo(BentukUsaha::class, 'id_bentuk_usaha');
     }
 
-    public function sektorUsaha()
+    public function SektorUsaha()
     {
-        return $this->belongsTo(sektor_usaha::class, 'id_sektor_usaha');
+        return $this->belongsTo(SektorUsaha::class, 'id_sektor_usaha');
     }
 
-    public function skalaUsaha()
+    public function SkalaUsaha()
     {
-        return $this->belongsTo(skala_usaha::class, 'id_skala_usaha');
+        return $this->belongsTo(SkalaUsaha::class, 'id_skala_usaha');
     }
 }

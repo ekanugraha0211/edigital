@@ -10,7 +10,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    protected $priority = 0;
+    // protected $priority = 0;
     public function up(): void
     {
         if (!Schema::hasTable('umkm')) {

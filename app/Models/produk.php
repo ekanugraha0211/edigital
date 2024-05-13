@@ -18,15 +18,9 @@ class Produk extends Model
         return $this->belongsTo(Umkm::class, 'id');
     }
 
-    public function sektor_usaha()
+    public function SektorUsaha()
     {
-        return $this->belongsTo(sektor_usaha::class, 'id');
+        return $this->belongsTo(SektorUsaha::class, 'id_sektor_usaha');
     }
-
-    // Relasi dengan model FotoProduk
-    // public function fotoProduk()
-    // {
-    //     return $this->hasMany(Foto::class, 'id_produk');
-    // }
 }
 

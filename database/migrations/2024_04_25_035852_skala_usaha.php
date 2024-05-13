@@ -9,15 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    protected $priority = 5;
+    // protected $priority = 2;
     public function up(): void
-{
-    if (!Schema::hasTable('beranda')) {
-        Schema::create('beranda', function (Blueprint $table) {
+    {
+        if (!Schema::hasTable('skala_usaha')) {
+            Schema::create('skala_usaha', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('judul', 255)->nullable();
-            $table->text('deskripsi')->nullable();
-            $table->string('foto', 255)->nullable();
+            $table->string('nama',255)->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('beranda');
+        Schema::dropIfExists('skala_usaha');
     }
 };

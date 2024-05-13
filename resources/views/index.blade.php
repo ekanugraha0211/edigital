@@ -50,9 +50,9 @@
     </div>
   </section>
    <!-- ======= Features Section ======= -->
-   <section id="features" class="features">
+   <section id="features" class="features portfolio sections-bg">
     <div class="container">
-      @foreach ($data as $index => $d)
+      @foreach ($dataBeranda as $index => $d)
       
       <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
           <div class="col-md-5 order-{{ ($index % 2 == 0) ? '1' : '2' }}">
@@ -68,10 +68,33 @@
               </p>
           </div>
       </div>
-      
       @endforeach
-      <!-- Features Item -->
+      {{-- <div class="portfolio-container"> --}}
+        <div style="overflow-x: auto; white-space: nowrap;">
+          @php
+              $randomProducts = $dataProduk->shuffle()->take(10);
+          @endphp
+          @foreach ($randomProducts as $p)
+          <div style="display: inline-block; width: 240px; margin-right: 20px; border-radius: 10px; overflow: hidden;">
+              <div style="border: 1px solid #ddd; padding: 15px; box-sizing: border-box;">
+                  <a href="{{ $p->foto1 }}" data-gallery="portfolio-gallery-app"><img src="{{ $p->foto1 }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; overflow: hidden;" alt=""></a>
+                  <div style="margin-top: 10px;">
+                      <h4 style="font-size: 18px; margin-bottom: 5px;"><a href="{{ route('produkdetail', $p->id) }}" style="text-decoration: none; color: #000;" title="More Details">{{ $p->nama_produk }}</a></h4>
+                      <p style="font-size: 14px; color: #888; margin-bottom: 0;">{{ $p->tagline }}</p>
+                  </div>
+              </div>
+          </div>
+          @endforeach<!-- End Portfolio Item -->
+      </div>
+      
+      
+      
     </div>
+    
+    
+      
+      <!-- Features Item -->
+    {{-- </div> --}}
   </section><!-- End Features Section -->
 
   <!-- End Hero Section -->

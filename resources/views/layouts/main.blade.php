@@ -9,25 +9,25 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/eDisplay3.png" rel="icon">
+  <link href="/assets/img/eDisplay3.png" rel="icon">
   <!-- <link href="assets/img/fashion.png" rel="icon"> -->
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
  
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="/assets/css/main.css" rel="stylesheet">
 </head>
 <body>
      <!-- ======= Header ======= -->
@@ -91,11 +91,11 @@
             <li><a href="https://www.instagram.com/ekanugraha0211/">Eka Prasetya Nugraha <br> (Teknologi Informasi Universitas Jember)</a></li>
             <li><a href="https://www.instagram.com/_nailasdh/">Nailatus Sa'adah Sarmadiyah <br>(Ilmu Komunikasi UPN Veteran Jatim)</a></li>
           </ul> --}}
-          <p>Eka Prasetya Nugraha <br> (Teknologi Informasi Universitas Jember)</p>
-          <p>Nailatus Sa'adah Sarmadiyah <br>(Ilmu Komunikasi UPN Veteran Jatim)</p>
+          <p><a style="color: white;" href="https://ekaprofile.vercel.app/" target="_blank">Eka Prasetya Nugraha <br> (Teknologi Informasi Universitas Jember)</a></p>
+          <p><a style="color: white;" href="https://www.instagram.com/_nailasdh/" target="_blank">Nailatus Sa'adah Sarmadiyah <br> (Ilmu Komunikasi UPN Veteran Jatim)</a></p>
+          {{-- <p>Nailatus Sa'adah Sarmadiyah <br>(Ilmu Komunikasi UPN Veteran Jatim)</p> --}}
           <h4>Pembimbing</h4>
           <p>Irwan Sujatmiko <br>(Kepala Bidang IKP Diskominfo Sumenep)</p>
-          <p><a href="https://www.instagram.com/ekanugraha0211/">Eka Prasetya Nugraha <br> (Teknologi Informasi Universitas Jember)</a></p>
         </div>
 
         <div class="col-lg-4 col-md-12 footer-contact  ">

@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\sektor_usaha;
+// use App\Models\sektor_usaha;
+use App\Models\SektorUsaha;
 
 class SektorUsahaSeeder extends Seeder
 {
@@ -15,34 +16,34 @@ class SektorUsahaSeeder extends Seeder
     public function run()
     {
         // Data contoh untuk tabel bantuan
-        sektor_usaha::create([
+        SektorUsaha::create([
             'nama' => 'Kreatif'
         ]);
-        sektor_usaha::create([
+        SektorUsaha::create([
             'nama' => 'Pakaian'
         ]);
-        sektor_usaha::create([
+        SektorUsaha::create([
             'nama' => 'Jasa'
         ]);
-        sektor_usaha::create([
+        SektorUsaha::create([
             'nama' => 'Pertanian'
         ]);
-        sektor_usaha::create([
+        SektorUsaha::create([
             'nama' => 'Teknologi'
         ]);
-        sektor_usaha::create([
+        SektorUsaha::create([
             'nama' => 'Pendidikan'
         ]);
-        sektor_usaha::create([
+        SektorUsaha::create([
             'nama' => 'Kesehatan'
         ]);
-        sektor_usaha::create([
+        SektorUsaha::create([
             'nama' => 'Transportasi'
         ]);
-        sektor_usaha::create([
+        SektorUsaha::create([
             'nama' => 'Properti'
         ]);
-        sektor_usaha::create([
+        SektorUsaha::create([
             'nama' => 'Kuliner'
         ]);
 

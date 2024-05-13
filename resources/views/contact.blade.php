@@ -5,9 +5,8 @@
     <div class="container" data-aos="fade-up">
 
       <div class="section-header">
-        <h2>Contact</h2>
-        <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
-      </div>
+        <h2>Kontak</h2>
+        <p>Selamat data di layanan pelanggan kami. Kami siap membantu anda dengan segala pertanyaan atau masalah yang anda miliki.</p>     </div>
 
       <div class="row gx-lg-0 gy-4">
 
@@ -44,17 +43,8 @@
         </div>
 
         <div class="col-lg-8">
-          @if(session('success'))
-          <div class="alert alert-success">
-              {{ session('success') }}
-          </div>
-      @endif
-      
-      @if(session('gagal'))
-          <div class="alert alert-danger">
-              {{ session('gagal') }}
-          </div>
-      @endif
+          
+          
           <form action="/kontak/input" method="POST" role="form" class="php-email-form"     >
             @csrf
             <div class="row">
@@ -71,13 +61,25 @@
             <div class="form-group mt-3">
               <textarea class="form-control" name="pesan" rows="7" placeholder="Isi pesan" required></textarea>
             </div>
-            {{-- <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message">Pesan anda tidak terkirim</div>
-              <div class="sent-message">YPesan anda terkirim. Terima kasih!</div>
-            </div> --}}
+            @if(session('success'))
+
+          <script>
+            alert("Pesan Adan Sukses Terkirim !");
+          </script>
+          @endif
+          
+          @if(session('gagal'))
+          <div class="alert alert-danger">
+              {{ session('gagal') }}
+          </div>
+          <script>
+            // Show failure alert
+            alert("{{ session('gagal') }}");
+          </script>
+          @endif
             <div class="text-center"><button type="submit">Kirim</button></div>
           </form>
+          
         </div><!-- End Contact Form -->
 
       </div>

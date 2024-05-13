@@ -79,11 +79,12 @@
             <div class="portfolio-info">
               <h3>Informasi UMKM</h3>
               <ul>
-                <li><strong>Kategori</strong> <span>{{ $produk->sektor_usaha->nama }}</span></li>
-                <li><strong>Pemilik</strong> <span>{{ $produk->umkm->nama }}</span></li>
-                <li><strong>Jadwal Buka</strong> <span>24 Jam, senin-jumat</span></li>
+                <li><strong>Kategori</strong> <span>{{ $produk->umkm ? $produk->umkm->SektorUsaha->nama : '-' }}
+                </span></li>
+                <li><strong>Nama UMKM</strong> <span>{{ $produk->umkm ? $produk->umkm->nama : '-' }}</span></li>
+                <li><strong>Alamat</strong> <span>{{ $produk->umkm ? $produk->umkm->alamat : '-'  }}</span></li>
                 <!-- <li><strong>Project URL</strong> <a href="#">www.example.com</a></li> -->
-                <li><a href="https://wa.me/{{ $produk->umkm->whatsapp }}" class="btn-visit align-self-start">Hubungi</a></li>
+                <li><a href="https://wa.me/{{ $produk->umkm ? $produk->umkm->whatsapp : '-' }}" class="btn-visit align-self-start">Hubungi</a></li>
                 <!-- <li>
                   <a href="#" class="btn-visit align-self-start">
                       <img src="/assets/img/shopee.png" style="width: 20px;" alt="Shopee">

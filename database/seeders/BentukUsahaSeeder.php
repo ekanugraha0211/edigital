@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\bentuk_usaha;
+// use App\Models\bentuk_usaha;
+use App\Models\BentukUsaha;
 
 class BentukUsahaSeeder extends Seeder
 {
@@ -15,22 +16,22 @@ class BentukUsahaSeeder extends Seeder
     public function run()
     {
         // Data contoh untuk tabel bantuan
-        bentuk_usaha::create([
+        BentukUsaha::create([
             'nama' => 'Badan Usaha Milik Negara (BUMN)'
         ]);
-        bentuk_usaha::create([
+        BentukUsaha::create([
             'nama' => 'Badan Usaha Milik Daerah (BUMD)'
         ]);
-        bentuk_usaha::create([
+        BentukUsaha::create([
             'nama' => 'Perseorangan Terbatas (PT)'
         ]);
-        bentuk_usaha::create([
+        BentukUsaha::create([
             'nama' => 'Firma'
         ]);
-        bentuk_usaha::create([
+        BentukUsaha::create([
             'nama' => 'Commanditaire Vennootschap (CV)'
         ]);
-        bentuk_usaha::create([
+        BentukUsaha::create([
             'nama' => 'Koperasi'
         ]);
 
