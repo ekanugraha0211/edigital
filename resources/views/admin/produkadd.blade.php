@@ -62,7 +62,7 @@
                 <label for="exampleSelectRounded0">UMKM</label>
                 <select class="custom-select rounded-0" id="exampleSelectRounded0" name="id_umkm">
                   @foreach ($umkm as $p)
-                      <option value="{{ $p->id }}" >{{ $p->nama }}</option>
+                    <option value="{{ $p->id }}">{{ $p->nama }}</option>
                   @endforeach
               </select>
               

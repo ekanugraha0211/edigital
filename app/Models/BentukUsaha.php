@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BentukUsaha extends Model
 {
-    use HasFactory;
+    // use HasFactory;
     use HasFactory;
     protected $table = 'bentuk_usaha'; // Ganti 'nama_tabel_beranda' dengan nama tabel Anda
 

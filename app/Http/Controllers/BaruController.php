@@ -26,45 +26,58 @@ class BaruController extends Controller
      */
     public function create()
     {
-        $produk = Produk::all();
+        // $produk = Produk::all();
         $umkm = umkm::all();
-        return view('admin.produkadd',compact('produk','umkm'));
+        return view('admin.produkadd',compact('umkm'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        
-        $request->validate([
-            'nama_produk' => 'required|string|max:255',
+{
+    $request->validate([
+        'nama_produk' => 'required|string|max:255',
         'tagline' => 'required|string|max:255',
         'deskripsi' => 'required|string|max:255',
         'foto1' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         'foto2' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         'foto3' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-        'id_umkm' => 'required|integer',
-        ]);
+        'id_umkm' => 'required|integer|exists:umkm,id',
+    ]);
 
-        $logoPath = null;
-        if ($request->hasFile('foto1')) {
-            $logoPath = $request->file('foto1')->storeAs('public\assets\img\produk', $request->file('foto1')->getClientOriginalName());
-        }
-
-        $produk = Produk::create([
-            'nama_produk' => $request->nama_produk,
-    'tagline' => $request->tagline,
-    'deskripsi' => $request->deskripsi,
-    'foto1' => $logoPath,
-    'foto2' => $logoPath,
-    'foto3' => $logoPath,
-    'id_umkm' => $request->id_umkm
-
-        ]);
-
-        return redirect('adProduk')->with('success', 'Layanan Berhasil Ditambahkan');
+    // Simpan foto1
+    $foto1Path = null;
+    if ($request->hasFile('foto1')) {
+        $foto1Path = $request->file('foto1')->storeAs('public/assets/img/produk', $request->file('foto1')->getClientOriginalName());
     }
+
+    // Simpan foto2
+    $foto2Path = null;
+    if ($request->hasFile('foto2')) {
+        $foto2Path = $request->file('foto2')->storeAs('public/assets/img/produk', $request->file('foto2')->getClientOriginalName());
+    }
+
+    // Simpan foto3
+    $foto3Path = null;
+    if ($request->hasFile('foto3')) {
+        $foto3Path = $request->file('foto3')->storeAs('public/assets/img/produk', $request->file('foto3')->getClientOriginalName());
+    }
+
+    // Buat produk baru
+    $produk = Produk::create([
+        'nama_produk' => $request->nama_produk,
+        'tagline' => $request->tagline,
+        'deskripsi' => $request->deskripsi,
+        'foto1' => $foto1Path,
+        'foto2' => $foto2Path,
+        'foto3' => $foto3Path,
+        'id_umkm' => $request->id_umkm
+    ]);
+
+    return redirect('adProduk')->with('success', 'Layanan Berhasil Ditambahkan');
+}
+
 
     /**
      * Display the specified resource.

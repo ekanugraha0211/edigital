@@ -29,7 +29,7 @@ class adminUmkmController extends Controller
         $sektor = SektorUsaha::all();
         $skala = SkalaUsaha::all();
         $bentuk = BentukUsaha::all();
-        return view('admin.umkmadd',compact('umkm'));
+        return view('admin.umkmadd',compact('umkm','sektor','skala','bentuk'));
     }
 
     /**

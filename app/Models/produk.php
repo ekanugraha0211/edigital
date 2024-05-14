@@ -15,12 +15,12 @@ class Produk extends Model
     // Relasi dengan model Umkm
     public function umkm()
     {
-        return $this->belongsTo(Umkm::class, 'id');
+        return $this->belongsTo(Umkm::class, 'id_umkm');
     }
 
-    public function SektorUsaha()
-    {
-        return $this->belongsTo(SektorUsaha::class, 'id_sektor_usaha');
-    }
+    // public function SektorUsaha()
+    // {
+    //     return $this->belongsTo(SektorUsaha::class, 'id_sektor_usaha');
+    // }
 }
 
