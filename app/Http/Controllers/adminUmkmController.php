@@ -36,71 +36,77 @@ class adminUmkmController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        
-        $request->validate([
-            'nama' => 'required|string|max:255',
-            'nomor_surat_ijin' => 'string|max:255',
-            'logo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'alamat' => 'required|string|max:255',
-            'desa' => 'required|string|max:255',
-            'kecamatan' => 'required|string|max:255',
-            'kodepos' => 'required|string|max:10',
-            'no_telp_kantor' => 'required|string|max:20',
-            'faksimili' => 'string|max:255',
-            'website' => 'string|max:255',
-            'email' => 'required|string|max:255',
-            'whatsapp' => 'required|string|max:255',
-            'password' => 'required|string|max:255',
-            'tgl_mulai' => 'required|date',
-            'NPWP' => 'string|max:255',
-            'status' => 'string|max:255',
-            'id_sektor_usaha' => 'required|integer|max:11',
-            'id_skala_usaha' => 'required|integer|max:11',
-            'jumlah_karyawan_pria' => 'required|string|max:10',
-            'jumlah_karyawan_wanita' => 'required|string|max:10',
-            'nama_pemilik' => 'required|string|max:255',
-            'modal_awal' => 'required|string|max:255',
-            'omset' => 'required|string|max:255',
-            'id_bentuk_usaha' => 'required|int'
-        ]);
+{
+    // Validasi input
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'nomor_surat_ijin' => 'nullable|string|max:255',
+        'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'alamat' => 'nullable|string|max:255',
+        'desa' => 'nullable|string|max:255',
+        'kecamatan' => 'nullable|string|max:255',
+        'kodepos' => 'nullable|string|max:10',
+        'no_telp_kantor' => 'nullable|string|max:20',
+        'faksimili' => 'nullable|string|max:255',
+        'website' => 'nullable|string|max:255',
+        'email' => 'nullable|string|max:255',
+        'whatsapp' => 'nullable|string|max:255',
+        'password' => 'required|string|max:255',
+        'tgl_mulai' => 'nullable|date',
+        'NPWP' => 'nullable|string|max:255',
+        'status' => 'nullable|string|max:255',
+        'id_sektor_usaha' => 'required|integer|exists:sektor_usaha,id',
+        'id_skala_usaha' => 'required|integer|exists:skala_usaha,id',
+        'jumlah_karyawan_pria' => 'nullable|string|max:10',
+        'jumlah_karyawan_wanita' => 'nullable|string|max:10',
+        'nama_pemilik' => 'nullable|string|max:255',
+        'modal_awal' => 'nullable|string|max:255',
+        'omset' => 'nullable|string|max:255',
+        'id_bentuk_usaha' => 'required|integer|exists:bentuk_usaha,id'
+    ]);
 
-        $logoPath = null;
-        if ($request->hasFile('logo')) {
-            $logoPath = $request->file('logo')->storeAs('public\assets\img\produk', $request->file('logo')->getClientOriginalName());
-        }
+    // Inisialisasi path logo
+    $logoPath = null;
 
-        $umkm = umkm::create([
-            'nama_produk' => $request->nama,
-            'nomor_surat_ijin' => $request->nomor_surat_ijin,
-            'logo' => $request->logo,
-            'alamat' => $request->alamat,
-            'desa' => $request->desa,
-            'kecamatan' => $request->kecamatan,
-            'kodepos' => $request->kodepos,
-            'no_telp_kantor' => $request->no_telp_kantor,
-            'faksimili' => $request->faksimili,
-            'website' => $request->website,
-            'email' => $request->email,
-            'whatsapp' => $request->whatsapp,
-            'password' => $request->password,
-            'tgl_mulai' => $request->tgl_mulai,
-            'NPWP' => $request->NPWP,
-            'status' => $request->status,
-            'id_sektor_usaha' => $request->id_sektor_usaha,
-            'id_skala_usaha' => $request->id_skala_usaha,
-            'jumlah_karyawan_pria' => $request->jumlah_karyawan_pria,
-            'jumlah_karyawan_wanita' => $request->jumlah_karyawan_wanita,
-            'nama_pemilik' => $request->nama_pemilik,
-            'akses_perbankan' => $request->akses_perbankan,
-            'modal_awal' => $request->modal_awal,
-            'omset' => $request->omset,
-            'id_bentuk_usaha' => $request->id_bentuk_usaha
-
-        ]);
-
-        return redirect('adminUmkm.index')->with('success', 'Layanan Berhasil Ditambahkan');
+    // Simpan logo jika ada
+    if ($request->hasFile('logo')) {
+        $file = $request->file('logo');
+        $path = $file->store('public/assets/img/produk/logo');
+        $logoPath = str_replace('public/', 'storage/', $path);
     }
+
+    // Buat umkm baru
+    $umkm = Umkm::create([
+        'nama' => $request->nama,
+        'nomor_surat_ijin' => $request->nomor_surat_ijin,
+        'logo' => $logoPath,
+        'alamat' => $request->alamat,
+        'desa' => $request->desa,
+        'kecamatan' => $request->kecamatan,
+        'kodepos' => $request->kodepos,
+        'no_telp_kantor' => $request->no_telp_kantor,
+        'faksimili' => $request->faksimili,
+        'website' => $request->website,
+        'email' => $request->email,
+        'whatsapp' => $request->whatsapp,
+        'password' => bcrypt($request->password), // Enkripsi password
+        'tgl_mulai' => $request->tgl_mulai,
+        'NPWP' => $request->NPWP,
+        'status' => $request->status,
+        'id_sektor_usaha' => $request->id_sektor_usaha,
+        'id_skala_usaha' => $request->id_skala_usaha,
+        'jumlah_karyawan_pria' => $request->jumlah_karyawan_pria,
+        'jumlah_karyawan_wanita' => $request->jumlah_karyawan_wanita,
+        'nama_pemilik' => $request->nama_pemilik,
+        'modal_awal' => $request->modal_awal,
+        'omset' => $request->omset,
+        'id_bentuk_usaha' => $request->id_bentuk_usaha,
+        'akses_perbankan' => $request->akses_perbankan
+    ]);
+
+    return redirect()->route('adminUmkm.index')->with('success', 'UMKM Berhasil Ditambahkan');
+}
+
 
     /**
      * Display the specified resource.
@@ -135,26 +141,19 @@ class adminUmkmController extends Controller
 {
     $umkm = umkm::findOrFail($id);
 
-    // $umkm = $produk->umkm; 
-
-    // Update foto1
     if ($request->hasFile('logo')) {
-        // Hapus file lama jika ada
-        // if ($produk->foto1) {
-        //     Storage::delete($produk->foto1);
-        // }
-
         $file = $request->file('logo');
-        $path = $file->store('public/assets/img/produk');
+        $path = $file->store('public/assets/img/produk/logo');
         $umkm->logo = str_replace('public/', 'storage/', $path);
     }
+
 
     
 
     // Update data produk
     $umkm->nama = $request->nama;
 $umkm->nomor_surat_ijin = $request->nomor_surat_ijin;
-$umkm->logo = $request->logo;
+// $umkm->logo = $request->logo;
 $umkm->alamat = $request->alamat;
 $umkm->desa = $request->desa;
 $umkm->kecamatan = $request->kecamatan;
@@ -167,7 +166,8 @@ $umkm->whatsapp = $request->whatsapp;
 $umkm->password = $request->password;
 $umkm->tgl_mulai = $request->tgl_mulai;
 $umkm->NPWP = $request->NPWP;
-$umkm->status = $request->status;
+// $umkm->status = $request->status;
+$umkm->status = $request->input('status') == 'on' ? 'Aktif' : 'Nonaktif';
 $umkm->id_sektor_usaha = $request->id_sektor_usaha;
 $umkm->id_skala_usaha = $request->id_skala_usaha;
 $umkm->jumlah_karyawan_pria = $request->jumlah_karyawan_pria;
@@ -181,7 +181,7 @@ $umkm->id_bentuk_usaha = $request->id_bentuk_usaha;
 
     $umkm->update();
 
-    return redirect()->route('adminUmkm.edit', $id)->with('success', 'Layanan Berhasil Diedit');
+    return redirect()->route('adminUmkm.edit', $id)->with('success', 'UMKM Berhasil Diedit');
 }
 
 
@@ -208,7 +208,7 @@ $umkm->id_bentuk_usaha = $request->id_bentuk_usaha;
         $umkm = umkm::findOrFail($id);
         $umkm->delete();
     
-        return redirect()->route('/adProduk')->with('success', 'Layanan Berhasil Dihapus');
+        return redirect()->route('/adProduk')->with('success', 'UMKM Berhasil Dihapus');
     }
     
 }

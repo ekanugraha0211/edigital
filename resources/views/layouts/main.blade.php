@@ -25,6 +25,7 @@
   <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+ 
 
   <!-- Template Main CSS File -->
   <link href="/assets/css/main.css" rel="stylesheet">
@@ -40,12 +41,16 @@
         <ul>
           <li><a href="/" class="nav link {{ ($title === "beranda") ? 'active' : '' }}" >Beranda</a></li>
           <li><a href="/produk" class="nav link {{ ($title === 'produk' || $title === 'detail') ? 'active' : '' }}">Produk Terbaru</a></li>
-          <li class="dropdown "><a href="#" class="nav link {{ ($title === "kuliner" || $title === "mode" || $title === "kriya") ? 'active' : '' }}"><span>Kategori</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown "><a href="#" class="nav link {{ $title === "kuliner" ? 'active' : '' }}"><span>Kategori</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="/kuliner" class="nav link {{ ($title === "kuliner") ? 'active' : '' }}">Kuliner</a></li>
-              <li><a href="/mode" class="nav link {{ ($title === "mode") ? 'active' : '' }}">Mode</a></li>
-              <li><a href="/kriya" class="nav link {{ ($title === "kriya") ? 'active' : '' }}">Kriya</a></li>
-            </ul>
+              @foreach($SektorUsaha as $p)
+                  <li>
+                      <a href="{{ route('produk.sektor', ['sektor' => urlencode($p->nama)]) }}" class="nav link {{ ($title === ucfirst($p->nama)) ? 'active' : '' }}">{{ ucfirst($p->nama) }}</a>
+                  </li>
+              @endforeach
+          </ul>
+          
+          
           </li>
           <li><a href="/kontak"class="nav link {{ ($title === "kontak") ? 'active' : '' }}">Kontak</a></li>
           <li><a href="/bantuan" class="nav link {{ ($title === "bantuan") ? 'active' : '' }}">Bantuan</a></li>

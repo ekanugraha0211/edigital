@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Project Edit</h1>
+            <h1>Tambah UMKM</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Project Edit</li>
+              <li class="breadcrumb-item active">UMKM</li>
             </ol>
           </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="col-md-6">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">UMKM</h3>
+              <h3 class="card-title">Data Primer</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -49,6 +49,11 @@
                 <div class="form-group">
                   <label for="nama">Nama UMKM</label>
                   <input type="text" id="nama" name="nama" class="form-control" >
+              </div>
+              <div class="form-group">
+                {{-- <img src="{{ $umkm->logo}}"  width="100"> --}}
+                <label for="inputEstimatedDuration">Logo</label>
+                <input type="file" id="inputEstimatedDuration" name="logo" class="form-control"  accept="assets\img\produk\">
               </div>
               <div class="form-group">
                   <label for="alamat">Alamat</label>
@@ -105,7 +110,7 @@
         <div class="col-md-6">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">UMKM</h3>
+              <h3 class="card-title">Data Sekunder</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -114,57 +119,16 @@
               </div>
             </div>
             <div class="card-body">
-              {{-- <form action="{{ route('adminProduk.update',$produk->id) }}" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('put') --}}
-                {{-- <div class="form-group">
-                  <label for="nama">Nama UMKM</label>
-                  <input type="text" id="nama" name="nama" class="form-control" ">
-              </div> --}}
               <div class="form-group">
                   <label for="nomor_surat_ijin">Nomor Surat Ijin</label>
                   <input type="text" id="nomor_surat_ijin" name="nomor_surat_ijin" class="form-control" >
               </div>
-              <div class="form-group">
-                  <label for="alamat">Alamat</label>
-                  <input type="text" id="alamat" name="alamat" class="form-control" ">
-              </div>
-              <div class="form-group">
-                  <label for="desa">Desa</label>
-                  <input type="text" id="desa" name="desa" class="form-control" >
-              </div>
-              <div class="form-group">
-                  <label for="kecamatan">Kecamatan</label>
-                  <input type="text" id="kecamatan" name="kecamatan" class="form-control" >
-              </div>
-              <div class="form-group">
-                  <label for="kodepos">Kode Pos</label>
-                  <input type="text" id="kodepos" name="kodepos" class="form-control" >
-              </div>
-              <div class="form-group">
-                  <label for="no_telp_kantor">Nomor Telepon Kantor</label>
-                  <input type="text" id="no_telp_kantor" name="no_telp_kantor" class="form-control" >
-              </div>
+             
               <div class="form-group">
                   <label for="faksimili">Faksimili</label>
                   <input type="text" id="faksimili" name="faksimili" class="form-control" >
               </div>
-              <div class="form-group">
-                  <label for="website">Website</label>
-                  <input type="text" id="website" name="website" class="form-control" >
-              </div>
-              <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="text" id="email" name="email" class="form-control" >
-              </div>
-              <div class="form-group">
-                  <label for="whatsapp">Whatsapp</label>
-                  <input type="text" id="whatsapp" name="whatsapp" class="form-control" >
-              </div>
-              <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" id="password" name="password" class="form-control">
-              </div>
+             
               <div class="form-group">
                   <label for="tgl_mulai">Tanggal Mulai</label>
                   <input type="date" id="tgl_mulai" name="tgl_mulai" class="form-control" >
@@ -184,10 +148,6 @@
               <div class="form-group">
                   <label for="jumlah_karyawan_wanita">Jumlah Karyawan Wanita</label>
                   <input type="text" id="jumlah_karyawan_wanita" name="jumlah_karyawan_wanita" class="form-control" >
-              </div>
-              <div class="form-group">
-                  <label for="nama_pemilik">Nama Pemilik</label>
-                  <input type="text" id="nama_pemilik" name="nama_pemilik" class="form-control" >
               </div>
               <div class="form-group">
                   <label for="akses_perbankan">Akses Perbankan</label>
@@ -231,35 +191,6 @@
             </div>
             <!-- /.card-body -->
           </div>
-          <!-- /.card -->
-        </div>
-        <div class="col-md-6">
-          <div class="card card-secondary">
-            <div class="card-header">
-              <h3 class="card-title">Foto</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              {{-- <form action="{{ route('adminProduk.update',$produk->id) }}" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('put') --}}
-              
-              <div class="form-group">
-                {{-- <img src="{{ $umkm->logo}}"  width="100"> --}}
-                <label for="inputEstimatedDuration">Logo</label>
-                <input type="file" id="inputEstimatedDuration" name="logo" class="form-control"  accept="assets\img\produk\">
-              </div>
-              
-            {{-- </form> --}}
-            </div>
-            <!-- /.card-body -->
-          </div>
-          
           <!-- /.card -->
         </div>
         

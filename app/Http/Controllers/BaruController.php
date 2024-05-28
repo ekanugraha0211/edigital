@@ -36,6 +36,8 @@ class BaruController extends Controller
      */
     public function store(Request $request)
 {
+    $produk = Produk::all();
+    // $umkm = $produk->umkm; 
     $request->validate([
         'nama_produk' => 'required|string|max:255',
         'tagline' => 'required|string|max:255',
@@ -49,20 +51,32 @@ class BaruController extends Controller
     // Simpan foto1
     $foto1Path = null;
     if ($request->hasFile('foto1')) {
-        $foto1Path = $request->file('foto1')->storeAs('public/assets/img/produk', $request->file('foto1')->getClientOriginalName());
+        $file = $request->file('foto1');
+        $path = $file->store('public/assets/img/produk');
+        $foto1Path = str_replace('public/', 'storage/', $path);
     }
 
     // Simpan foto2
     $foto2Path = null;
+
     if ($request->hasFile('foto2')) {
-        $foto2Path = $request->file('foto2')->storeAs('public/assets/img/produk', $request->file('foto2')->getClientOriginalName());
+        $file = $request->file('foto2');
+        $path = $file->store('public/assets/img/produk');
+        $foto2Path = str_replace('public/', 'storage/', $path);
     }
 
     // Simpan foto3
     $foto3Path = null;
+
     if ($request->hasFile('foto3')) {
-        $foto3Path = $request->file('foto3')->storeAs('public/assets/img/produk', $request->file('foto3')->getClientOriginalName());
+        $file = $request->file('foto3');
+        $path = $file->store('public/assets/img/produk');
+        $foto3Path = str_replace('public/', 'storage/', $path);
     }
+    // $foto3Path = null;
+    // if ($request->hasFile('foto3')) {
+    //     $foto3Path = $request->file('foto3')->storeAs('public/assets/img/produk', $request->file('foto3')->getClientOriginalName());
+    // }
 
     // Buat produk baru
     $produk = Produk::create([
@@ -75,7 +89,7 @@ class BaruController extends Controller
         'id_umkm' => $request->id_umkm
     ]);
 
-    return redirect('adProduk')->with('success', 'Layanan Berhasil Ditambahkan');
+    return redirect('adProduk')->with('success', 'Produk Berhasil Ditambahkan');
 }
 
 
@@ -111,11 +125,6 @@ class BaruController extends Controller
 
     // Update foto1
     if ($request->hasFile('foto1')) {
-        // Hapus file lama jika ada
-        // if ($produk->foto1) {
-        //     Storage::delete($produk->foto1);
-        // }
-
         $file = $request->file('foto1');
         $path = $file->store('public/assets/img/produk');
         $produk->foto1 = str_replace('public/', 'storage/', $path);
@@ -123,11 +132,6 @@ class BaruController extends Controller
 
     // Update foto2
     if ($request->hasFile('foto2')) {
-        // Hapus file lama jika ada
-        // if ($produk->foto2) {
-        //     Storage::delete($produk->foto2);
-        // }
-
         $file = $request->file('foto2');
         $path = $file->store('public/assets/img/produk');
         $produk->foto2 = str_replace('public/', 'storage/', $path);
@@ -135,11 +139,6 @@ class BaruController extends Controller
 
     // Update foto3
     if ($request->hasFile('foto3')) {
-        // Hapus file lama jika ada
-        // if ($produk->foto3) {
-        //     Storage::delete($produk->foto3);
-        // }
-
         $file = $request->file('foto3');
         $path = $file->store('public/assets/img/produk');
         $produk->foto3 = str_replace('public/', 'storage/', $path);
@@ -153,7 +152,7 @@ class BaruController extends Controller
 
     $produk->update();
 
-    return redirect()->route('adminProduk.edit', $id)->with('success', 'Layanan Berhasil Diedit');
+    return redirect()->route('adminProduk.edit', $id)->with('success', 'Produk Berhasil Diedit');
 }
 
 

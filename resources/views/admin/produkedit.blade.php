@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Project Edit</h1>
+            <h1>Produk Edit</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Project Edit</li>
+              <li class="breadcrumb-item active">Produk</li>
             </ol>
           </div>
         </div>
@@ -91,18 +91,18 @@
                 @csrf
                 @method('put') --}}
               <div class="form-group">
+                <img src="/{{ $produk->foto1 }}" alt="Foto Awal" width="100">
                 <label for="inputFotoProduk">Foto Produk Utama</label>
-                <img src="{{ $produk->foto1 }}" alt="Foto Awal" width="100">
                 <input type="file" id="inputFotoProduk" class="form-control" name="foto1" accept="assets\img\produk\">
             </div>
             
               <div class="form-group">
-                <img src="assets\img\produk"  width="100">
+                <img src="/{{ $produk->foto2 }}" alt="Foto Awal" width="100">
                 <label for="inputSpentBudget">Foto Produk Kedua</label>
                 <input type="file" value="{{ $produk->foto2 }}" id="inputSpentBudget" name="foto2" class="form-control"  accept="assets\img\produk\">
               </div>
               <div class="form-group">
-                <img src="{{ $produk->foto3 }}"  width="100">
+                <img src="/{{ $produk->foto3 }}" alt="Foto Awal" width="100">
                 <label for="inputEstimatedDuration">Foto Produk ketiga</label>
                 <input type="file" id="inputEstimatedDuration" name="foto3" class="form-control"  accept="assets\img\produk\">
               </div>
@@ -113,14 +113,10 @@
           </div>
           
           <!-- /.card -->
-        </div>
-        
-        
+        </div>  
       </div>
       <div class="row">
         <div class="col-12">
-          {{-- <a href="#" class="btn btn-secondary">Cancel</a> --}}
-          {{-- <button type="submit" class="btn-btn-primary">Simpan</button> --}}
           <input type="submit" value="Save Changes" class="btn btn-success float-right">
         </div>
       </div>

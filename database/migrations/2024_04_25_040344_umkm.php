@@ -31,7 +31,8 @@ return new class extends Migration
                 $table->string('password',255)->nullable();
                 $table->date('tgl_mulai')->nullable();
                 $table->string('NPWP',255)->nullable();
-                $table->string('status',255)->nullable();
+                // $table->string('status',255)->nullable();
+                $table->string('status', 255)->default('Nonaktif')->nullable()->change();
                 $table->unsignedBigInteger('id_sektor_usaha')->nullable();
                 $table->foreign('id_sektor_usaha')->references('id')->on('sektor_usaha');
                 $table->unsignedBigInteger('id_skala_usaha')->nullable();

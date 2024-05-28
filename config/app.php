@@ -144,6 +144,13 @@ return [
         // 'store' => 'redis',
     ],
 
+    'providers' => [
+        // Other Service Providers
+    
+        App\Providers\AppServiceProvider::class,
+    ],
+    
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
