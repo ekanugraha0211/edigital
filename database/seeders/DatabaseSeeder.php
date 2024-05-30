@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             BerandaSeeder::class,
             SektorUsahaSeeder::class,
             SkalaUsahaSeeder::class,
+            UserSeeder::class,
             // Tambahkan seeder lain di sini jika diperlukan
         ]);
     }

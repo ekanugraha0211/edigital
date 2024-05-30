@@ -34,7 +34,7 @@ class KontakController extends Controller
         if($kontak->save()) {
             return redirect()->back()->with('success', 'Pesan berhasil Terkirim!');
         } else {
-            return redirect()->back()->with('gagal', 'Pendaftaran KONTAK gagal!');
+            return redirect()->back()->with('gagal', 'Pesan gagal Terkirim!');
         }
     }
 }
