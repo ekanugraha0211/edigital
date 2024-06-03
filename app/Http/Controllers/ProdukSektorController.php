@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produk;
+use App\Models\produk;
 use Illuminate\Http\Request;
 
 class ProdukSektorController extends Controller

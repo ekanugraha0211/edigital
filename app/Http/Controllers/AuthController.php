@@ -22,17 +22,22 @@ class AuthController extends Controller
             'password.required' => 'Password Wajib Diisi',
         ]);
 
-        $infologin = [
+        $credentials = [
             'name' => $request->name,
             'password' => $request->password,
         ];
 
-        if (Auth::attempt($infologin)) {
+        if (Auth::attempt($credentials)) {
             $user = Auth::user();
             session(['username' => $user->name]);
             session(['is_logged_in' => true]);
+            session(['role' => $user->role]); // Simpan peran pengguna dalam sesi
 
-            return redirect('admin');
+            if ($user->role == 'admin') {
+                return redirect('admin');
+            } else if ($user->role == 'umkm') {
+                return redirect('umkm');
+            }
         } else {
             return redirect('/login')->withErrors('Username atau Password yang Dimasukkan Tidak Sesuai')->withInput();
         }
@@ -42,6 +47,7 @@ class AuthController extends Controller
     {
         Auth::logout();
         $request->session()->forget('is_logged_in');
+        $request->session()->forget('role'); // Hapus peran pengguna dari sesi
         return redirect('/');
     }
 }

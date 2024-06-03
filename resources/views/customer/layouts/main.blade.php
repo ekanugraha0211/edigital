@@ -1,12 +1,13 @@
 @php
     use Illuminate\Support\Facades\Auth;
 @endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>eDisplay Admin</title>
+  <title>eDisplay Customer</title>
 
   <link href="/assets/img/eDisplay3.png" rel="icon">
 
@@ -38,7 +39,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="/umkm" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -113,21 +114,9 @@
           <img src="/assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::check() ? Auth::user()->name : 'Guest' }}</a>
+          <a href="" class="d-block">{{ Auth::check() ? Auth::user()->name : 'Guest' }}</a>
         </div>
       </div>
-
-      <!-- SidebarSearch Form -->
-      {{-- <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div> --}}
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -135,7 +124,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/admin" class="nav-link">
+            <a href="/umkm" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -144,40 +133,14 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/adminUmkm" class="nav-link">
-              <i class="nav-icon fas fa-store-alt"></i>
-              <p>
-                UMKM
-                {{-- <i class="right fas fa-angle-left"></i> --}}
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/adProduk" class="nav-link">
+            <a href="{{ route('custProduk.index') }}" class="nav-link">
               <i class="nav-icon fas fa-box-open"></i>
               <p>
                 Produk
               </p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a href="/adminkontak" class="nav-link">
-              <i class="nav-icon fas fa-comment-dots"></i>
-              <p>
-                Pesan
-                {{-- <i class="right fas fa-angle-left"></i> --}}
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/adminBantuan" class="nav-link">
-              <i class="nav-icon fas fa-hands-helping"></i>
-              <p>
-                QnA
-                {{-- <span class="right badge badge-danger">New</span> --}}
-              </p>
-            </a>
-          </li>
+         
 
         </ul>
       </nav>

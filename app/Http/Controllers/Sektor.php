@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\sektor_usaha;
+use App\Models\SektorUsaha;
 use Illuminate\Http\Request;
 
 class Sektor extends Controller
 {
     public function index()
     {
-        $sektor= sektor_usaha::get();
+        $sektor= SektorUsaha::get();
         $title = 'sektor';
         return view('main', compact('sektor','title'));
         //

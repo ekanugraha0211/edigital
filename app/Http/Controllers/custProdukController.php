@@ -5,9 +5,10 @@ use App\Models\produk;
 use App\Models\umkm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 
-class BaruController extends Controller
+class custProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class BaruController extends Controller
     public function index()
     {
         {
-            $produk=Produk::with('umkm')->get();
+            $produk = Produk::with('umkm.user')->get();
     
-            return view('admin.produk', compact('produk'));
+            return view('customer.produk', compact('produk'));
         }
     }
 
@@ -28,7 +29,7 @@ class BaruController extends Controller
     {
         // $produk = Produk::all();
         $umkm = umkm::all();
-        return view('admin.produkadd',compact('umkm'));
+        return view('customer.produkadd',compact('umkm'));
     }
 
     /**
@@ -37,7 +38,7 @@ class BaruController extends Controller
     public function store(Request $request)
 {
     $produk = Produk::all();
-    // $umkm = $produk->umkm; 
+    $umkm = Auth::user()->umkm;
     $request->validate([
         'nama_produk' => 'required|string|max:255',
         'tagline' => 'required|string|max:255',
@@ -45,7 +46,6 @@ class BaruController extends Controller
         'foto1' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         'foto2' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         'foto3' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-        'id_umkm' => 'required|integer|exists:umkm,id',
     ]);
 
     // Simpan foto1
@@ -86,10 +86,13 @@ class BaruController extends Controller
         'foto1' => $foto1Path,
         'foto2' => $foto2Path,
         'foto3' => $foto3Path,
-        'id_umkm' => $request->id_umkm
+        // 'id_umkm' => $request->id_umkm
+        'id_umkm' => $umkm->id
     ]);
 
-    return redirect('adProduk')->with('success', 'Produk Berhasil Ditambahkan');
+    // return redirect('')->with('success', 'Produk Berhasil Ditambahkan');
+    return redirect()->route('custProduk.index')->with('success', 'Produk Berhasil Diedit');
+
 }
 
 
@@ -108,11 +111,11 @@ class BaruController extends Controller
     public function edit( $id)
     {
         $produk = Produk::findOrFail($id);
-        $umkm = umkm::all();
+        $umkm = Auth::user()->umkm;
 
         $urlImg = $produk->foto1 ? Storage::url($produk->foto1) : null;
 
-        return view('admin.produkedit', compact('produk','umkm','urlImg'));
+        return view('customer.produkedit', compact('produk','umkm','urlImg'));
     }
 
     /**
@@ -121,7 +124,7 @@ class BaruController extends Controller
     public function update(Request $request, $id)
 {
     $produk = Produk::findOrFail($id);
-    $umkm = $produk->umkm; 
+    $umkm = Auth::user()->umkm;
 
     // Update foto1
     if ($request->hasFile('foto1')) {
@@ -148,11 +151,11 @@ class BaruController extends Controller
     $produk->nama_produk = $request->nama_produk;
     $produk->tagline = $request->tagline;
     $produk->deskripsi = $request->deskripsi;
-    $produk->id_umkm = $request->id_umkm;
+    $produk->id_umkm = $umkm->id;
 
     $produk->update();
 
-    return redirect()->route('adminProduk.edit', $id)->with('success', 'Produk Berhasil Diedit');
+    return redirect()->route('custProduk.edit', $id)->with('success', 'Produk Berhasil Diedit');
 }
 
 
@@ -162,8 +165,7 @@ class BaruController extends Controller
     public function destroy($id)
     {
         $produk = produk::findOrFail($id);
-        $umkm = $produk->umkm;
-
+        // $umkm = Auth::user()->umkm;
 
         // if ($produk->foto1) {
         //     Storage::delete($produk->foto1);
@@ -171,7 +173,7 @@ class BaruController extends Controller
 
         $produk->delete();
 
-        return redirect()->route('adProduk')->with('success', 'Layanan Berhasil Diedit');
+        return redirect()->route('custProduk.index')->with('success', 'Layanan Berhasil Diedit');
     }
     public function deleteData(Request $request, $id) {
         // Lakukan validasi dan otorisasi di sini, pastikan pengguna memiliki izin untuk menghapus data.
@@ -179,7 +181,7 @@ class BaruController extends Controller
         $produk = Produk::findOrFail($id);
         $produk->delete();
     
-        return redirect()->route('/adProduk')->with('success', 'Layanan Berhasil Dihapus');
+        return redirect()->route('custProduk.index')->with('success', 'Layanan Berhasil Dihapus');
     }
     
 }

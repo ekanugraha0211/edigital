@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\beranda;
-use App\Models\Produk;
+use App\Models\produk;
 use App\Http\Requests\StoreberandaRequest;
 use App\Http\Requests\UpdateberandaRequest;
 

@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+@extends('customer.layouts.main')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="/umkm">Home</a></li>
               <li class="breadcrumb-item active">Edit</li>
             </ol>
           </div>
@@ -27,7 +27,7 @@
         {{ session('success') }}
     </div>
 @endif
-<form action="{{ route('adminUmkm.update',$umkm->id) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('custUmkm.update',$umkm->id) }}" method="post" enctype="multipart/form-data">
   @csrf
   @method('put')
       <div class="row">
@@ -87,34 +87,8 @@
                   <label for="whatsapp">Whatsapp</label>
                   <input type="text" id="whatsapp" name="whatsapp" class="form-control" value="{{ $umkm->whatsapp }}">
               </div>
-              <div class="form-group">
-                <label for="id_user">Users</label>
-                <select class="custom-select rounded-0" id="exampleSelectRounded0" name="id_user">
-                  @foreach ($users as $p)
-                      <option value="{{ $p->id }}" {{ $umkm->id_user == $p->id ? 'selected' : '' }}>{{ $p->name }}</option>
-                  @endforeach
-              </select>              
-            </div>
-              {{-- <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" id="password" name="password" class="form-control " value="{{ $umkm->password }}">
-              </div> --}}
-              {{-- <div class="form-group">
-                  <label for="status">Status</label>
-                  <input type="text" id="status" name="status" class="form-control" value="{{ $umkm->status }}">
-              </div> --}}
-              {{-- <div class="form-group">
-                <label for="status">Status</label>
-                <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="statusSwitch" name="status" {{ $umkm->status == 'Aktif' ? 'checked' : '' }}>
-                  <label class="custom-control-label" for="statusSwitch">Aktif / Nonaktif</label>
-              </div> --}}
               
             </div>
-              {{-- <div class="form-group">
-                  <label for="nama_pemilik">Nama Pemilik</label>
-                  <input type="text" id="nama_pemilik" name="nama_pemilik" class="form-control" value="{{ $umkm->nama_pemilik }}">
-              </div> --}}
               
             {{-- </form> --}}
               

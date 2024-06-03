@@ -9,13 +9,16 @@ use App\Models\kontak; // Import model KONTAK
 use App\Models\BentukUsaha;
 use App\Models\SektorUsaha;
 use App\Models\SkalaUsaha;
+use Illuminate\Support\Facades\Auth;
 
-class adminDashboardController extends Controller
+
+class custDashboardController extends Controller
 {
     public function index()
     {
+
         $umkm = Umkm::all();
-        $produk = Produk::all();
+        $produk = Auth::user()->Produk;
         $kontak = Kontak::all();
         $skala = SkalaUsaha::all();
         $sektor = SektorUsaha::all();
@@ -23,7 +26,7 @@ class adminDashboardController extends Controller
         // $kontak = Kontak::all();
 
         // Kirim data ke view admin.konten
-        return view('admin.konten', compact('umkm', 'produk', 'kontak','skala','sektor','bentuk'));
+        return view('customer.konten', compact('umkm', 'produk', 'kontak','skala','sektor','bentuk'));
         //
     }
    

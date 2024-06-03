@@ -79,26 +79,34 @@
                   <label for="website">Website</label>
                   <input type="text" id="website" name="website" class="form-control">
               </div>
-              <div class="form-group">
+              {{-- <div class="form-group">
                   <label for="email">Email</label>
                   <input type="text" id="email" name="email" class="form-control">
-              </div>
+              </div> --}}
               <div class="form-group">
                   <label for="whatsapp">Whatsapp</label>
                   <input type="text" id="whatsapp" name="whatsapp" class="form-control">
               </div>
               <div class="form-group">
+                <label for="id_user">Users</label>
+                <select class="custom-select rounded-0" id="exampleSelectRounded0" name="id_user">
+                  @foreach ($users as $p)
+                      <option value="{{ $p->id }}" >{{ $p->name }}</option>
+                  @endforeach
+              </select>              
+            </div>
+              {{-- <div class="form-group">
                   <label for="password">Password</label>
                   <input type="password" id="password" name="password" class="form-control">
-              </div>
-              <div class="form-group">
+              </div> --}}
+              {{-- <div class="form-group">
                   <label for="status">Status</label>
                   <input type="text" id="status" name="status" class="form-control">
-              </div>
-              <div class="form-group">
+              </div> --}}
+              {{-- <div class="form-group">
                   <label for="nama_pemilik">Nama Pemilik</label>
                   <input type="text" id="nama_pemilik" name="nama_pemilik" class="form-control">
-              </div>
+              </div> --}}
               
             {{-- </form> --}}
               
@@ -137,10 +145,10 @@
                   <label for="NPWP">NPWP</label>
                   <input type="text" id="NPWP" name="NPWP" class="form-control" >
               </div>
-              <div class="form-group">
+              {{-- <div class="form-group">
                   <label for="status">Status</label>
                   <input type="text" id="status" name="status" class="form-control" >
-              </div>
+              </div> --}}
               <div class="form-group">
                   <label for="jumlah_karyawan_pria">Jumlah Karyawan Pria</label>
                   <input type="text" id="jumlah_karyawan_pria" name="jumlah_karyawan_pria" class="form-control" >
