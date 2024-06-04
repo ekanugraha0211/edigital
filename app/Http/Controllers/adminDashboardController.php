@@ -9,6 +9,7 @@ use App\Models\kontak; // Import model KONTAK
 use App\Models\BentukUsaha;
 use App\Models\SektorUsaha;
 use App\Models\SkalaUsaha;
+use App\Models\User;
 
 class adminDashboardController extends Controller
 {
@@ -20,10 +21,11 @@ class adminDashboardController extends Controller
         $skala = SkalaUsaha::all();
         $sektor = SektorUsaha::all();
         $bentuk = BentukUsaha::all();
+        $user = user::all();
         // $kontak = Kontak::all();
 
         // Kirim data ke view admin.konten
-        return view('admin.konten', compact('umkm', 'produk', 'kontak','skala','sektor','bentuk'));
+        return view('admin.konten', compact('umkm', 'produk', 'kontak','skala','sektor','bentuk','user'));
         //
     }
    

@@ -114,7 +114,7 @@
           <img src="/assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="" class="d-block">{{ Auth::check() ? Auth::user()->name : 'Guest' }}</a>
+          <a href="{{ route('custUmkm.edit',Auth::user()->umkm->id) }}" class="d-block">{{ Auth::check() ? Auth::user()->name : 'Guest' }}</a>
         </div>
       </div>
 

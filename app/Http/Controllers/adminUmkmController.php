@@ -52,17 +52,13 @@ class adminUmkmController extends Controller
         'no_telp_kantor' => 'nullable|string|max:20',
         'faksimili' => 'nullable|string|max:255',
         'website' => 'nullable|string|max:255',
-        // 'email' => 'nullable|string|max:255',
         'whatsapp' => 'nullable|string|max:255',
-        // 'password' => 'required|string|max:255',
         'tgl_mulai' => 'nullable|date',
         'NPWP' => 'nullable|string|max:255',
-        // 'status' => 'nullable|string|max:255',
         'id_sektor_usaha' => 'required|integer|exists:sektor_usaha,id',
         'id_skala_usaha' => 'required|integer|exists:skala_usaha,id',
         'jumlah_karyawan_pria' => 'nullable|string|max:10',
         'jumlah_karyawan_wanita' => 'nullable|string|max:10',
-        // 'nama_pemilik' => 'nullable|string|max:255',
         'modal_awal' => 'nullable|string|max:255',
         'omset' => 'nullable|string|max:255',
         'id_bentuk_usaha' => 'required|integer|exists:bentuk_usaha,id',
@@ -91,26 +87,23 @@ class adminUmkmController extends Controller
         'no_telp_kantor' => $request->no_telp_kantor,
         'faksimili' => $request->faksimili,
         'website' => $request->website,
-        // 'email' => $request->email,
         'whatsapp' => $request->whatsapp,
-        // 'password' => bcrypt($request->password), // Enkripsi password
         'tgl_mulai' => $request->tgl_mulai,
         'NPWP' => $request->NPWP,
-        // 'status' => $request->status,
         'id_sektor_usaha' => $request->id_sektor_usaha,
         'id_skala_usaha' => $request->id_skala_usaha,
         'jumlah_karyawan_pria' => $request->jumlah_karyawan_pria,
         'jumlah_karyawan_wanita' => $request->jumlah_karyawan_wanita,
-        // 'nama_pemilik' => $request->nama_pemilik,
+        'akses_perbankan' => $request->akses_perbankan,
         'modal_awal' => $request->modal_awal,
         'omset' => $request->omset,
         'id_bentuk_usaha' => $request->id_bentuk_usaha,
-        'id_user' => $request->id_user,
-        'akses_perbankan' => $request->akses_perbankan
+        'id_user' => $request->id_user
     ]);
 
     return redirect()->route('adminUmkm.index')->with('success', 'UMKM Berhasil Ditambahkan');
 }
+
 
 
     /**

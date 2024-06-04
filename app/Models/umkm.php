@@ -15,7 +15,7 @@ class umkm extends Model
 
     protected $table = 'umkm'; // Ganti 'nama_tabel_beranda' dengan nama tabel Anda
 
-    protected $fillable = ['nama', 'nomor_surat_ijin', 'logo','role', 'alamat', 'desa', 'kecamatan', 'kodepos', 'no_telp_kantor', 'faksimili', 'website', 'whatsapp', 'tgl_mulai', 'NPWP', 'id_sektor_usaha', 'id_skala_usaha', 'jumlah_karyawan_pria','jumlah_karyawan_wanita', 'akses_perbankan', 'modal_awal', 'omset','id_bentuk usaha', 'id_users'];
+    protected $fillable = ['nama', 'nomor_surat_ijin', 'logo','role', 'alamat', 'desa', 'kecamatan', 'kodepos', 'no_telp_kantor', 'faksimili', 'website', 'whatsapp', 'tgl_mulai', 'NPWP', 'id_sektor_usaha', 'id_skala_usaha', 'jumlah_karyawan_pria','jumlah_karyawan_wanita', 'akses_perbankan', 'modal_awal', 'omset','id_bentuk_usaha', 'id_user'];
     public function produks()
     {
         return $this->hasMany(produk::class, 'id_umkm');

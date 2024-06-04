@@ -17,6 +17,7 @@ use App\Http\Controllers\BaruController;
 use App\Http\Controllers\custDashboardController;
 use App\Http\Controllers\custProdukController;
 use App\Http\Controllers\custUmkmController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 
 Route::get('/', [BerandaController::class, 'index'],function(){});
@@ -42,6 +43,7 @@ Route::middleware(['admin'])->group(function () {
     Route::resource('/adminBantuan', adminBantuanController::class);
     Route::put('/adminBantuan/updateAll', [BantuanController::class, 'updateAll'])->name('adminBantuan.updateAll');
     Route::resource('/adminUmkm', adminUmkmController::class);
+    Route::resource('/User', UserController::class);
 });
 Route::middleware(['umkm'])->group(function () {
     Route::get('/umkm', [custDashboardController::class, 'index']);

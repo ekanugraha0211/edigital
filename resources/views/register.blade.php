@@ -130,12 +130,12 @@
                 <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan password" required>
             </div>
         </div>
-        <div class="col-md-4">
+        {{-- <div class="col-md-4">
             <div class="form-group">
                 <label for="nama_pemilik">Nama Pemilik</label>
                 <input type="text" id="nama_pemilik" name="nama_pemilik" class="form-control" placeholder="Masukkan nama pemilik" required>
             </div>
-        </div>
+        </div> --}}
           
           {{-- <div class="col-md-4">
               <div class="form-group">

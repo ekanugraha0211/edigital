@@ -57,11 +57,11 @@
           <!-- /.col -->
           <div class="col-12 col-sm-4 col-md-4">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-comment-dots"></i></span>
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-user"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Pesan</span>
-                <span class="info-box-number">{{ $kontak->count() }}</span>
+                <span class="info-box-text">User</span>
+                <span class="info-box-number">{{ $user->count() }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>

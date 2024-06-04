@@ -21,7 +21,9 @@
     <section class="content">
       <div class="row mb-2">
         <div class="col-sm-12">
-            <a href="{{ route('adminUmkm.create') }}" class="btn btn-primary">Tambah UMKM</a>
+          <a href="{{ route('adminUmkm.create') }}" class="btn btn-success">
+            <i class="fas fa-plus"></i> Tambah
+          </a>
         </div>
     </div>
       <!-- Default box -->

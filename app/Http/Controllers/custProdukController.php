@@ -89,6 +89,8 @@ class custProdukController extends Controller
         // 'id_umkm' => $request->id_umkm
         'id_umkm' => $umkm->id
     ]);
+    dd($request->all());
+
 
     // return redirect('')->with('success', 'Produk Berhasil Ditambahkan');
     return redirect()->route('custProduk.index')->with('success', 'Produk Berhasil Diedit');
@@ -154,6 +156,7 @@ class custProdukController extends Controller
     $produk->id_umkm = $umkm->id;
 
     $produk->update();
+    // dd($request->all())
 
     return redirect()->route('custProduk.edit', $id)->with('success', 'Produk Berhasil Diedit');
 }

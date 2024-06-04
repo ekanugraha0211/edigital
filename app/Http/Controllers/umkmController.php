@@ -22,19 +22,19 @@ class UMKMController extends Controller
 $request->validate([
             'nama' => 'required|string|max:255',
             'alamat' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
+            // 'email' => 'required|string|max:255',
             'whatsapp' => 'required|string|max:255',
-            'password' => 'required|string|max:255',
-            'nama_pemilik' => 'required|string|max:255',
+            // 'password' => 'required|string|max:255',
+            // 'nama_pemilik' => 'required|string|max:255',
 ]);
 $hashedPassword = Hash::make($request->password);
 $umkm = new umkm;
 $umkm->nama = $request->nama;
 $umkm->alamat = $request->alamat;
-$umkm->email = $request->email;
+// $umkm->email = $request->email;
 $umkm->whatsapp = $request->whatsapp;
-$umkm->password = $hashedPassword;
-$umkm->nama_pemilik = $request->nama_pemilik;
+// $umkm->password = $hashedPassword;
+// $umkm->nama_pemilik = $request->nama_pemilik;
 $umkm->save();
 if($umkm->save())
 {

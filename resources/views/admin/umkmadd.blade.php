@@ -35,6 +35,7 @@
           <div class="card card-primary">
             <div class="card-header">
               <h3 class="card-title">Data Primer</h3>
+              {{-- @dd($bentuk) --}}
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -89,7 +90,7 @@
               </div>
               <div class="form-group">
                 <label for="id_user">Users</label>
-                <select class="custom-select rounded-0" id="exampleSelectRounded0" name="id_user">
+                <select class="custom-select rounded-0" id="id_user" name="id_user">
                   @foreach ($users as $p)
                       <option value="{{ $p->id }}" >{{ $p->name }}</option>
                   @endforeach
@@ -171,14 +172,14 @@
               </div>
               <div class="form-group">
                   <label for="id_bentuk_usaha">ID Bentuk Usaha</label>
-                  <select class="custom-select rounded-0" id="exampleSelectRounded0" name="id_bentuk_usaha">
+                  <select class="custom-select rounded-0" id="id_bentuk_usaha" name="id_bentuk_usaha">
                     @foreach ($bentuk as $p)
                         <option value="{{ $p->id }}" >{{ $p->nama }}</option>
                     @endforeach
                 </select>              
               </div>
               <div class="form-group">
-                  <label for="id_bentuk_usaha">ID Sektor Usaha</label>
+                  <label for="id_sektor_usaha">ID Sektor Usaha</label>
                   <select class="custom-select rounded-0" id="exampleSelectRounded0" name="id_sektor_usaha">
                     @foreach ($sektor as $p)
                         <option value="{{ $p->id }}" >{{ $p->nama }}</option>
@@ -186,7 +187,7 @@
                 </select>              
               </div>
               <div class="form-group">
-                  <label for="id_bentuk_usaha">ID Skala Usaha</label>
+                  <label for="id_skala_usaha">ID Skala Usaha</label>
                   <select class="custom-select rounded-0" id="exampleSelectRounded0" name="id_skala_usaha">
                     @foreach ($skala as $p)
                         <option value="{{ $p->id }}" >{{ $p->nama }}</option>

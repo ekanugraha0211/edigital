@@ -94,7 +94,7 @@ class custUmkmController extends Controller
     $umkm->modal_awal = $request->modal_awal;
     $umkm->omset = $request->omset;
     $umkm->id_bentuk_usaha = $request->id_bentuk_usaha;
-    $umkm->id_user = $request->id_user;
+    // $umkm->id_user = $request->id_user;
 
     $umkm->update();
 
