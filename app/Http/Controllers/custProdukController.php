@@ -168,11 +168,6 @@ class custProdukController extends Controller
     public function destroy($id)
     {
         $produk = produk::findOrFail($id);
-        // $umkm = Auth::user()->umkm;
-
-        // if ($produk->foto1) {
-        //     Storage::delete($produk->foto1);
-        // }
 
         $produk->delete();
 

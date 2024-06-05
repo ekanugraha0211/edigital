@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\produk;
 use App\Models\umkm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -36,6 +37,7 @@ class BaruController extends Controller
      */
     public function store(Request $request)
 {
+    Log::info('Request data: ', $request->all());
     $produk = Produk::all();
     // $umkm = $produk->umkm; 
     $request->validate([
@@ -47,6 +49,7 @@ class BaruController extends Controller
         'foto3' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         'id_umkm' => 'required|integer|exists:umkm,id',
     ]);
+    // Log::info('Validated data: ', $validatedData);
 
     // Simpan foto1
     $foto1Path = null;
@@ -73,9 +76,6 @@ class BaruController extends Controller
         $path = $file->store('public/assets/img/produk');
         $foto3Path = str_replace('public/', 'storage/', $path);
     }
-    // $foto3Path = null;
-    // if ($request->hasFile('foto3')) {
-    //     $foto3Path = $request->file('foto3')->storeAs('public/assets/img/produk', $request->file('foto3')->getClientOriginalName());
     // }
 
     // Buat produk baru
@@ -88,6 +88,7 @@ class BaruController extends Controller
         'foto3' => $foto3Path,
         'id_umkm' => $request->id_umkm
     ]);
+    Log::info('Produk created: ', $produk->toArray());
 
     return redirect('adProduk')->with('success', 'Produk Berhasil Ditambahkan');
 }
@@ -163,19 +164,11 @@ class BaruController extends Controller
     {
         $produk = produk::findOrFail($id);
         $umkm = $produk->umkm;
-
-
-        // if ($produk->foto1) {
-        //     Storage::delete($produk->foto1);
-        // }
-
         $produk->delete();
 
         return redirect()->route('adProduk')->with('success', 'Layanan Berhasil Diedit');
     }
     public function deleteData(Request $request, $id) {
-        // Lakukan validasi dan otorisasi di sini, pastikan pengguna memiliki izin untuk menghapus data.
-    
         $produk = Produk::findOrFail($id);
         $produk->delete();
     

@@ -46,7 +46,7 @@ return new class extends Migration
                 $table->unsignedBigInteger('id_bentuk_usaha')->nullable();
                 $table->foreign('id_bentuk_usaha')->references('id')->on('bentuk_usaha');
                 $table->unsignedBigInteger('id_user')->nullable();
-                $table->foreign('id_user')->references('id')->on('users');
+                $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
                 $table->timestamps();
             });
         }

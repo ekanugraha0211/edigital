@@ -60,36 +60,43 @@
                       <th>No</th>
                       <th>Nama</th>
                       <th>Email</th>
-                      <th>Umkm</th>
+                      <th>UMKM</th>
                       <th>Status</th>
-                      <th>Action</th>
+                      <th>Aksi</th>
                     </tr>
                     </thead>
                     <tbody>
                       @foreach($user as $k)
-                    <tr>
-                      <td>{{ $loop->index + 1 }}</td>
-                      <td>{{ $k->name }}</td>
-                      <td>
-                        <div class="sparkbar" data-color="#00a65a" data-height="20">{{ $k->email }}</div>
-                      </td>
-                      {{-- <td>{{ $k->email }}</td> --}}
-                      <td>{{ $k->umkm->nama ?? '-' }}</td>
-                      {{-- <td>{{ $k->role }}</td> --}}
-                      <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="switch{{ $loop->index }}" {{ $k->role == 'umkm' ? 'checked' : '' }} disabled>
-                          <label class="custom-control-label" for="switch{{ $loop->index }}"></label>
-                        </div>
-                      </td> 
-                      <td>
-                        <a href="{{ route('User.edit', $k->id) }}" class="btn btn-primary">
-                          <i class="fas fa-edit"></i> Edit
-                        </a>
-                      </td>
-                      
-                    </tr>
-                    @endforeach
+    @if($k->role != 'admin')
+        <tr>
+            <td>{{ $loop->index + 1 }}</td>
+            <td>{{ $k->name }}</td>
+            <td>
+                <div class="sparkbar" data-color="#00a65a" data-height="20">{{ $k->email }}</div>
+            </td>
+            <td>{{ $k->umkm->nama ?? '-' }}</td>
+            <td>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="switch{{ $loop->index }}" {{ $k->role == 'umkm' ? 'checked' : '' }} disabled>
+                    <label class="custom-control-label" for="switch{{ $loop->index }}"></label>
+                </div>
+            </td> 
+            <td>
+                <a href="{{ route('User.edit', $k->id) }}" class="btn btn-primary">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <form action="{{ route('User.destroy', $k->id) }}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn  btn-danger">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+    @endif
+@endforeach
+
                   
                     </tbody>
                     

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_sektor_usaha')->nullable();
             $table->foreign('id_sektor_usaha')->references('id')->on('sektor_usaha');
             $table->unsignedBigInteger('id_umkm')->nullable();
-            $table->foreign('id_umkm')->references('id')->on('umkm');
+            $table->foreign('id_umkm')->references('id')->on('umkm')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

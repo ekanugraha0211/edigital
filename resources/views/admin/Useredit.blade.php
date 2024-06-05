@@ -51,10 +51,18 @@
                   <label for="email">Email</label>
                   <input type="email" id="email" name="email" class="form-control" value="{{ $user->email }}">
               </div>
-                <div class="form-group">
-                  <label for="role">Role</label>
-                  <input type="role" id="role" name="role" class="form-control" value="{{ $user->role }}">
-              </div>
+              <div class="form-group">
+                <label for="role">Status</label>
+                <div class="form-check">
+                    <input type="radio" id="umkm" name="role" class="form-check-input" value="umkm" {{ $user->role == 'umkm' ? 'checked' : '' }}>
+                    <label class="form-check-label" for="umkm">Aktif</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="guest" name="role" class="form-check-input" value="Guest" {{ $user->role == 'Guest' ? 'checked' : '' }}>
+                    <label class="form-check-label" for="guest">Nonaktif</label>
+                </div>
+            </div>
+            
               <div class="form-group">
                 <label for="password">Password</label>
                 <div class="input-group">
