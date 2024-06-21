@@ -5,13 +5,15 @@ use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
 use App\Models\umkm; // Import model UMKM
+use App\Models\SektorUsaha; // Import model UMKM
 
 class UMKMController extends Controller
 {
     // Metode untuk menampilkan formulir pendaftaran UMKM
-    public function showRegistrationForm()
+    public function index()
     {
-        return view('register'); // Ganti 'registration_form' dengan nama blade view formulir registrasi Anda
+        $sektor=SektorUsaha::all();
+        return view('register', compact('sektor')); // Ganti 'registration_form' dengan nama blade view formulir registrasi Anda
     }
 
     // Metode untuk menyimpan data UMKM yang didaftarkan
@@ -22,29 +24,32 @@ class UMKMController extends Controller
 $request->validate([
             'nama' => 'required|string|max:255',
             'alamat' => 'required|string|max:255',
-            // 'email' => 'required|string|max:255',
+            'desa' => 'required|string|max:255',
+            'kecamatan' => 'required|string|max:255',
+            'kodepos' => 'required|string|max:255',
             'whatsapp' => 'required|string|max:255',
+            // 'id_sektor' => 'required|string|max:255',
+            
             // 'password' => 'required|string|max:255',
             // 'nama_pemilik' => 'required|string|max:255',
 ]);
-$hashedPassword = Hash::make($request->password);
+// $hashedPassword = Hash::make($request->password);
 $umkm = new umkm;
 $umkm->nama = $request->nama;
 $umkm->alamat = $request->alamat;
-// $umkm->email = $request->email;
+$umkm->desa = $request->desa;
+$umkm->kecamatan = $request->kecamatan;
+$umkm->kodepos = $request->kodepos;
 $umkm->whatsapp = $request->whatsapp;
-// $umkm->password = $hashedPassword;
-// $umkm->nama_pemilik = $request->nama_pemilik;
+$umkm->id_sektor_usaha = $request->id_sektor_usaha;
 $umkm->save();
 if($umkm->save())
 {
-    return redirect('/')->with('success', 'Pendaftaran UMKM berhasil!');
+    return redirect('/register')->with('success', 'Pendaftaran UMKM berhasil!');
 }
 else{
     return redirect('/register')->with('gagal', 'Pendaftaran UMKM gagal!');
 }
        
-
-        // Redirect ke halaman berhasil atau tampilkan pesan sukses
     }
 }

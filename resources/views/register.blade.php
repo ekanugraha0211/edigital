@@ -69,7 +69,7 @@
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
-@endif
+    @endif
 
 @if(session('gagal'))
     <div class="alert alert-danger">
@@ -81,12 +81,12 @@
       <form class="register-form mt-50" action="/register/input" method="POST" id="registration-form">
         @csrf
         <img src="assets/img/eDisplay3.png" alt="Logo UMKM" class="logo"> <!-- Ganti path-to-your-logo.png dengan path logo Anda -->
-        <h2 class="text-center mb-4">Register UMKM</h2>
+        <h2 class="text-center mb-4">Daftar UMKM</h2>
         
         <div class="row">
           <div class="col-md-4">
               <div class="form-group">
-                  <label for="nama">Nama</label>
+                  <label for="nama">Nama Umkm</label>
                   <input type="text" id="nama" name="nama" class="form-control" placeholder="Masukkan nama" required>
               </div>
           </div>
@@ -96,25 +96,24 @@
                 <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Masukkan alamat" required>
             </div>
         </div>
-        <div class="col-md-4">
+          <div class="col-md-4">
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="Masukkan email" required>
+                <label for="desa">Desa</label>
+                <input type="text" id="desa" name="desa" class="form-control" placeholder="Masukkan desa" required>
             </div>
         </div>
-        
-          {{-- <div class="col-md-4">
-              <div class="form-group">
-                  <label for="nomor_surat_ijin">Nomor Surat Ijin</label>
-                  <input type="text" id="nomor_surat_ijin" name="nomor_surat_ijin" class="form-control" placeholder="Masukkan nomor surat ijin" required>
-              </div>
-          </div> --}}
-          {{-- <div class="col-md-4">
-              <div class="form-group">
-                  <label for="logo">Logo</label>
-                  <input type="file" id="logo" class="form-control-file" accept="assets/img/*" required>
-              </div>
-          </div> --}}
+          <div class="col-md-4">
+            <div class="form-group">
+                <label for="kecamatan">Kecamatan</label>
+                <input type="text" id="kecamatan" name="kecamatan" class="form-control" placeholder="Masukkan kecamatan" required>
+            </div>
+        </div>
+          <div class="col-md-4">
+            <div class="form-group">
+                <label for="kodepos">Kode Pos</label>
+                <input type="text" id="kodepos" name="kodepos" class="form-control" placeholder="Masukkan Kode Pos" required>
+            </div>
+        </div>
       </div>
     
       <div class="row">
@@ -126,16 +125,14 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan password" required>
+                <label for="id_sektor_usaha">ID Sektor Usaha</label>
+                <select class="custom-select rounded-0" id="exampleSelectRounded0" name="id_sektor_usaha">
+                  @foreach ($sektor as $p)
+                      <option value="{{ $p->id }}" >{{ $p->nama }}</option>
+                  @endforeach
+              </select>              
             </div>
         </div>
-        {{-- <div class="col-md-4">
-            <div class="form-group">
-                <label for="nama_pemilik">Nama Pemilik</label>
-                <input type="text" id="nama_pemilik" name="nama_pemilik" class="form-control" placeholder="Masukkan nama pemilik" required>
-            </div>
-        </div> --}}
           
           {{-- <div class="col-md-4">
               <div class="form-group">
@@ -294,10 +291,12 @@
                 <div class="loading">Loading</div>
                 <div class="error-message">Pesan anda tidak terkirim</div>
                 <div class="sent-message">YPesan anda terkirim. Terima kasih!</div>
+                
               </div> --}}
+              
             <button type="submit" class="btn btn-primary btn-block">Daftar</button>
         
-        <p class="text-center">Sudah punya akun ? <a href="/login">Masuk disini</a></p>
+        <p class="text-center">UMKM Sudah Terdaftar ? <a href="/login">Masuk disini</a></p>
     </form>
 </div>
   </div>

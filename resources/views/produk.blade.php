@@ -7,15 +7,13 @@
         <h2>PRODUK UMKM SUMENEP</h2>
         <!-- <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p> -->
       </div>
-
-      {{-- <div class="portfolio-isotope d-flex flex-column" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100"> --}}
-
-      <div class="portfolio-flters d-flex flex-row justify-content-center">
-        <!-- Input pencarian menggunakan komponen form Bootstrap -->
-        <input id="search-input" class="form-control me-2 w-75"  type="search" placeholder="Cari Produk" aria-label="Search">
-      </select>
-        <button id="search-button" class="btn btn-success" type="button">Cari</button>
-      </div>
+        <div class="portfolio-flters d-flex flex-row justify-content-center">
+          <!-- Input pencarian menggunakan komponen form Bootstrap -->
+          <form class="d-flex w-75" method="GET" action="/produk">
+            <input id="search-input" name="search" class="form-control me-2" type="search" placeholder="Cari Produk" aria-label="Search" value="{{ request('search') }}">
+            <button id="search-button" class="btn btn-success" type="submit">Cari</button>
+          </form>
+        </div>
       
         
                            
@@ -24,7 +22,7 @@
         <div class="container" >
           {{-- @dd($produk) --}}
           <div class="row gy-4 posts-list">
-            @forelse($produk->sortByDesc('id')->take(9) as $p)
+            @forelse($produk->sortByDesc('id')->take(12) as $p)
             {{-- @if($p->umkm->sektorUsaha->nama == $title) --}}
             <div class="col-xl-4 col-md-6">
                 <article class="post">

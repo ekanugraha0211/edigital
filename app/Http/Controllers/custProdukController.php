@@ -89,7 +89,7 @@ class custProdukController extends Controller
         // 'id_umkm' => $request->id_umkm
         'id_umkm' => $umkm->id
     ]);
-    dd($request->all());
+    // dd($request->all());
 
 
     // return redirect('')->with('success', 'Produk Berhasil Ditambahkan');

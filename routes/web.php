@@ -22,13 +22,17 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', [BerandaController::class, 'index'],function(){});
 Route::get('/produk', [ProdukController::class, 'index'],function(){});
+Route::GET('/register', [UMKMController::class, 'index']);
 Route::get('/sektor/{sektor}', [ProdukSektorController::class, 'index'])->name('produk.sektor');
 Route::get('/bantuan', [BantuanController::class, 'index'],function(){});
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/register', function () {
-    return view('register');
-});
+
+// Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
+
+// Route::get('/register', function () {
+//     return view('register');
+// });
 Route::get('/kontak', function () {
     return view('contact', ["title" => "kontak"]);
 });

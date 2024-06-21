@@ -59,7 +59,7 @@
               <img src="{{ $d->foto }}" class="img-fluid" alt="">
           </div>
           <div class="col-md-7 order-{{ ($index % 2 == 0) ? '2' : '1' }} ">
-              <h3>{{ $d->judul }}</h3>
+              <p>{{ $d->judul }}</p>
               {{-- <p class="fst-italic">
                   {{ $d->deskripsi }}
               </p> --}}

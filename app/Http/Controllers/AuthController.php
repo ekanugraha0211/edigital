@@ -34,9 +34,9 @@ class AuthController extends Controller
             session(['role' => $user->role]); // Simpan peran pengguna dalam sesi
 
             if ($user->role == 'admin') {
-                return redirect('admin');
+                return redirect('admin')->with('success', 'Login berhasil! Selamat datang, Admin.');
             } else if ($user->role == 'umkm') {
-                return redirect('umkm');
+                return redirect('umkm')->with('success', 'Login berhasil! Selamat datang, UMKM.');
             }
         } else {
             return redirect('/login')->withErrors('Username atau Password yang Dimasukkan Tidak Sesuai')->withInput();
@@ -48,6 +48,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->forget('is_logged_in');
         $request->session()->forget('role'); // Hapus peran pengguna dari sesi
-        return redirect('/');
+        return redirect('/')->with('success', 'Logout berhasil! Sampai jumpa lagi.');
     }
 }

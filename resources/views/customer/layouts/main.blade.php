@@ -101,8 +101,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="/assets/img/eDisplay3.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">eDisplay Admin</span>
+      <span class="brand-text font-weight-light">eDisplay UMKM</span>
     </a>
 
 
@@ -111,7 +110,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/{{ Auth::check() ? Auth::user()->umkm->logo : 'assets/img/eDisplay3.png' }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="{{ route('custUmkm.edit',Auth::user()->umkm->id) }}" class="d-block">{{ Auth::check() ? Auth::user()->name : 'Guest' }}</a>

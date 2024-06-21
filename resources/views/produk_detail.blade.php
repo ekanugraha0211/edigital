@@ -11,7 +11,7 @@
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
               <h2>PRODUK DETAIL</h2>
-              <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <p>Temukan produk terbaik untuk kebutuhan Anda di eDisplay Sumenep. Kami berkomitmen untuk menyediakan berbagai produk berkualitas tinggi yang dirancang untuk memberikan kepuasan maksimal dan pengalaman pengguna yang luar biasa.</p>
             </div>
           </div>
         </div>
@@ -34,15 +34,24 @@
           <div class="slides-1 portfolio-details-slider swiper">
             <div class="swiper-wrapper align-items-center">
               
-              <div class="swiper-slide">
-                <img src="{{ $produk->foto1 }}" alt="">
-              </div>
-              <div class="swiper-slide">
-                <img src="{{ $produk->foto2 }}" alt="">
-              </div>
-              <div class="swiper-slide">
-                <img src="{{ $produk->foto3 }}" alt="">
-              </div>
+              @if($produk->foto1)
+<div class="swiper-slide">
+    <img src="{{ $produk->foto1 }}" alt="">
+</div>
+@endif
+
+@if($produk->foto2)
+<div class="swiper-slide">
+    <img src="{{ $produk->foto2 }}" alt="">
+</div>
+@endif
+
+@if($produk->foto3)
+<div class="swiper-slide">
+    <img src="{{ $produk->foto3 }}" alt="">
+</div>
+@endif
+
               
               
 
@@ -79,10 +88,12 @@
             <div class="portfolio-info">
               <h3>Informasi UMKM</h3>
               <ul>
+                <li><strong>Nama UMKM</strong> <span>{{ $produk->umkm ? $produk->umkm->nama : '-' }}</span></li>
                 <li><strong>Kategori</strong> <span>{{ $produk->umkm ? $produk->umkm->SektorUsaha->nama : '-' }}
                 </span></li>
-                <li><strong>Nama UMKM</strong> <span>{{ $produk->umkm ? $produk->umkm->nama : '-' }}</span></li>
                 <li><strong>Alamat</strong> <span>{{ $produk->umkm ? $produk->umkm->alamat : '-'  }}</span></li>
+                <li><strong>Desa</strong> <span>{{ $produk->umkm ? $produk->umkm->desa : 'Tidak diketahui'  }}</span></li>
+                <li><strong>Kecamatan</strong> <span>{{ $produk->umkm ? $produk->umkm->kecamatan : 'Tidak diketahui'  }}</span></li>
                 <!-- <li><strong>Project URL</strong> <a href="#">www.example.com</a></li> -->
                 <li><a href="https://wa.me/{{ $produk->umkm ? $produk->umkm->whatsapp : '-' }}" class="btn-visit align-self-start">Hubungi</a></li>
                 <!-- <li>

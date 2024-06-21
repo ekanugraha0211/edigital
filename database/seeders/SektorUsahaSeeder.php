@@ -46,6 +46,9 @@ class SektorUsahaSeeder extends Seeder
         SektorUsaha::create([
             'nama' => 'Kuliner'
         ]);
+        SektorUsaha::create([
+            'nama' => 'Perikanan'
+        ]);
 
         
 

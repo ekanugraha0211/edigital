@@ -59,8 +59,23 @@
         @csrf
         <img src="assets/img/eDisplay3.png" alt="Logo" class="logo">
         <h2 class="text-center mb-4">Login</h2>
+        <!-- Success and Error Messages -->
+        @if(session('success'))
+          <div class="alert alert-success">
+            {{ session('success') }}
+          </div>
+        @endif
+
+        @if($errors->any())
+          <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+              <p>{{ $error }}</p>
+            @endforeach
+          </div>
+        @endif
+
         <div class="form-group">
-          <label for="name">Email</label>
+          <label for="name">Username</label>
           <input type="text" id="name" name="name" class="form-control" placeholder="Enter your email" required>
         </div>
         <div class="form-group">
@@ -70,7 +85,7 @@
         <div class="form-group">
           <button type="submit" class="btn btn-primary btn-block">Masuk</button>
         </div>
-        <p class="text-center">Belum punya akun? <a href="/register">Daftar disini</a></p>
+        <p class="text-center">UMKM Belum Terdaftar ? <a href="/register">Daftar disini</a></p>
       </form>
     </div>
   </div>

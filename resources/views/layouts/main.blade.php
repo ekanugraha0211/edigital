@@ -91,7 +91,7 @@
         </div>
 
         <div class="col-lg-3 col-6 footer-links">
-          <h4>Pengembang</h4>
+          <p>Pengembang</p>
           {{-- <ul>
             <li><a href="https://www.instagram.com/ekanugraha0211/">Eka Prasetya Nugraha <br> (Teknologi Informasi Universitas Jember)</a></li>
             <li><a href="https://www.instagram.com/_nailasdh/">Nailatus Sa'adah Sarmadiyah <br>(Ilmu Komunikasi UPN Veteran Jatim)</a></li>
@@ -99,7 +99,7 @@
           <p><a style="color: white;" href="https://ekaprofile.vercel.app/" target="_blank">Eka Prasetya Nugraha <br> (Teknologi Informasi Universitas Jember)</a></p>
           <p><a style="color: white;" href="https://www.instagram.com/_nailasdh/" target="_blank">Nailatus Sa'adah Sarmadiyah <br> (Ilmu Komunikasi UPN Veteran Jatim)</a></p>
           {{-- <p>Nailatus Sa'adah Sarmadiyah <br>(Ilmu Komunikasi UPN Veteran Jatim)</p> --}}
-          <h4>Pembimbing</h4>
+          <p>Pembimbing</p>
           <p>Irwan Sujatmiko <br>(Kepala Bidang IKP Diskominfo Sumenep)</p>
         </div>
 

@@ -86,10 +86,10 @@
                 <!-- USERS LIST -->
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Latest Members</h3>
+                    <h3 class="card-title">UMKM</h3>
 
                     <div class="card-tools">
-                      <span class="badge badge-danger">8 New Members</span>
+                      {{-- <span class="badge badge-danger">8 New Members</span> --}}
                       <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
                       </button>
@@ -105,7 +105,7 @@
                         <li>
                           <img src="{{ $u->logo }}" alt="User Image" style="height: 120px; width:120px;">
                           <a class="users-list-name" href="#">{{ $u->nama }}</a>
-                          <span class="users-list-date">Today</span>
+                          {{-- <span class="users-list-date">Today</span> --}}
                         </li> 
                         @endforeach
                       
@@ -114,7 +114,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-center">
-                    <a href="/adminUmkm">View All Users</a>
+                    <a href="/adminUmkm">Lihat Selengkapnya</a>
                   </div>
                   <!-- /.card-footer -->
                 </div>
