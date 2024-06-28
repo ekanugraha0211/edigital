@@ -769,6 +769,15 @@ section {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+@media (max-width: 767px) {
+  .mobile-hidden {
+      display: none; /* Hide h3 on mobile */
+  }
+  .mobile-visible {
+      display: block; /* Show p on mobile */
+  }
+}
+
 @media (max-width: 575px) {
 
   .portfolio-details .swiper-button-prev,

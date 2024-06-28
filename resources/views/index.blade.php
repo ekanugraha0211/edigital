@@ -59,14 +59,14 @@
               <img src="{{ $d->foto }}" class="img-fluid" alt="">
           </div>
           <div class="col-md-7 order-{{ ($index % 2 == 0) ? '2' : '1' }} ">
-              <p>{{ $d->judul }}</p>
-              {{-- <p class="fst-italic">
-                  {{ $d->deskripsi }}
-              </p> --}}
-              <p class="fst-italic formatted-text text-justify ">
-                  {{ $d->deskripsi }}
-              </p>
-          </div>
+            <p>{{ $d->judul }}</p>
+            {{-- <p class="fst-italic">
+                {{ $d->deskripsi }}
+            </p> --}}
+            <p class="fst-italic formatted-text text-justify ">
+                {{ $d->deskripsi }}
+            </p>
+        </div>
       </div>
       @endforeach
       {{-- <div class="portfolio-container"> --}}

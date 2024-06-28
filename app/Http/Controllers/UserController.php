@@ -69,7 +69,7 @@ class UserController extends Controller
         $user = user::findOrFail($id);
 
 
-        return view('admin.useredit', compact('user'));
+        return view('admin.Useredit', compact('user'));
 
     }
 
