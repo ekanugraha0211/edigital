@@ -59,17 +59,16 @@
               <img src="{{ $d->foto }}" class="img-fluid" alt="">
           </div>
           <div class="col-md-7 order-{{ ($index % 2 == 0) ? '2' : '1' }} ">
-            <p>{{ $d->judul }}</p>
-            {{-- <p class="fst-italic">
-                {{ $d->deskripsi }}
-            </p> --}}
+            <h3>{{ $d->judul }}</h3>
             <p class="fst-italic formatted-text text-justify ">
                 {{ $d->deskripsi }}
             </p>
+            <br>
         </div>
       </div>
       @endforeach
       {{-- <div class="portfolio-container"> --}}
+        <br><br>
         <div style="overflow-x: auto; white-space: nowrap;">
           @php
               $randomProducts = $dataProduk->shuffle()->take(10);
