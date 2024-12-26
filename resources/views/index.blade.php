@@ -73,17 +73,35 @@
           @php
               $randomProducts = $dataProduk->shuffle()->take(10);
           @endphp
-          @foreach ($randomProducts as $p)
-          <div style="display: inline-block; width: 240px; margin-right: 20px; border-radius: 10px; overflow: hidden;">
-              <div style="border: 1px solid #ddd; padding: 15px; box-sizing: border-box;">
-                  <a href="{{ $p->foto1 }}" data-gallery="portfolio-gallery-app"><img src="{{ $p->foto1 }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; overflow: hidden;" alt=""></a>
-                  <div style="margin-top: 10px;">
-                      <h4 style="font-size: 18px; margin-bottom: 5px;"><a href="{{ route('produkdetail', $p->id) }}" style="text-decoration: none; color: #000;" title="More Details">{{ $p->nama_produk }}</a></h4>
-                      <p style="font-size: 14px; color: #888; margin-bottom: 0;">{{ $p->tagline }}</p>
-                  </div>
+          <div class="container my-4">
+            <div class="row flex-row flex-nowrap overflow-auto" style="white-space: nowrap; scroll-snap-type: x mandatory;">
+              @foreach ($randomProducts as $p)
+              <div class="col-6 col-md-4 col-lg-3 px-2" style="scroll-snap-align: start;">
+                  <a href="{{ route('produkdetail', $p->id) }}" class="text-decoration-none">
+                      <article class="post border rounded shadow-sm overflow-hidden" style="transition: transform 0.3s;">
+                          <!-- Gambar Produk -->
+                          <div class="post-img position-relative" style="height: 180px; overflow: hidden; border-radius: 10px;">
+                              <img src="{{ asset($p->foto1) ?? '/asset/img/default.png' }}" alt="{{ $p->nama_produk }}" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+                              {{-- <span class="badge bg-success position-absolute top-0 start-0 m-2" style="font-size: 0.8rem; padding: 5px 10px;">New</span> --}}
+                          </div>
+                          
+                          <!-- Nama Produk -->
+                          <div class="p-2 text-center">
+                              <h2 class="title mb-1" style="font-size: 1rem; font-weight: bold; color: #333;">
+                                  {{ $p->nama_produk }}
+                              </h2>
+                              <!-- Harga Produk -->
+                              <p class="price mb-0 text-success" style="font-size: 1rem; font-weight: bold;">
+                                  Rp {{ number_format($p->harga, 0, ',', '.') }}
+                              </p>
+                          </div>
+                      </article>
+                  </a>
               </div>
-          </div>
-          @endforeach<!-- End Portfolio Item -->
+              @endforeach
+            </div>
+        </div>
+        <!-- End Portfolio Item -->
       </div>
       
       
