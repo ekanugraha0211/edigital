@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\user; // Import model UMKM
+use App\Models\User; // Import model UMKM
 
 
 use Illuminate\Http\Request;
@@ -34,7 +34,7 @@ class UserController extends Controller
     $user = user::all();
     // $umkm = $produk->umkm; 
     $request->validate([
-        'name' => 'required|string|max:255',
+        'nama' => 'required|string|max:255',
         'email' => 'required|string|max:255',
         'password' => 'required|string|max:255',
         // 'role' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -42,10 +42,10 @@ class UserController extends Controller
 
     // Buat produk baru
     $user = user::create([
-        'name' => $request->name,
+        'nama' => $request->nama,
         'email' => $request->email,
         'password' => $request->password,
-        'role' => 'guest',
+        'role' => 'umkm',
     ]);
 
     // return redirect('User.index')->with('success', 'Produk Berhasil Ditambahkan');
@@ -84,7 +84,7 @@ class UserController extends Controller
    
 
     // Update data produk
-    $user->name = $request->name;
+    $user->nama = $request->nama;
     $user->email = $request->email;
     $user->password = $request->password;
     $user->role = $request->role;

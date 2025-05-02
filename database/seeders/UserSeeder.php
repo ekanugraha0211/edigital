@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Admin',
+            'nama' => 'Admin',
             'email' => 'admin@example.com',
             'password' => bcrypt('password'),
             'role' => 'admin',
@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
 
         // Buat UMKM Owner
         User::create([
-            'name' => 'UMKM Owner',
+            'nama' => 'UMKM Owner',
             'email' => 'umkm@example.com',
             'password' => bcrypt('password'),
             'role' => 'umkm',

@@ -21,6 +21,9 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css">
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -89,16 +92,7 @@
       </div> --}}
 
       <!-- SidebarSearch Form -->
-      {{-- <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div> --}}
+      
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -132,14 +126,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/adProduk" class="nav-link">
-              <i class="nav-icon fas fa-box-open"></i>
-              <p>
-                Produk
-              </p>
-            </a>
-          </li>
+          
           <li class="nav-item ">
             <a href="/adminkontak" class="nav-link">
               <i class="nav-icon fas fa-comment-dots"></i>

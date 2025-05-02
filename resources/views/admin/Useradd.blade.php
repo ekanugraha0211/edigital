@@ -44,8 +44,8 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" name="name" class="form-control" >
+                  <label for="nama">Nama</label>
+                  <input type="text" id="nama" name="nama" class="form-control" >
               </div>
               <div class="form-group">
                 <label for="email">Email</label>

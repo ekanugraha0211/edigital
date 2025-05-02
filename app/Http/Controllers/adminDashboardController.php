@@ -11,7 +11,7 @@ use App\Models\SektorUsaha;
 use App\Models\SkalaUsaha;
 use App\Models\User;
 
-class adminDashboardController extends Controller
+class AdminDashboardController extends Controller
 {
     public function index()
     {

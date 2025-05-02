@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nama',
         'email',
         'password',
         'role',
@@ -45,6 +45,8 @@ class User extends Authenticatable
     ];
     public function umkm()
     {
-        return $this->hasOne(Umkm::class, 'id_user');
+        return $this->hasOne(Umkm::class, 'users_id');
     }
+    
+
 }

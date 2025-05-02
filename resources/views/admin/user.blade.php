@@ -70,11 +70,11 @@
     @if($k->role != 'admin')
         <tr>
             <td>{{ $loop->index + 1 }}</td>
-            <td>{{ $k->name }}</td>
+            <td>{{ $k->nama }}</td>
             <td>
                 <div class="sparkbar" data-color="#00a65a" data-height="20">{{ $k->email }}</div>
             </td>
-            <td>{{ $k->umkm->nama ?? '-' }}</td>
+            <td>{{ $k->umkm->nama_umkm ?? '-' }}</td>
             <td>
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="switch{{ $loop->index }}" {{ $k->role == 'umkm' ? 'checked' : '' }} disabled>

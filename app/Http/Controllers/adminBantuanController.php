@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\bantuan;
-class adminBantuanController extends Controller
+use App\Models\Bantuan;
+class AdminBantuanController extends Controller
 {
     public function index()
     {
         $bantuan = Bantuan::all();
-        // $kontak = Kontak::all();
 
-        // Kirim data ke view admin.konten
         return view('admin.bantuan', compact('bantuan'));
         //
     }

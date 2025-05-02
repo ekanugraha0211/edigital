@@ -8,19 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Produk extends Model
 {
     use HasFactory;
-
     protected $table = 'produk';
-    protected $fillable = ['id','nama_produk', 'tagline', 'deskripsi','foto1', 'foto2', 'foto3', 'id_sektor_usaha', 'id_umkm'];
+    protected $fillable = ['umkm_id', 'nama', 'deskripsi', 'harga', 'stok'];
 
-    // Relasi dengan model Umkm
     public function umkm()
     {
-        return $this->belongsTo(Umkm::class, 'id_umkm');
+        return $this->belongsTo(UMKM::class, 'umkm_id');
     }
 
-    // public function SektorUsaha()
-    // {
-    //     return $this->belongsTo(SektorUsaha::class, 'id_sektor_usaha');
-    // }
+    public function gambarProduk()
+    {
+        return $this->hasMany(GambarProduk::class);
+    }
 }
 

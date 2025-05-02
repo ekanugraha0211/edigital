@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\bantuan;
+use App\Models\Bantuan;
 use App\Http\Requests\StorebantuanRequest;
 use App\Http\Requests\UpdatebantuanRequest;
 

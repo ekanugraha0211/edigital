@@ -1892,3 +1892,107 @@ section {
   background: var(--color-white);
   box-shadow: none;
 }
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+}
+.product-details {
+  margin-top: 20px;
+}
+/* .product-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+} */
+.product-info {
+  margin-top: 20px;
+}
+.product-info h5 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.product-info p {
+  font-size: 14px;
+  color: #666;
+}
+.quantity-control {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.quantity-control input {
+  width: 50px;
+  text-align: center;
+}
+.btn-buy, .btn-cart {
+  width: 100%;
+  margin-top: 10px;
+}
+.btn-buy {
+  background-color: #28a745;
+  color: white;
+}
+.btn-cart {
+  background-color: #007bff;
+  color: white;
+}
+.product-info .nav-tabs .nav-link.active {
+  color: #28a745;
+}
+
+.card {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+/* .btn-quantity {
+  padding: 5px 10px;
+  border-radius: 4px;
+} */
+
+/* .quantity-input {
+  width: 50px;
+  height: 30px;
+  text-align: center;
+} */
+
+.stock-info {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #333;
+}
+.subtotal {
+  font-size: 14px;
+  color: black; /* Ubah warna teks menjadi hitam */
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: black; /* Ubah warna teks menjadi hitam */
+}
+
+
+/* .subtotal {
+  font-size: 14px;
+  color: #0c0707;
+  margin-bottom: 10px;
+} */
+
+
+
