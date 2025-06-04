@@ -9,5 +9,9 @@ class BentukUsaha extends Model
 {
     use HasFactory;
     protected $table = 'bentuk_usaha';
-    protected $fillable = ['nama'];
+    protected $fillable = ['id', 'nama'];
+
+    public function umkm(){
+        return $this->hasMany(UMKM::class, 'bentuk_usaha_id');
+    }
 }

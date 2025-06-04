@@ -9,15 +9,15 @@ class Pesanan extends Model
 {
     use HasFactory;
     protected $table = 'pesanan';
-    protected $fillable = ['users_id', 'total', 'status'];
+    protected $fillable = ['id', 'users_id','nama','alamat','whatsapp','jumlah', 'status', 'catatan', 'produk_id'];
 
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'users_id');
     }
 
-    public function detailPesanan()
+    public function produk()
     {
-        return $this->hasMany(DetailPesanan::class);
+        return $this->belongsTo(Produk::class, 'produk_id');
     }
 }

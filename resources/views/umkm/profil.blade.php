@@ -1,76 +1,114 @@
-  @extends('umkm.layouts.main')
+@extends('umkm.layouts.main')
 
-  @section('container')
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="hero bg-white" >
-  <div class="container bg-white p-5 rounded shadow-lg">
-    <div class="row align-items-center">
-      <!-- Business Logo -->
-      <div class="col-md-3 text-center">
-        <img src="https://via.placeholder.com/150" alt="Business Logo" class="rounded-circle img-fluid shadow">
+@section('container')
+<section id="hero" class="hero bg-white">
+  <div class="container bg-white p-4 rounded">
+    <div class="row">
+      <!-- Kiri: Foto + Nama -->
+      <div class="col-md-4 text-center d-flex flex-column align-items-center">
+        <img 
+          src="{{ Auth::check() && Auth::user()->umkm && Auth::user()->umkm->logo ? asset('storage/' . Auth::user()->umkm->logo) : asset('assets/img/eDisplay3.png') }}" 
+          alt="Logo UMKM" 
+          class="img-fluid shadow mb-3"
+          style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover;">
+        <h5 class="fw-semibold text-dark mb-1">{{ $user->nama ?? 'Nama Pemilik' }}</h5>
+        <p class="text-muted mb-0">{{ $user->email ?? 'Email Pemilik' }}</p>
+      </div>
+
+      <!-- Kanan: Identitas UMKM -->
+       
+      <!-- Kanan: Identitas UMKM -->
+<div class="col-md-8 position-relative">
+  <!-- Tombol Edit di luar kotak -->
+  <div class="d-flex justify-content-end mb-2">
+    <a href="{{ route('umkmprofil.edit', $umkm->id) }}" 
+       class="btn btn-sm btn-warning text-white ">
+      <i class="bi bi-pen"></i></a>
+  </div>
+
+  <!-- Kotak utama berisi Identitas, Surat, Usaha -->
+  <div class="bg-light rounded">
+
+    <!-- Header dengan tombol -->
+    <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+      <h5 class="fw-bold mb-0">Identitas</h5>
+      <div class="d-flex align-items-center">
+      <button class="btn btn-sm btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#identitasBody" aria-expanded="true" aria-controls="identitasBody">
+        <i class="bi bi-chevron-down"></i>
+      </button>
       </div>
       
-      <!-- Business Information -->
-      <div class="col-md-9">
-        <h1 class="display-5 fw-bold text-dark">{{$produk->nama_produk}}</h1>
-        <p class="lead text-muted">Kategori: Kuliner | Kerajinan | Jasa | Produk Lokal</p>
-        <p>UMKM kami bergerak di bidang [deskripsi singkat tentang bisnis, seperti produk unggulan, layanan, atau keunikan]. Dengan komitmen untuk memberikan produk berkualitas dan layanan terbaik, kami terus berinovasi untuk mendukung pelanggan dan komunitas.</p>
-        
-        <!-- Contact Information -->
-        <div class="mt-3 d-flex gap-3">
-          <a href="#" class="text-primary text-decoration-none">Instagram</a>
-          <a href="#" class="text-primary text-decoration-none">Website</a>
-          <a href="#" class="text-primary text-decoration-none">WhatsApp</a>
-        </div>
-      </div>
     </div>
+    <!-- Konten yang bisa di-collapse -->
+    <div class="collapse hide" id="identitasBody">
+  <div class="p-4">
+    <p class="mt-3 mb-1 text-muted">Nama UMKM</p>
+    <p class="fw-bold text-dark">{{ $umkm->nama_umkm ?? '-' }}</p>
 
-    <!-- Additional Information Section -->
-    <div class="row mt-5">
-      <div class="col-md-6 mb-3">
-        <div class="p-3 bg-light border rounded">
-          <h5 class="text-primary">Produk Unggulan</h5>
-          <ul class="list-unstyled text-muted">
-            @foreach ($produk as $prod )
-            <li>{{ $prod->nama_produk}}</li>
-            @endforeach
-            
-            <li>Produk B - Deskripsi singkat</li>
-            <li>Produk C - Deskripsi singkat</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-6 mb-3">
-        <div class="p-3 bg-light border rounded">
-          <h5 class="text-primary">Layanan</h5>
-          <ul class="list-unstyled text-muted">
-            <li>Layanan A - Deskripsi singkat</li>
-            <li>Layanan B - Deskripsi singkat</li>
-            <li>Layanan C - Deskripsi singkat</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-6 mb-3">
-        <div class="p-3 bg-light border rounded">
-          <h5 class="text-primary">Alamat</h5>
-          <p class="text-muted">Jl. Contoh Alamat No. 123, Kabupaten Sumenep</p>
-        </div>
-      </div>
-      <div class="col-md-6 mb-3">
-        <div class="p-3 bg-light border rounded">
-          <h5 class="text-primary">Jam Operasional</h5>
-          <p class="text-muted">Senin - Sabtu: 08.00 - 17.00</p>
-        </div>
-      </div>
-    </div>
+    <p class="mb-1 text-muted">Alamat</p>
+    <p class="fw-bold text-dark">{{ $umkm->alamat ?? '-' }}</p>
 
-    <!-- Product Display Section -->
-    <div class="container my-4">
-           
-        </div>
+    <p class="mb-1 text-muted">Desa</p>
+    <p class="fw-bold text-dark">{{ $umkm->desa ?? '-' }}</p>
+
+    <p class="mb-1 text-muted">Deskripsi</p>
+    <p class="fw-bold text-dark">{{ $umkm->deskripsi ?? '-' }}</p>
+
   </div>
-  </section>
- 
+</div>
+    <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+      <h5 class="fw-bold mb-0">Surat</h5>
+      <div class="d-flex align-items-center">
+      <button class="btn btn-sm btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#suratBody" aria-expanded="true" aria-controls="identitasBody">
+        <i class="bi bi-chevron-down"></i>
+      </button>
+      </div>
+      
+    </div>
+    <!-- Konten yang bisa di-collapse -->
+<div class="collapse hide" id="suratBody">
+  <div class="p-4">
+    <p class="mt-3 mb-1 text-muted">Nomor surat ijin</p>
+    <p class="fw-bold text-dark">{{ $umkm->no_surat_ijin ?? '-' }}</p>
 
-  <!-- End Hero Section -->
-  @endsection
+    <p class="mb-1 text-muted">NPWP</p>
+    <p class="fw-bold text-dark">{{ $umkm->NPWP ?? '-' }}</p>
+
+    <p class="mb-1 text-muted">Kodepos</p>
+    <p class="fw-bold text-dark">{{ $umkm->kodepos ?? '-' }}</p>
+
+  </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+  <h5 class="fw-bold mb-0">Usaha</h5>
+  <div class="d-flex align-items-center">
+    <button class="btn btn-sm btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#usahaBody" aria-expanded="true" aria-controls="usahaBody">
+      <i class="bi bi-chevron-down"></i>
+    </button>
+  </div>
+</div>
+
+    <!-- Konten yang bisa di-collapse -->
+    <!-- Di bagian Usaha -->
+<div class="collapse hide" id="usahaBody">
+  <div class="p-4">
+    <p class="mt-3 mb-1 text-muted">Skala usaha</p>
+    <p class="fw-bold text-dark">{{ $umkm->SkalaUsaha->nama ?? '-' }}</p>
+
+    <p class="mb-1 text-muted">Sektor usaha</p>
+    <p class="fw-bold text-dark">{{ $umkm->SektorUsaha->nama ?? '-' }}</p>
+
+    <p class="mb-1 text-muted">Bentuk usaha</p>
+    <p class="fw-bold text-dark">{{ $umkm->BentukUsaha->nama ?? '-' }}</p>
+
+  </div>
+</div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+@endsection

@@ -1,55 +1,85 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Hash;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\umkm; // Import model UMKM
-use App\Models\SektorUsaha; // Import model UMKM
+use App\Models\UMKM;
+// use App\Models\User;
 
-class UMKMController extends Controller
+class UmkmController extends Controller
 {
-    // Metode untuk menampilkan formulir pendaftaran UMKM
-    public function index()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(Request $request)
+{
+    $query = Umkm::with(['SektorUsaha', 'BentukUsaha','SkalaUsaha']);
+
+    if ($request->filled('search')) {
+        $search = $request->search;
+        $query->where('nama_umkm', 'like', "%$search%")
+              ->orWhere('alamat', 'like', "%$search%")
+              ->orWhere('desa', 'like', "%$search%")
+              ->orWhere('kodepos', 'like', "%$search%")
+              ->orWhere('deskripsi', 'like', "%$search%");
+    }
+    $title = 'umkm';
+    $umkm = $query->get();
+
+    return view('umkm', compact('umkm','title'));
+}
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        $sektor=SektorUsaha::all();
-        return view('register', compact('sektor')); // Ganti 'registration_form' dengan nama blade view formulir registrasi Anda
+        //
     }
 
-    // Metode untuk menyimpan data UMKM yang didaftarkan
-    public function create(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        // Validasi data yang masuk
+        //
+    }
 
-$request->validate([
-            'nama' => 'required|string|max:255',
-            'alamat' => 'required|string|max:255',
-            'desa' => 'required|string|max:255',
-            'kecamatan' => 'required|string|max:255',
-            'kodepos' => 'required|string|max:255',
-            'whatsapp' => 'required|string|max:255',
-            // 'id_sektor' => 'required|string|max:255',
-            
-            // 'password' => 'required|string|max:255',
-            // 'nama_pemilik' => 'required|string|max:255',
-]);
-// $hashedPassword = Hash::make($request->password);
-$umkm = new umkm;
-$umkm->nama = $request->nama;
-$umkm->alamat = $request->alamat;
-$umkm->desa = $request->desa;
-$umkm->kecamatan = $request->kecamatan;
-$umkm->kodepos = $request->kodepos;
-$umkm->whatsapp = $request->whatsapp;
-$umkm->id_sektor_usaha = $request->id_sektor_usaha;
-$umkm->save();
-if($umkm->save())
-{
-    return redirect('/register')->with('success', 'Pendaftaran UMKM berhasil!');
-}
-else{
-    return redirect('/register')->with('gagal', 'Pendaftaran UMKM gagal!');
-}
-       
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        {
+            $umkm = umkm::findOrFail($id);
+            $title = 'umkm';
+    
+            return view('umkm_detail', compact( 'umkm','title'));
+        }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

@@ -14,6 +14,31 @@ class AdminProdukController extends Controller
     /**
      * Display a listing of the resource.
      */
+    
+     public function index(Request $request)
+{
+    $title = 'produk';
+
+    $produk = Produk::with('umkm');
+
+    if ($request->has('search') && $request->search != '') {
+        $searchTerm = $request->search;
+        $produk->where(function($query) use ($searchTerm) {
+            $query->where('nama_produk', 'like', '%' . $searchTerm . '%')
+                  ->orWhereHas('umkm', function($query) use ($searchTerm) {
+                      $query->where('nama', 'like', '%' . $searchTerm . '%')
+                            ->orWhere('alamat', 'like', '%' . $searchTerm . '%')
+                            ->orWhere('desa', 'like', '%' . $searchTerm . '%')
+                            ->orWhere('kecamatan', 'like', '%' . $searchTerm . '%');
+                  });
+        });
+    }
+
+
+    $produk = $produk->paginate(12);
+
+    return view('admin.produk', compact('produk', 'title'));
+}
     public function show(string $id)
     {
         {

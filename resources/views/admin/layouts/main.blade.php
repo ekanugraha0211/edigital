@@ -1,203 +1,174 @@
-@php
-    use Illuminate\Support\Facades\Auth;
-@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>eDisplay Admin</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <link href="/assets/img/eDisplay3.png" rel="icon">
+  <title>Nama Aplikasi UMKM</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="/assets/admin/plugins/fontawesome-free/css/all.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="/assets/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="/assets/admin/dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Favicon -->
+  <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Nunito&family=Poppins&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS (lokal) -->
+  <link href="{{ asset('') }}assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- DataTables Bootstrap 5 CSS -->
+  <link href="https://cdn.datatables.net/2.3.0/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
 </head>
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="wrapper">
 
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="/assets/img/eDisplay3.png" alt="eDisplay" height="60" width="60">
-  </div>
-
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-dark">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      {{-- <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li> --}}
-    </ul>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-     
-
-      <!-- Messages Dropdown Menu -->
-
-      <!-- Notifications Dropdown Menu -->
-      
-      
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('logout') }}" 
-           onclick="event.preventDefault(); document.getElementById('logout-form').submit();" role="button">
-            <i class="fas fa-sign-out-alt"></i>
-        </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
-    </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="" class="brand-link">
-      <img src="/assets/img/eDisplay3.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">eDisplay Admin</span>
-    </a>
-
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="/assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">{{ Auth::check() ? Auth::user()->name : 'Guest' }}</a>
-        </div>
-      </div> --}}
-
-      <!-- SidebarSearch Form -->
-      
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="/admin" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                {{-- <i class="right fas fa-angle-left"></i> --}}
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('User.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                User
-                {{-- <span class="right badge badge-danger">New</span> --}}
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/adminUmkm" class="nav-link">
-              <i class="nav-icon fas fa-store-alt"></i>
-              <p>
-                UMKM
-                {{-- <i class="right fas fa-angle-left"></i> --}}
-              </p>
-            </a>
-          </li>
-          
-          <li class="nav-item ">
-            <a href="/adminkontak" class="nav-link">
-              <i class="nav-icon fas fa-comment-dots"></i>
-              <p>
-                Pesan
-                {{-- <i class="right fas fa-angle-left"></i> --}}
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/adminBantuan" class="nav-link">
-              <i class="nav-icon fas fa-hands-helping"></i>
-              <p>
-                QnA
-                {{-- <span class="right badge badge-danger">New</span> --}}
-              </p>
-            </a>
-          </li>
-
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
-  <!-- Content Wrapper. Contains page content -->
-  @yield('content')
+<body>
+     <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- <img src="/asset/img/eDisplayborder.png" class="img fluid" alt=""> -->
+        <img src="{{  asset('assets/img/eDisplayborder.png') }}" class="img fluid" alt="">
+      </a>
+      <nav id="navbar" class="navbar">
+      <ul>
+  <li><a href="/admin" class="nav-link {{ ($title === 'beranda') ? 'active' : '' }}">Beranda</a></li>
+  <li><a href="{{ route('adminProduk.index') }}"  class="nav-link {{ ($title === 'produk' || $title === 'detail') ? 'active' : '' }}">Produk</a></li>
+  <li><a href="{{ route('adminUmkm.index') }}"  class="nav-link {{ ($title === 'UMKM' || $title === 'detail') ? 'active' : '' }}">UMKM</a></li>
   
-  <!-- /.content-wrapper -->
+  <li><a href="/adminaduan" class="nav-link {{ ($title === 'aduan') ? 'active' : '' }}">Aduan</a></li>
+  <!-- <li><a href="/adminbantuan" class="nav-link {{ ($title === 'bantuan') ? 'active' : '' }}">Bantuan</a></li> -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+  <li class="dropdown profile-menu">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="{{ Auth::check() && Auth::user()->umkm && Auth::user()->umkm->logo 
+                  ? asset(Auth::user()->umkm->logo) 
+                  : asset('assets/img/eDisplay3.png') }}"
+           alt="Profile logo" style="width: 40px; height: 40px; border-radius: 50%;">
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end p-2 shadow rounded-3" style="min-width: 220px;">
+  @if (Auth::check())
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{{ route('user.index') }}">
+        <i class="bi bi-people fs-5"></i>
+        <span class="flex-grow-1">Daftar Pengguna</span>
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{{ route('permintaan.index') }}">
+        <i class="bi bi-person-check fs-5"></i>
+        <span class="flex-grow-1">Permintaan Akun</span>
+      </a>
+    </li>
+    <li><hr class="dropdown-divider my-2"></li>
+    <li>
+      <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger">
+          <i class="bi bi-box-arrow-right fs-5"></i>
+          <span class="flex-grow-1">Logout</span>
+        </button>
+      </form>
+    </li>
+  @else
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/login">
+        <i class="bi bi-box-arrow-in-right fs-5 text-primary"></i>
+        <span class="flex-grow-1">Login</span>
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/register">
+        <i class="bi bi-person-plus fs-5 text-success"></i>
+        <span class="flex-grow-1">Register</span>
+      </a>
+    </li>
+  @endif
+</ul>
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
-  </footer>
+
+  </li>
+</ul>
+
 </div>
-<!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="/assets/admin/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="/assets/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/assets/admin/dist/js/adminlte.js"></script>
+      </nav><!-- .navbar -->
 
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="/assets/admin/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="/assets/admin/plugins/raphael/raphael.min.js"></script>
-<script src="/assets/admin/plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="/assets/admin/plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="/assets/admin/plugins/chart.js/Chart.min.js"></script>
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
-<!-- AdminLTE for demo purposes -->
-<script src="/assets/admin/dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/assets/admin/dist/js/pages/dashboard2.js"></script>
+    </div>
+  </header><!-- End Header -->
+  <!-- End Header -->
 
+@yield('container')
+
+   <!-- ======= Footer ======= -->
+   <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-info">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <img src="{{ asset('assets/img/eDisplayborder.png') }}" alt="">
+          </a>
+          <p>Dinas Koperasi Usaha Kecil dan Menengah perindustrian dan Perdagangan Sumenep menghadirkan eDisplay, platform online untuk mempertemukan UMKM dengan konsumen. Temukan produk lokal berkualitas, kaya budaya, dan tradisi Sumenep di eDisplay. Dukung UMKM Sumenep, kunjungi eDisplay sekarang!</p>
+          <div class="social-links d-flex mt-4">
+            <a href="https://www.youtube.com/channel/UC3brb61Fk7YAyNHdjP0ogTA" class="youtube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/diskominfosumenep/" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href=" https://twitter.com/kominfosumenep" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.instagram.com/kominfosumenep/" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.tiktok.com/@kominfo.sumenep?_t=8kqyabI6xJn&_r=1" class="tiktok"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-6 footer-links">
+          <p>Pengembang</p>
+          <p><a style="color: white;" href="https://ekaprofile.vercel.app/" target="_blank">Eka Prasetya Nugraha <br> (Teknologi Informasi Universitas Jember)</a></p>
+          <p><a style="color: white;" href="https://www.instagram.com/_nailasdh/" target="_blank">Nailatus Sa'adah Sarmadiyah <br> (Ilmu Komunikasi UPN Veteran Jatim)</a></p>
+          {{-- <p>Nailatus Sa'adah Sarmadiyah <br>(Ilmu Komunikasi UPN Veteran Jatim)</p> --}}
+          <p>Pembimbing</p>
+          <p>Irwan Sujatmiko <br>(Kepala Bidang IKP Diskominfo Sumenep)</p>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-contact  ">
+          <h4>Kontak Kami</h4>
+          
+          <p>Dinas Koperasi Usaha Kecil dan Menengah perindustrian dan Perdagangan <br>Jl. Urip Sumoharjo No. 6, Dusun Mastasek, Pabian, Kec. Kota Sumenep, Kab. Sumenep</p>
+          
+          <strong>WhatsApp:</strong> +62 877-1237-7783<br>
+          <strong>Email:</strong> diskopukmperiendag.sumenep@gmail.com<br>
+
+        </div>
+
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+      <!-- Vendor JS Files -->
+  <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
+   <!-- JS dependencies -->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> -->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.3.0/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.0/js/dataTables.bootstrap4.js"></script>
+
+    @stack('scripts')
+
+  <!-- Template Main JS File -->
+  <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 </html>

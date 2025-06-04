@@ -18,14 +18,41 @@ class adminUmkmController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    // public function index()
+    // {
+    //     $umkm = UMKM::with('SkalaUsaha', 'SektorUsaha', 'BentukUsaha')->get();
+    //     $sektor = SektorUsaha::all();
+    //     $skala = SkalaUsaha::all();
+    //     $bentuk = BentukUsaha::all();
+    //     $users = User::all();
+    //     $title = 'UMKM';
+    //     return view('admin.umkm', compact('umkm','title','sektor','skala', 'bentuk'));
+    // }
+    public function index(Request $request)
+{
+    $query = Umkm::with(['SektorUsaha', 'BentukUsaha','SkalaUsaha']);
+
+    if ($request->filled('search')) {
+        $search = $request->search;
+        $query->where('nama_umkm', 'like', "%$search%")
+              ->orWhere('alamat', 'like', "%$search%")
+              ->orWhere('desa', 'like', "%$search%")
+              ->orWhere('kodepos', 'like', "%$search%")
+              ->orWhere('deskripsi', 'like', "%$search%");
+    }
+    $title = 'UMKM';
+    $umkm = $query->get();
+
+    return view('admin.umkm', compact('umkm','title'));
+}
+public function show(string $id)
     {
-        $umkm = UMKM::with('User','SkalaUsaha', 'SektorUsaha', 'BentukUsaha')->get();
-        $sektor = SektorUsaha::all();
-        $skala = SkalaUsaha::all();
-        $bentuk = BentukUsaha::all();
-        $users = User::all();
-        return view('admin.umkm', compact('umkm','users','sektor','skala', 'bentuk'));
+        {
+            $umkm = umkm::findOrFail($id);
+            $title = 'UMKM';
+    
+            return view('admin.umkm_detail', compact( 'umkm','title'));
+        }
     }
 
     /**
@@ -111,10 +138,7 @@ class adminUmkmController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+  
 
     /**
      * Show the form for editing the specified resource.

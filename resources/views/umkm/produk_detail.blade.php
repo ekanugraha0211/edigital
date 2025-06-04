@@ -1,100 +1,135 @@
 @extends('umkm.layouts.main')
 
 @section('container')
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="hero bg-white">
-  <div class="container mt-4">
+<section id="produk-detail" class="py-5 bg-white">
+  <div class="container">
     <div class="row">
-      <!-- Product Image -->
-      <div class="col-md-5 text-center">
-  <img id="mainImage" src="{{ $produk->foto1 }}" class="img-fluid w-50 h-50" alt="Product Image">
-  <div class="d-flex mt-3">
-    <img onclick="changeImage('{{ $produk->foto1 }}')" src="{{ $produk->foto1 }}" class="img-thumbnail me-2" width="60" height="60" alt="Thumbnail 1">
-    <img onclick="changeImage('{{ $produk->foto2 }}')" src="{{ $produk->foto2 }}" class="img-thumbnail me-2" width="60" height="60" alt="Thumbnail 2">
-    <img onclick="changeImage('{{ $produk->foto3 }}')" src="{{ $produk->foto3 }}" class="img-thumbnail" width="60" height="60" alt="Thumbnail 3">
-  </div>
-</div>
 
-<script>
-  function changeImage(imageUrl) {
-    document.getElementById("mainImage").src = imageUrl;
-  }
-</script>
+      <!-- Kolom Gambar -->
+      <div class="col-md-6 text-center">
+        @if($produk->gambarProduk->isNotEmpty())
+          {{-- Gambar utama (gunakan gambar pertama sebagai default) --}}
+          <img id="mainImage" 
+               src="{{ asset('storage/' . $produk->gambarProduk->first()->path) }}" 
+               class="img-fluid mb-3 rounded shadow-sm" 
+               style="max-height: 350px; object-fit: cover;" 
+               alt="Product Image">
+        @else
+          {{-- Gambar default jika tidak ada gambar --}}
+          <img id="mainImage" 
+               src="{{ asset('img/default.png') }}" 
+               class="img-fluid mb-3 rounded shadow-sm" 
+               style="max-height: 350px; object-fit: cover;" 
+               alt="Default Image">
+        @endif
 
-
-      <!-- Product Details -->
-      <div class="col-md-7" style="color:black;">
-        <h3><b>{{ $produk->nama_produk }}</b></h3>
-        <p class="text-warning">⭐ 4.9 (121.7RB Penilaian) | 10RB+ Terjual</p>
-        <h3 class="text-success"><b>Rp37.580</b></h3>
-
-        <!-- <div class="voucher">
-          <strong>Voucher Toko:</strong>
-          <span>{{$produk->tagline}}</span>
-          <span>Rp5RB OFF</span>
-          <span>Rp15RB OFF</span>
-          <span class="text-muted">Rp20RB OFF</span>
-          <span class="text-danger">Tampilkan Semua ⮟</span>
-        </div> -->
-
-        <!-- Informasi Produk -->
-        <div class="mt-3">
-          @foreach([
-            'Deskripsi' => $produk->deskripsi,
-            'Alamat' => $produk->umkm->alamat,
-            'Desa' => $produk->umkm->desa,
-            'Kecamatan' => $produk->umkm->kecamatan,
-          ] as $label => $value)
-          <div class="row mb-2">
-            <div class="col-md-2"><b>{{ $label }}</b></div>
-            <div class="col-md-10 bg-light rounded p-2">{{ $value }}</div>
-          </div>
+        <!-- Thumbnail -->
+        <div class="d-flex justify-content-center gap-2">
+          @foreach ($produk->gambarProduk as $gambar)
+            @php
+              $imagePath = $gambar->path ? asset('storage/' . $gambar->path) : asset('img/default.png');
+            @endphp
+            <img 
+              onclick="changeImage('{{ $imagePath }}')" 
+              src="{{ $imagePath }}" 
+              class="img-thumbnail" 
+              style="width: 80px; height: 80px; object-fit: cover;" 
+              alt="Thumbnail">
           @endforeach
         </div>
 
-        <!-- Tombol Aksi -->
-        <!-- <div class="mt-3">
-          <button class="btn btn-outline-danger me-2">Masukkan Keranjang</button>
-          <button class="btn btn-danger">Beli Dengan Voucher Rp37.580</button>
-        </div> -->
+        <script>
+          function changeImage(src) {
+            document.getElementById('mainImage').src = src;
+          }
+        </script>
+      </div>
 
-        <!-- Store Information -->
-        <div class="mt-4 p-3 border rounded">
-          <div class="d-flex align-items-center">
-            <img src="{{$produk->umkm->logo}}" alt="" style="width: 70px; height: 70px; border-radius: 50%;">
-            <div class="ms-3">
-              <h5>{{$produk->umkm->nama}}</h5>
-              <p class="text-muted">{{$produk->umkm->SektorUsaha->nama}}</p>
-              <div class="mt-3 d-flex">
-                <a href="https://wa.me/{{$produk->umkm->whatsapp}}" target="_blank" class="btn btn-success me-2 d-flex align-items-center">
-                  <i class="bi bi-whatsapp "></i>
-                </a>
-                <a href="#" class="btn btn-primary me-2 d-flex align-items-center">
-                  <i class="bi bi-instagram"></i>
-                </a>
-                <a href="#" class="btn btn-warning d-flex align-items-center">
-                  <i class="bi bi-shop-window"></i>
-                </a>
-              </div>
+      <!-- Kolom Informasi -->
+      <div class="col-md-6">
+        <h3 class="fw-bold">{{ $produk->nama }}</h3>
+        <h4 class="text-success fw-bold">Rp{{ number_format($produk->harga, 0, ',', '.') }}</h4>
+        <p class="text-muted">{{ $produk->deskripsi }}</p>
+        <!-- Tombol Edit -->
+<button class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#editModal">
+  Pesan
+</button>
 
-            </div>
-          </div>
 
-          <!-- Store Stats Section -->
-          <div class="row mt-2">
-            <div class="col-md-6 text-muted">
-              <h6>Skala <span class="text-success">{{$produk->umkm->SkalaUsaha->nama}}</span></h6>
-              <h6>Bentuk <span class="text-success">{{$produk->umkm->BentukUsaha->nama}}</span></h6>
-            </div>
-            <div class="col-md-6 text-muted">
-              <h6>Website <span class="text-success">{{$produk->umkm->website}}</span></h6>
-              <h6>Waktu Chat Dibalas <span class="text-success">Hitungan Jam</span></h6>
-            </div>
+
+
+      </div>
+    </div>
+
+    <!-- Informasi UMKM -->
+    <div class="row mt-5">
+      <div class="col">
+        <div class="bg-light rounded d-flex align-items-center p-3 shadow-sm">
+          <img src="{{ asset('storage/'.$produk->umkm->logo) }}" 
+               class="rounded-circle" 
+               style="width: 70px; height: 70px; object-fit: cover;" 
+               alt="Logo UMKM">
+          <div class="ms-3">
+            <h5 class="mb-1 fw-semibold">{{ $produk->umkm->nama }}</h5>
+            <p class="mb-0 text-muted">{{ $produk->umkm->alamat }}</p>
           </div>
         </div>
       </div>
     </div>
+    <!-- Modal Pemesanan -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form action="{{ route('pesanan.store') }}" method="POST">
+      @csrf
+      <input type="hidden" name="produk_id" value="{{ $produk->id }}">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Form Pemesanan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          @auth
+            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+            <div class="mb-3">
+              <label class="form-label">Nama</label>
+              <input type="text" class="form-control" name="nama" value="{{ auth()->user()->name }}" readonly>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Alamat</label>
+              <textarea class="form-control" name="alamat" required>{{ auth()->user()->konsumen->alamat ?? '' }}</textarea>
+            </div>
+          @else
+            <!-- Untuk guest, input manual -->
+            <div class="mb-3">
+              <label class="form-label">Nama</label>
+              <input type="text" class="form-control" name="nama" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Alamat</label>
+              <textarea class="form-control" name="alamat" required></textarea>
+            </div>
+          @endauth
+
+          <div class="mb-3">
+            <label class="form-label">Jumlah</label>
+            <input type="number" name="jumlah" class="form-control" min="1" value="1" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Catatan (opsional)</label>
+            <textarea class="form-control" name="catatan"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Kirim Pesanan</button>
+        </div>
+      </div>
+    </form>
   </div>
+</div>
+
+  </div>
+  <!-- JS Bootstrap (v5) -->
+
 </section>
-<!-- End Hero Section -->
 @endsection

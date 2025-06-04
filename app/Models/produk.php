@@ -9,7 +9,8 @@ class Produk extends Model
 {
     use HasFactory;
     protected $table = 'produk';
-    protected $fillable = ['umkm_id', 'nama', 'deskripsi', 'harga', 'stok'];
+    protected $primaryKey = 'id';
+    protected $fillable = ['nama', 'deskripsi', 'harga','umkm_id'];
 
     public function umkm()
     {
@@ -18,7 +19,10 @@ class Produk extends Model
 
     public function gambarProduk()
     {
-        return $this->hasMany(GambarProduk::class);
+        return $this->hasMany(GambarProduk::class, 'produk_id');
+    }
+    public function Pesanan(){
+        return $this->hasMany(Pesanan::class,'produk_id');
     }
 }
 

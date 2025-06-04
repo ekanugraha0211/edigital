@@ -5,28 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\umkm; // Import model KONTAK
 use App\Models\produk; // Import model KONTAK
+use App\Models\beranda; // Import model KONTAK
 use App\Models\kontak; // Import model KONTAK
 use App\Models\BentukUsaha;
 use App\Models\SektorUsaha;
 use App\Models\SkalaUsaha;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-class AdminDashboardController extends Controller
+
+class adminDashboardController extends Controller
 {
     public function index()
     {
-        $umkm = Umkm::all();
-        $produk = Produk::all();
-        $kontak = Kontak::all();
-        $skala = SkalaUsaha::all();
-        $sektor = SektorUsaha::all();
-        $bentuk = BentukUsaha::all();
-        $user = user::all();
-        // $kontak = Kontak::all();
+
+        $dataBeranda = beranda::get();
+        $dataProduk = Produk::with('umkm')->get();
+        $title = 'beranda';
+
 
         // Kirim data ke view admin.konten
-        return view('admin.konten', compact('umkm', 'produk', 'kontak','skala','sektor','bentuk','user'));
+        return view('admin.index', compact('dataBeranda', 'dataProduk', 'title'));
         //
     }
+   
    
 }

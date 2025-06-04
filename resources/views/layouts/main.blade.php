@@ -9,9 +9,9 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/assets/img/eDisplay3.png" rel="icon">
+  <link href="{{ asset('assets/img/eDisplay3.png') }}" rel="icon">
   <!-- <link href="assets/img/fashion.png" rel="icon"> -->
-  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
@@ -20,40 +20,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
  
 
   <!-- Template Main CSS File -->
-  <link href="/assets/css/main.css" rel="stylesheet">
+  <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
 </head>
 <body>
      <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/eDisplayborder.png" class="img fluid" alt="">
+        <img src="{{ asset('assets/img/eDisplayborder.png') }}" class="img fluid" alt="">
       </a>
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="/" class="nav link {{ ($title === "beranda") ? 'active' : '' }}" >Beranda</a></li>
-          <li><a href="/produk" class="nav link {{ ($title === 'produk' || $title === 'detail') ? 'active' : '' }}">Produk Terbaru</a></li>
-          <li class="dropdown "><a href="#" class="nav link {{ $title === "kuliner" ? 'active' : '' }}"><span>Kategori</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              @foreach($SektorUsaha as $p)
-                  <li>
-                      <a href="{{ route('produk.sektor', ['sektor' => urlencode($p->nama)]) }}" class="nav link {{ ($title === ucfirst($p->nama)) ? 'active' : '' }}">{{ ucfirst($p->nama) }}</a>
-                  </li>
-              @endforeach
-          </ul>
-          
-          
-          </li>
-          <li><a href="/kontak"class="nav link {{ ($title === "kontak") ? 'active' : '' }}">Kontak</a></li>
-          <li><a href="/bantuan" class="nav link {{ ($title === "bantuan") ? 'active' : '' }}">Bantuan</a></li>
+          <li><a href="/produk" class="nav link {{ ($title === 'produk' || $title === 'detail') ? 'active' : '' }}">Produk</a></li>
+          <li><a href="{{route('listumkm.index')}}" class="nav link {{ ($title === 'umkm') ? 'active' : '' }}">UMKM</a></li>
+          <li><a href="/aduan"class="nav link {{ ($title === "kontak") ? 'active' : '' }}">Kontak</a></li>
+          <!-- <li><a href="/bantuan" class="nav link {{ ($title === "bantuan") ? 'active' : '' }}">Bantuan</a></li> -->
           <li><button type="button" onclick="window.location.href='/login'" class=" login-button btn btn-success btn-lg">Login</button>
           </li>
         </ul>
@@ -77,9 +67,9 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
-            <img src="assets/img/eDisplayborder.png" alt="">
+            <img src="{{ asset('assets/img/eDisplayborder.png') }}" alt="">
           </a>
-          <p>Dinas Kominfo Sumenep menghadirkan eDisplay, platform online untuk mempertemukan UMKM dengan konsumen. Temukan produk lokal berkualitas, kaya budaya, dan tradisi Sumenep di eDisplay. Dukung UMKM Sumenep, kunjungi eDisplay sekarang!</p>
+          <p>Dinas Koperasi Usaha Kecil dan Menengah perindustrian dan Perdagangan Sumenep menghadirkan eDisplay, platform online untuk mempertemukan UMKM dengan konsumen. Temukan produk lokal berkualitas, kaya budaya, dan tradisi Sumenep di eDisplay. Dukung UMKM Sumenep, kunjungi eDisplay sekarang!</p>
           <div class="social-links d-flex mt-4">
             <a href="https://www.youtube.com/channel/UC3brb61Fk7YAyNHdjP0ogTA" class="youtube"><i class="bi bi-youtube"></i></a>
             <a href="https://www.facebook.com/diskominfosumenep/" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -106,28 +96,26 @@
         <div class="col-lg-4 col-md-12 footer-contact  ">
           <h4>Kontak Kami</h4>
           
-          <p>Dinas Komunikasi dan Informatika <br>Jl. KH Mansyur No. 71 Sumenep</p>
+          <p>Dinas Koperasi Usaha Kecil dan Menengah perindustrian dan Perdagangan <br>Jl. KH Mansyur No. 71 Sumenep</p>
           
           <strong>WhatsApp:</strong> +62 877-1237-7783<br>
-          <strong>Email:</strong> kominfo.sumenep@gmail.com<br>
-
+          <strong>Email:</strong> diskopukmperiendag.sumenep@gmail.com<br>
         </div>
-
       </div>
     </div>
 
   </footer><!-- End Footer -->
 
       <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.j') }}s"></script>
+  <script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 </html>

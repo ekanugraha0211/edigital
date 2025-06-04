@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -20,6 +21,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@example.com',
             'password' => bcrypt('password'),
             'role' => 'admin',
+            'status' => 'approved'
         ]);
 
         // Buat UMKM Owner
@@ -28,6 +30,14 @@ class UserSeeder extends Seeder
             'email' => 'umkm@example.com',
             'password' => bcrypt('password'),
             'role' => 'umkm',
+            'status' => 'pending'
+        ]);
+        User::create([
+            'nama' => 'Konsumen',
+            'email' => 'konsumen@example.com',
+            'password' => bcrypt('password'),
+            'role' => 'konsumen',
+            'status' => 'approved'
         ]);
 
 

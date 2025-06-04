@@ -24,12 +24,11 @@ class ProdukController extends Controller
     if ($request->has('search') && $request->search != '') {
         $searchTerm = $request->search;
         $produk->where(function($query) use ($searchTerm) {
-            $query->where('nama_produk', 'like', '%' . $searchTerm . '%')
+            $query->where('nama', 'like', '%' . $searchTerm . '%')
                   ->orWhereHas('umkm', function($query) use ($searchTerm) {
                       $query->where('nama', 'like', '%' . $searchTerm . '%')
                             ->orWhere('alamat', 'like', '%' . $searchTerm . '%')
-                            ->orWhere('desa', 'like', '%' . $searchTerm . '%')
-                            ->orWhere('kecamatan', 'like', '%' . $searchTerm . '%');
+                            ->orWhere('desa', 'like', '%' . $searchTerm . '%');
                   });
         });
     }

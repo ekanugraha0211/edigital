@@ -14,16 +14,23 @@ use Illuminate\Support\Facades\DB;
 
 class CustProfilController extends Controller
 {
-    public function index($id)
+    public function index()
 {
-    $umkm = umkm::findOrfail($id);
-    $produk = $umkm->produk; // Pastikan relasi hasMany antara Umkm dan Produk
+    $user = Auth::user();
+    $umkm = $user->umkm;
+
+    if (!$umkm) {
+        return back()->with('error', 'UMKM tidak ditemukan.');
+    }
+
+    $produk = $umkm->produk;
     $skala = SkalaUsaha::all();
     $sektor = SektorUsaha::all();
     $bentuk = BentukUsaha::all();
     $title = 'beranda';
 
-    return view("umkm.profil", compact("umkm", "produk", "skala", "sektor", "bentuk", "title"));
+    return view("umkm.profil", compact("umkm","user", "produk", "skala", "sektor", "bentuk", "title"));
 }
+
 
 }

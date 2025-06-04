@@ -16,56 +16,57 @@
         </div>
       <section id="blog" class="blog">
   <div class="container">
-    <div class="row gy-4 posts-list">
-      @forelse($produk->sortByDesc('id')->take(12) as $p)
-      <div class="col-xl-4 col-md-6 mb-4">
-        <a href="{{ route('produkdetail', $p->id) }}" class="text-decoration-none">
-        <article class="post border rounded shadow-sm overflow-hidden">
-          <div class="post-img" style="height: 200px; overflow: hidden; position: relative;">
-            <img src="{{ asset($p->foto1 ?? '/assets/img/default.png') }}" alt="{{ $p->nama_produk }}" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
-            <span class="post-category" style="position: absolute; top: 10px; right: 10px; background-color: rgba(0,0,0,0.5); color: #fff; padding: 5px 10px; border-radius: 5px; font-size: 0.9rem;">
-              {{ $p->umkm->sektorUsaha->nama }}
-            </span>
-            
-          </div>
-          <div class="p-3">
-            <h2 class="title mb-2" style="font-size: 1.25rem; font-weight: bold;">
-              <a href="{{ route('produkdetail', $p->id) }}" class="text-dark text-decoration-none">{{ $p->nama_produk }}</a>
-            </h2>
-            @if($p->harga)
-            <div class="d-flex align-items-center mb-3">
-              <p class="mb-0 text-danger" style="font-size: 1.2rem; font-weight: bold;">
-                &#x20B9; <!-- Simbol Rupee untuk contoh -->
-                {{ number_format($p->harga, 0, ',', '.') }}
-              </p>
-            </div>
+    <div class="row gy-4 post-list">
+  @forelse($produk->sortByDesc('id')->take(12) as $p)
+    <div class="col-xl-4 col-md-6">
+      <a href="{{ route('produkdetail', $p->id) }}" class="text-decoration-none">
+        <div class="card border-0 shadow-sm rounded-2 overflow-hidden position-relative">
+          
+          {{-- Gambar produk --}}
+          <div class="position-relative" style="height: 220px;">
+            @if ($p->gambarProduk->isNotEmpty())
+              <img src="{{ asset('storage/' . $p->gambarProduk->first()->path) }}" class="w-100 h-100 object-fit-cover rounded-2" alt="{{ $p->nama_produk }}">
             @else
-              <p class="text-muted mb-3" style="font-size: 1rem;">Harga tidak tersedia</p>
+              <img src="{{ asset('assets/img/default.png') }}" class="w-100 h-100 object-fit-cover" alt="{{ $p->nama_produk }}">
             @endif
 
-            <div class="d-flex align-items-center mb-2">
-              <div class="post-author-img flex-shrink-0 rounded-circle" style="width: 60px; height: 60px; overflow: hidden;">
-                <img src="/{{ $p->umkm->logo ?? 'path/to/default-logo.jpg' }}" alt="{{ $p->umkm->nama }}" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+            {{-- Label sektor usaha --}}
+            <span class="position-absolute top-0 end-0 m-2 px-3 py-1 bg-success text-white rounded small fw-bold">
+              {{ $p->umkm->sektorUsaha->nama }}
+            </span>
+          </div>
+
+          {{-- Konten Produk --}}
+          <div class="p-3">
+            <h5 class="fw-bold text-dark mb-1">{{ $p->nama }}</h5>
+            @if($p->harga)
+              <p class="text-success fw-bold mb-2">Rp{{ number_format($p->harga, 0, ',', '.') }}</p>
+            @else
+              <p class="text-muted mb-2">Harga tidak tersedia</p>
+            @endif
+
+            {{-- Info UMKM --}}
+            <div class="d-flex align-items-center mt-3">
+              <div class="rounded-circle overflow-hidden" style="width: 40px; height: 40px; background-color: #e0e0e0;">
+                <img src="{{ $p->umkm->logo ? asset('storage/'.$p->umkm->logo) : asset('assets/img/default.png') }}" class="w-100 h-100 object-fit-cover" alt="{{ $p->umkm->nama }}">
               </div>
-              <div class="post-meta ms-3" style="flex-grow: 1;">
-                <p class="post-author-list mb-1" style="font-size: 1rem; font-weight: bold;">
-                  <i class="bi bi-person"></i> {{ $p->umkm->nama }}
-                </p>
-                <p class="post-author-list mb-0 text-muted" style="font-size: 0.9rem;">
-                  <i class="bi bi-geo-alt"></i> {{ $p->umkm->alamat }}
-                </p>
+              <div class="ms-3">
+                <p class="mb-0 fw-semibold text-dark small">{{ $p->umkm->nama }}</p>
+                <p class="mb-0 text-muted small">{{ $p->umkm->alamat }}</p>
               </div>
             </div>
           </div>
-        </article>
+
+        </div>
       </a>
-      </div>
-      @empty
-      <div class="col">
-        <p>Produk tidak ditemukan.</p>
-      </div>
-      @endforelse
     </div>
+  @empty
+    <div class="col">
+      <p>Produk tidak ditemukan.</p>
+    </div>
+  @endforelse
+</div>
+
   </div>
 </section>
 <!-- End Portfolio Container -->

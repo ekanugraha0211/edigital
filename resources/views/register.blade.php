@@ -1,311 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register UMKM</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrasi Pengguna</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    /* Custom styles for registration form */
     body {
-      background-image: url('assets/img/masjid.jpg'); /* Ganti URL dengan URL gambar latar belakang Anda */
+      background: url('assets/img/masjid.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      height: 100vh;
-      margin: 0;
-      margin-top: 150px;
+      min-height: 100vh;
       display: flex;
+      justify-content: center;
       align-items: center;
     }
 
-    .register-form {
-      margin: 20px auto;
-      padding: 30px 20px;
-      background: rgba(255, 255, 255, 0.8); /* Opacity untuk membuat latar belakang semi-transparan */
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    .register-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      margin: 2rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 900px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang semi-transparan */
+    .form-title {
+      margin-bottom: 1.5rem;
     }
 
     .logo {
-      max-width: 100px;
+      width: 100px;
+      margin: 0 auto 1rem;
       display: block;
-      margin: 0 auto 20px; /* Membuat jarak antara logo dan judul "Register" */
     }
-    @media (max-width: 576px) {
-      .register-form {
-        max-width: 350px;
-      }
-    }
-    .back-to-home {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      color: #fff;
-      text-decoration: none;
-    }
-    .back-to-home:hover {
-      color: #019765;
+
+    .tab-content {
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="overlay"></div>
-  <a href="/" class="back-to-home">< Beranda</a>
-  <div class="row ">
-    <div class="col-lg-10 offset-lg-1" style="padding-top: 100px">
-        @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
+<div class="register-card">
+  <img src="{{ asset('assets/img/eDisplay3.png') }}" class="logo" alt="Logo">
 
-@if(session('gagal'))
-    <div class="alert alert-danger">
-        {{ session('gagal') }}
-    </div>
-@endif
+  <ul class="nav nav-tabs justify-content-center" id="registerTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="umkm-tab" data-bs-toggle="tab" data-bs-target="#umkm" type="button" role="tab">UMKM</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="konsumen-tab" data-bs-toggle="tab" data-bs-target="#konsumen" type="button" role="tab">Konsumen</button>
+    </li>
+  </ul>
 
-    
-      <form class="register-form mt-50" action="/register/input" method="POST" id="registration-form">
+  <div class="tab-content" id="registerTabsContent">
+    <!-- UMKM Form -->
+    <div class="tab-pane fade show active" id="umkm" role="tabpanel">
+      <form action="/register/umkm-input" method="POST" enctype="multipart/form-data">
         @csrf
-        <img src="assets/img/eDisplay3.png" alt="Logo UMKM" class="logo"> <!-- Ganti path-to-your-logo.png dengan path logo Anda -->
-        <h2 class="text-center mb-4">Daftar UMKM</h2>
-        
+        <input type="hidden" name="role" value="umkm">
+
+        <h4 class="form-title text-center">Formulir Pendaftaran UMKM</h4>
+
         <div class="row">
-          <div class="col-md-4">
-              <div class="form-group">
-                  <label for="nama">Nama Umkm</label>
-                  <input type="text" id="nama" name="nama" class="form-control" placeholder="Masukkan nama" required>
-              </div>
+          <div class="col-md-4 mb-3">
+            <label>Nama Pemilik</label>
+            <input type="text" name="nama" class="form-control" required>
           </div>
-          <div class="col-md-4">
-            <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Masukkan alamat" required>
-            </div>
-        </div>
-          <div class="col-md-4">
-            <div class="form-group">
-                <label for="desa">Desa</label>
-                <input type="text" id="desa" name="desa" class="form-control" placeholder="Masukkan desa" required>
-            </div>
-        </div>
-          <div class="col-md-4">
-            <div class="form-group">
-                <label for="kecamatan">Kecamatan</label>
-                <input type="text" id="kecamatan" name="kecamatan" class="form-control" placeholder="Masukkan kecamatan" required>
-            </div>
-        </div>
-          <div class="col-md-4">
-            <div class="form-group">
-                <label for="kodepos">Kode Pos</label>
-                <input type="text" id="kodepos" name="kodepos" class="form-control" placeholder="Masukkan Kode Pos" required>
-            </div>
-        </div>
-      </div>
-    
-      <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="whatsapp">WhatsApp</label>
-                <input type="tel" id="whatsapp" name="whatsapp" class="form-control" placeholder="Masukkan nomor WhatsApp">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="id_sektor_usaha">ID Sektor Usaha</label>
-                <select class="custom-select rounded-0" id="exampleSelectRounded0" name="id_sektor_usaha">
-                  @foreach ($sektor as $p)
-                      <option value="{{ $p->id }}" >{{ $p->nama }}</option>
-                  @endforeach
-              </select>              
-            </div>
-        </div>
-          
-          {{-- <div class="col-md-4">
-              <div class="form-group">
-                  <label for="desa">Desa</label>
-                  <input type="text" id="desa" class="form-control" placeholder="Masukkan desa" required>
-              </div>
+          <div class="col-md-4 mb-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" required>
           </div>
-          <div class="col-md-4">
-              <div class="form-group">
-                  <label for="kecamatan">Kecamatan</label>
-                  <input type="text" id="kecamatan" class="form-control" placeholder="Masukkan kecamatan" required>
-              </div>
-          </div> --}}
-        {{-- </div> --}}
-        {{-- <div class="row"> --}}
-          {{-- <div class="col-md-4">
-              <div class="form-group">
-                  <label for="kodepos">Kodepos</label>
-                  <input type="text" id="kodepos" class="form-control" placeholder="Masukkan kodepos" required>
-              </div>
+          <div class="col-md-4 mb-3">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" required>
           </div>
-          <div class="col-md-4">
-              <div class="form-group">
-                  <label for="no_telp_kantor">No. Telepon Kantor</label>
-                  <input type="tel" id="no_telp_kantor" class="form-control" placeholder="Masukkan nomor telepon kantor" required>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="form-group">
-                  <label for="faksimili">Faksimili</label>
-                  <input type="tel" id="faksimili" class="form-control" placeholder="Masukkan faksimili">
-              </div>
-          </div>
-        </div> --}}
-        {{-- <div class="row"> --}}
-          {{-- <div class="col-md-4">
-              <div class="form-group">
-                  <label for="website">Website</label>
-                  <input type="url" id="website" class="form-control" placeholder="Masukkan alamat website">
-              </div>
-          </div> --}}
-         
         </div>
-        {{-- <div class="row"> --}}
-          
-          {{-- <div class="col-md-4">
-              <div class="form-group">
-                  <label for="tgl_mulai">Tanggal Mulai</label>
-                  <input type="date" id="tgl_mulai" class="form-control" required>
-              </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>Nama UMKM</label>
+            <input type="text" name="nama_umkm" class="form-control" required>
           </div>
-          <div class="col-md-4">
-              <div class="form-group">
-                  <label for="NPWP">NPWP</label>
-                  <input type="text" id="NPWP" class="form-control" placeholder="Masukkan NPWP">
-              </div>
-          </div> --}}
-          {{-- <div class="col-md-4">
-              <div class="form-group">
-                  <label for="status">Status</label>
-                  <select id="status" class="form-control" required>
-                      <option value="">Pilih Status</option>
-                      <option value="Aktif">Aktif</option>
-                      <option value="Tidak Aktif">Tidak Aktif</option>
-                  </select>
-              </div>
-          </div> --}}
-      {{-- </div> --}}
-      {{-- <div class="row"> --}}
-          {{-- <div class="col-md-4">
-              <div class="form-group">
-                  <label for="sektor_usaha">Sektor Usaha</label>
-                  <select class="form-control" id="sektor_usaha" required>
-                    <option value="">Pilih Sektor Usaha</option>
-                    <option value="1">Kreatif</option>
-                    <option value="2">Pakaian</option>
-                    <option value="3">Jasa</option>
-                    <option value="4">Pertanian</option>
-                    <option value="5">Teknologi</option>
-                    <option value="6">Pendidikan</option>
-                    <option value="7">Kesehatan</option>
-                    <option value="8">Transportasi</option>
-                    <option value="9">Properti</option>
-                    <option value="10">Kuliner</option>
-                  </select> --}}
-                  {{-- <input type="text" id="sektor_usaha" class="form-control" placeholder="Masukkan sektor usaha"> --}}
-              {{-- </div>
+          <div class="col-md-4 mb-3">
+            <label>Akses Perbankan</label>
+            <select name="akses_perbankan" class="form-select" required>
+              <option value="">-- Pilih --</option>
+              <option value="Ya">Ya</option>
+              <option value="Tidak">Tidak</option>
+            </select>
           </div>
-          <div class="col-md-4">
-              <div class="form-group">
-                  <label for="skala_usaha">Skala Usaha</label>
-                  <select class="form-control" id="sektor_usaha">
-                    <option value="">Pilih skala Usaha</option>
-                    <option value="1">Makro</option>
-                    <option value="2">Kecil</option>
-                    <option value="3">Menengah</option>
-                  </select> --}}
-                  {{-- <input type="text" id="skala_usaha" class="form-control" placeholder="Masukkan skala usaha"> --}}
-              {{-- </div>
+          <div class="col-md-4 mb-3">
+            <label>Alamat</label>
+            <input type="text" name="alamat" class="form-control" required>
           </div>
-          <div class="col-md-4">
-              <div class="form-group">
-                  <label for="jumlah_karyawan_pria">Jumlah Karyawan (Pria)</label>
-                  <input type="number" id="jumlah_karyawan_pria" class="form-control" placeholder="Masukkan jumlah karyawan (pria)">
-              </div>
-          </div> --}}
-      {{-- </div> --}}
-      {{-- <div class="row"> --}}
-          {{-- <div class="col-md-4">
-              <div class="form-group">
-                  <label for="jumlah_karyawan_wanita">Jumlah Karyawan (Wanita)</label>
-                  <input type="number" id="jumlah_karyawan_wanita" class="form-control" placeholder="Masukkan jumlah karyawan (wanita)">
-              </div>
-          </div> --}}
-          
-          {{-- <div class="col-md-4">
-            <div class="form-group">
-                <label for="akses_perbankan">Akses Perbankan</label>
-                <input type="text" id="akses_perbankan" class="form-control" placeholder="Masukkan akses perbankan">
-            </div>
-        </div> --}}
-    {{-- </div> --}}
-    {{-- <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="modal_awal">Modal Awal</label>
-                <input type="text" id="modal_awal" class="form-control" placeholder="Masukkan modal awal">
-            </div>
         </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="omset">Omset</label>
-                <input type="text" id="omset" class="form-control" placeholder="Masukkan omset">
-            </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>Desa</label>
+            <input type="text" name="desa" class="form-control" required>
+          </div>
+          <div class="col-md-8 mb-3">
+            <label>Deskripsi</label>
+            <textarea name="deskripsi" class="form-control" rows="2" required></textarea>
+          </div>
         </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="bentuk_usaha">Bentuk Usaha</label>
-                <select class="form-control" id="bentuk_usaha" required>
-                    <option value="">Pilih Bentuk Usahaha</option>
-                    <option value="1">Badan Usaha Milik Negara (BUMN)</option>
-                    <option value="2">Badan Usaha Milik Daerah (BUMD)</option>
-                    <option value="3">Perusahaan Perseorangan (PO)</option>
-                    <option value="4">Perseorangan Terbatas (PT)</option>
-                    <option value="5">Firma</option>
-                    <option value="6">Commanditaire Vennootschap (CV)</option>
-                    <option value="7">Koperasi</option>
-                </select>
-                <input type="text" id="bentuk_usaha" class="form-control" placeholder="Masukkan bentuk usaha"> --}}
-            {{-- </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>Faksimili</label>
+            <input type="text" name="faksimili" class="form-control">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Jumlah Karyawan Pria</label>
+            <input type="number" name="jumlah_karyawan_pria" class="form-control" min="0" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Jumlah Karyawan Wanita</label>
+            <input type="number" name="jumlah_karyawan_wanita" class="form-control" min="0" required>
+          </div>
         </div>
-    </div> --}}
-    
-      
-            {{-- <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message">Pesan anda tidak terkirim</div>
-                <div class="sent-message">YPesan anda terkirim. Terima kasih!</div>
-                
-              </div> --}}
-              
-            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
-        
-        <p class="text-center">UMKM Sudah Terdaftar ? <a href="/login">Masuk disini</a></p>
-    </form>
-</div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>Kode Pos</label>
+            <input type="text" name="kodepos" class="form-control">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Logo</label>
+            <input type="file" name="logo" class="form-control">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>No Surat Izin</label>
+            <input type="text" name="no_surat_ijin" class="form-control">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>NPWP</label>
+            <input type="text" name="NPWP" class="form-control">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Website</label>
+            <input type="url" name="website" class="form-control">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Sektor Usaha</label>
+            <select name="sektor_usaha_id" class="form-select" required>
+            <option value="">-- Pilih --</option>
+            @foreach ($sektor as $s)
+              <option value="{{ $s->id }}">{{ $s->nama }}</option>
+            @endforeach
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>Bentuk Usaha</label>
+            <select name="bentuk_usaha_id" class="form-select" required>
+            <option value="">-- Pilih --</option>
+            @foreach ($bentuk as $s)
+              <option value="{{ $s->id }}">{{ $s->nama }}</option>
+            @endforeach
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Skala Usaha</label>
+            <select name="skala_usaha_id" class="form-select" required>
+            <option value="">-- Pilih --</option>
+            @foreach ($skala as $s)
+              <option value="{{ $s->id }}">{{ $s->nama }}</option>
+            @endforeach
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Daftar UMKM</button>
+        <p class="text-center mt-3">Sudah punya akun? <a href="/login">Masuk di sini</a></p>
+      </form>
+    </div>
+
+    <!-- Konsumen Form -->
+    <div class="tab-pane fade" id="konsumen" role="tabpanel">
+      <form action="/register/konsumen-input" method="POST">
+        @csrf
+        <h4 class="form-title text-center">Formulir Pendaftaran Konsumen</h4>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>Nama Konsumen</label>
+            <input type="text" name="nama_konsumen" class="form-control" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Email</label>
+            <input type="email" name="email_konsumen" class="form-control" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Password</label>
+            <input type="password" name="password_konsumen" class="form-control" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Alamat</label>
+            <input type="text" name="alamat" class="form-control" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>No. HP</label>
+            <input type="text" name="no_hp" class="form-control" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Daftar Konsumen</button>
+        <p class="text-center mt-3">Sudah punya akun? <a href="/login">Masuk di sini</a></p>
+      </form>
+    </div>
   </div>
 </div>
 
-<!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+ 

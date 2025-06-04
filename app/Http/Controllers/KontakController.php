@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
-use App\Models\kontak; // Import model KONTAK
+use App\Models\Aduan; // Import model KONTAK
 
 class KontakController extends Controller
 {
@@ -25,7 +25,7 @@ class KontakController extends Controller
             'pesan' => 'required|string',
         ]);
 
-        $kontak = new kontak;
+        $kontak = new aduan;
         $kontak->nama = $request->nama;
         $kontak->subjek = $request->subjek;
         $kontak->email = $request->email;
