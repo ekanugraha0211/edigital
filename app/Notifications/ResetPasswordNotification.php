@@ -30,4 +30,4 @@ class ResetPasswordNotification extends Notification
             ->line('Jika Anda tidak meminta reset password, abaikan email ini.');
     }
 }
-\?>
+?>

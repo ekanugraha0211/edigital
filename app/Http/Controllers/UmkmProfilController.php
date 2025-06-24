@@ -103,7 +103,7 @@ class UmkmProfilController extends Controller
         'jumlah_karyawan_pria' => 'nullable|integer|min:0',
         'jumlah_karyawan_wanita' => 'nullable|integer|min:0',
         'website' => 'nullable|string|max:255',
-        'logo' => 'nullable|image|max:2048',
+        'logo' => 'nullable|image',
         'skala_usaha_id' => 'required|exists:skala_usaha,id',
         'sektor_usaha_id' => 'required|exists:sektor_usaha,id',
         'bentuk_usaha_id' => 'required|exists:bentuk_usaha,id',

@@ -12,7 +12,7 @@ class Konsumen extends Model
     protected $table = 'konsumen';
 
     protected $primaryKey = 'id';
-    protected $fillable = ['id', 'users_id', 'alamat','no_hp'];
+    protected $fillable = ['id', 'users_id', 'alamat','whatsapp'];
 
     public $timestamps = false; // Karena di tabel tidak ada created_at / updated_at
 
